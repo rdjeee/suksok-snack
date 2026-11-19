@@ -1,5 +1,5 @@
 # =============================================================================
-# Moring Suksok — Backend Python Project Config
+# Suksok Snack — Backend Python Project Config
 # =============================================================================
 # File ini digunakan untuk tooling modern (ruff, black, mypy, pytest, dsb).
 # Dependency installation tetap via requirements.txt, file ini hanya untuk
@@ -9,7 +9,7 @@
 [project]
 name = "suksok-snack-backend"
 version = "1.0.0"
-description = "Sistem Distribusi & Pencatatan Transaksi Produk Moring Suksok - Backend API"
+description = "Sistem Distribusi & Pencatatan Transaksi Produk Suksok Snack - Backend API"
 authors = [
     {name = "Mahasiswa TA", email = "mahasiswa@example.com"}
 ]

@@ -46,7 +46,7 @@ Flow berikut menggambarkan perjalanan customer dari pertama kali membuka aplikas
         │
         ├─ Simpan token di localStorage
         ├─ Redirect ke halaman katalog
-        └─ Tampilkan toast: "Selamat datang di Moring Suksok!"
+        └─ Tampilkan toast: "Selamat datang di Suksok Snack!"
 ```
 
 ### 1.2 Flow: Login Customer
@@ -187,7 +187,7 @@ Flow berikut menggambarkan perjalanan customer dari pertama kali membuka aplikas
         ├─ Tampilkan status real-time
         ├─ Tombol: "📢 Notifikasi Owner via WhatsApp"
         │   ├─ Generate wa.me link dengan pesan otomatis:
-        │   │   "Halo Owner Moring Suksok! Saya baru checkout pesanan
+        │   │   "Halo Owner Suksok Snack! Saya baru checkout pesanan
         │   │    ORD-XXX sebesar Rp YYY. Mohon segera diverifikasi."
         │   └─ Buka tab baru → wa.me → customer klik Send
         │
@@ -236,7 +236,7 @@ Flow berikut menggambarkan perjalanan customer dari pertama kali membuka aplikas
         ▼
 [Halaman Login Admin]
         │
-        ├─ Email + Password (default: admin@moring-suksok.com)
+        ├─ Email + Password (default: admin@suksok-snack.com)
         │
         ▼
 [Submit] ──► POST /api/v1/auth/admin/login
@@ -520,7 +520,7 @@ Tabel ini menunjukkan kapan notifikasi dikirim, ke siapa, via channel apa, dan p
 | 2 | Owner konfirmasi pembayaran lunas | Customer | Push (FCM) | "Pembayaran terverifikasi! Pesanan {order_code} sedang diproses. Terima kasih 🌿" |
 | 3 | Owner tolak pembayaran | Customer | Push (FCM) | "Maaf, pembayaran untuk pesanan {order_code} ditolak. Alasan: {reason}. Silakan hubungi owner." |
 | 4 | Owner update status dikirim | Customer | Push (FCM) | "Pesanan {order_code} telah dikirim. No resi: {tracking_number}" |
-| 5 | Owner update status selesai | Customer | Push (FCM) | "Pesanan {order_code} selesai. Terima kasih sudah berbelanja di Moring Suksok! 🌿" |
+| 5 | Owner update status selesai | Customer | Push (FCM) | "Pesanan {order_code} selesai. Terima kasih sudah berbelanja di Suksok Snack! 🌿" |
 | 6 | (Opsional) Owner klik "Kirim WA" | Customer | WhatsApp (wa.me) | Custom message dari owner (template pre-filled) |
 
 ---

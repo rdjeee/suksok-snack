@@ -13,7 +13,7 @@
 - **Completed**: 0 / 50
 - **In Progress**: 0
 - **Blocked**: 0 (SCR-001 RESOLVED: Python tersedia. SCR-002 USER-APPROVED: SQLite fallback untuk sandbox, MySQL tetap production target — tunggu Agent A acknowledge di mailbox)
-- **Status**: ⏸️ PAUSED (NOTIF-006) — tunggu verifikasi judul TA dari dosen. NOTIF-007 (resume) akan dikirim Agent A setelah user konfirmasi. TIDAK mulai Minggu 3 sampai ada NOTIF-007.
+- **Status**: ✅ RESUMED — NOTIF-007/009/011 applied (brand rename + acquisition_channel + enum + new tables). Siap Sprint 2.
 
 ---
 
@@ -27,7 +27,7 @@
 | - | Setup folder structure | ✅ Done | Workspace disambungkan ke GitHub repo (DEV-DECISION-001) |
 | - | Setup Python venv + FastAPI stack | ✅ Done | Python 3.12.16 venv created di backend/venv/, 22+ deps terinstall (20 detik), semua importable (DEV-DECISION-003) |
 | - | Setup Next.js + Tailwind + shadcn/ui | ✅ Done | Z.ai default dipertahankan: 48 shadcn/ui components + Next.js 16 + Tailwind 4 (DEV-DECISION-002) |
-| - | Setup database (sandbox: SQLite, prod: MySQL) | ✅ Done | USER-APPROVED SQLite fallback (SCR-002). backend/.env switched to sqlite:///./moring_suksok_sandbox.db. MySQL string commented untuk production. User punya DB 'moring_suksok' di Laragon lokal. Smoke test PASSED (SQLite 3.53.1) |
+| - | Setup database (sandbox: SQLite, prod: MySQL) | ✅ Done | USER-APPROVED SQLite fallback (SCR-002). backend/.env switched to sqlite:///./suksok_snack_sandbox.db. MySQL string commented untuk production. User punya DB 'suksok_snack' di Laragon lokal. Smoke test PASSED (SQLite 3.53.1) |
 | - | Setup SQLAlchemy models (9 tabel) | ✅ Done | 9 models sesuai specs/05-data-model.md §4. DB-agnostic (MySQL+SQLite). DEV-DECISION-004 |
 | - | Setup Alembic + initial migration | ✅ Done | alembic init + custom env.py. Migration 448d5b9caa1e applied → 9 tabel + 6 indexes + 6 FKs ter-create di SQLite. DEV-DECISION-004 |
 | - | Buat seed script | ✅ Done | backend/seed.py (idempotent). Run: python seed.py → 1 admin + 6 settings + 3 produk + 7 varian |
@@ -39,12 +39,12 @@
 - [x] Backend FastAPI jalan dengan Swagger UI di /docs ✅ (app/main.py ready, `uvicorn app.main:app --reload --port 8000`)
 - [x] Frontend Next.js jalan dengan Tailwind ✅
 - [x] 9 tabel ter-create di SQLite sandbox ✅ (admins, customers, products, product_variants, orders, order_items, payments, notifications, settings)
-- [ ] 9 tabel ter-create di MySQL lokal user (user jalankan `alembic upgrade head` di mesinnya, DB 'moring_suksok' sudah dibuat di Laragon)
+- [ ] 9 tabel ter-create di MySQL lokal user (user jalankan `alembic upgrade head` di mesinnya, DB 'suksok_snack' sudah dibuat di Laragon)
 - [x] Seed data admin + produk contoh ✅ (1 admin + 6 settings + 3 produk + 7 varian)
 
 **Catatan**: SCR-001 (Python) RESOLVED. SCR-002 (MySQL) USER-APPROVED dengan strategi dual-mode:
-- Sandbox: SQLite (`sqlite:///./moring_suksok_sandbox.db`) untuk demo
-- Production: MySQL (`mysql+pymysql://root:@localhost:3306/moring_suksok`) di Laragon user
+- Sandbox: SQLite (`sqlite:///./suksok_snack_sandbox.db`) untuk demo
+- Production: MySQL (`mysql+pymysql://root:@localhost:3306/suksok_snack`) di Laragon user
 - SQLAlchemy models DB-agnostic, cuma beda 1 line `DATABASE_URL` di `.env`
 - Notifikasi prominent untuk Agent A sudah ditulis di DECISIONS-DEV.md (mohon acknowledge di mailbox specs/SPECS-UPDATE-NOTIFICATION.md)
 
@@ -68,7 +68,7 @@ Item tinggal: buat `app/main.py`, SQLAlchemy models (9 tabel), Alembic migration
 | - | Auth: get/update profile | ✅ Done | GET/PATCH /api/v1/auth/me — full profile CRUD |
 | - | Frontend: halaman Register | ⏳ Pending | |
 | - | Frontend: halaman Login | ⏳ Pending | |
-| - | Frontend: layout dasar | ✅ Done | Landing page Moring Suksok (header+hero+produk+footer) sesuai specs/04-ui-guidelines.md §6.1. Theme Moring green aktif. DEV-DECISION-005 |
+| - | Frontend: layout dasar | ✅ Done | Landing page Suksok Snack (header+hero+produk+footer) sesuai specs/04-ui-guidelines.md §6.1. Theme Moring green aktif. DEV-DECISION-005 |
 | - | Frontend: API client + JWT interceptor | ✅ Done | src/lib/api.ts: Axios 1.21.0 + request interceptor (JWT auto-attach) + response interceptor (401 auto-logout → /login) + sandbox gateway-aware (XTransformPort=8000) + apiClient typed helpers + tokenManager + formatIDR + formatDateID. DEV-DECISION-006 |
 | - | Frontend: theme & PWA setup | ✅ Done | globals.css Moring green palette, tailwind.config.ts extended, Plus Jakarta Sans + JetBrains Mono fonts, manifest.json + icon.svg. Lint 0 errors |
 
@@ -86,7 +86,7 @@ Item tinggal: buat `app/main.py`, SQLAlchemy models (9 tabel), Alembic migration
 > Infrastructure siap untuk implementasi fitur (Minggu 2+: auth, products, cart, orders, payments).
 >
 > **Setup Verification Summary** (Step 9):
-> - ✅ Git: workspace = GitHub repo rdjeee/moring-suksok, branch main, clean status
+> - ✅ Git: workspace = GitHub repo rdjeee/suksok-snack, branch main, clean status
 > - ✅ Backend: Python 3.12.16 venv + 22+ deps + FastAPI app skeleton + 9 SQLAlchemy models + Alembic migration applied + seed data
 > - ✅ Frontend: Next.js 16 + 48 shadcn/ui + Moring green theme + Plus Jakarta Sans + Axios API client + landing page + PWA manifest
 > - ✅ Database: SQLite sandbox (9 tables, 1 admin, 6 settings, 3 products, 7 variants) / MySQL production ready

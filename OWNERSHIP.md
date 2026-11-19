@@ -8,7 +8,7 @@
 
 ## 📋 Tujuan Dokumen Ini
 
-Karena proyek Moring Suksok dikembangkan oleh **2 agent terpisah** (Agent A dan Agent B) yang bekerja di sandbox Z.ai berbeda, kita butuh aturan kepemilikan file yang jelas untuk mencegah konflik saat `git push`/`git pull`.
+Karena proyek Suksok Snack dikembangkan oleh **2 agent terpisah** (Agent A dan Agent B) yang bekerja di sandbox Z.ai berbeda, kita butuh aturan kepemilikan file yang jelas untuk mencegah konflik saat `git push`/`git pull`.
 
 **Aturan emas**: **Tidak boleh ada file yang diedit oleh dua agent**. Kalau perlu share info, lewat file yang sudah ada kontrak kepemilikan jelas.
 

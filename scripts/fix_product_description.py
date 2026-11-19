@@ -83,7 +83,7 @@ REPLACEMENTS = [
      "camilan cimol kering (moring)"),
     ("produk olahan daun kelor", "camilan cimol kering (moring)"),
     # UI Guidelines reference
-    ("hijau alami (moringa leaf)", "hijau natural (brand Moring Suksok)"),
+    ("hijau alami (moringa leaf)", "hijau natural (brand Suksok Snack)"),
     ("hijau alami", "hijau natural"),
 ]
 

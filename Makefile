@@ -68,7 +68,7 @@ setup-db: ## Setup MySQL database via Laragon (dev) atau docker-compose
 	@echo "🗄️  Setting up MySQL database..."
 	@echo "   Pastikan MySQL running (Laragon atau docker-compose up -d db)"
 	@echo "   Buka phpMyAdmin: http://localhost/phpmyadmin"
-	@echo "   Buat database: moring_suksok (collation: utf8mb4_unicode_ci)"
+	@echo "   Buat database: suksok_snack (collation: utf8mb4_unicode_ci)"
 	@echo ""
 	@echo "   Lalu run: make migrate && make seed"
 	@echo "✅ Database setup instructions shown"
@@ -140,7 +140,7 @@ seed: ## Seed database dengan data awal (admin + produk contoh + settings)
 
 db-shell: ## Buka MySQL shell (interaktif)
 	@echo "🖥️  Opening MySQL shell..."
-	mysql -u root -p moring_suksok
+	mysql -u root -p suksok_snack
 
 # =============================================================================
 # Testing
@@ -202,7 +202,7 @@ build-frontend: ## Build Next.js untuk production (frontend at root)
 
 build-backend: ## Build backend Docker image
 	@echo "🏗️  Building backend Docker image..."
-	cd backend && docker build -t moringsuksok-backend:latest .
+	cd backend && docker build -t suksoksnack-backend:latest .
 
 # =============================================================================
 # PWA & Deployment

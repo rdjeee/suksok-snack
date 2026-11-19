@@ -13,8 +13,8 @@
 | Environment | Base URL |
 |---|---|
 | Local Development | `http://localhost:8000/api/v1` |
-| Staging | `https://api.moring-suksok-staging.railway.app/api/v1` |
-| Production | `https://api.moringsuksok.id/api/v1` |
+| Staging | `https://api.suksok-snack-staging.railway.app/api/v1` |
+| Production | `https://api.suksoksnack.id/api/v1` |
 
 ### 1.2 Format
 
@@ -169,7 +169,7 @@
 **Request:**
 ```json
 {
-  "email": "admin@moring-suksok.com",
+  "email": "admin@suksok-snack.com",
   "password": "admin123"
 }
 ```
@@ -772,7 +772,7 @@ Authorization: Bearer <token>
     "owner_qris_static": "00020101021226...",
     "owner_dana_number": "0812xxxxxxx",
     "owner_whatsapp": "62812xxxxxxx",
-    "business_name": "Moring Suksok",
+    "business_name": "Suksok Snack",
     "business_address": "Jl. [Alamat], [Kota]",
     "shipping_cost_flat": 10000
   }
@@ -886,7 +886,7 @@ Authorization: Bearer <token>
 
 **Response 200:**
 - Content-Type: `application/pdf`
-- Content-Disposition: `attachment; filename="laporan-moring-suksok-2026-10-29.pdf"`
+- Content-Disposition: `attachment; filename="laporan-suksok-snack-2026-10-29.pdf"`
 - Body: PDF binary stream
 
 #### 2.8.3 GET `/admin/reports/summary`
@@ -1088,8 +1088,8 @@ app.add_middleware(
 
 **Allowed origins:**
 - Dev: `http://localhost:3000`
-- Staging: `https://moring-suksok-staging.vercel.app`
-- Production: `https://moringsuksok.vercel.app`, `https://moringsuksok.id`
+- Staging: `https://suksok-snack-staging.vercel.app`
+- Production: `https://suksoksnack.vercel.app`, `https://suksoksnack.id`
 
 ---
 

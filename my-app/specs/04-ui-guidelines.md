@@ -9,7 +9,7 @@
 ## 1. Design Philosophy
 
 ### 1.1 Tujuan UX
-Membangun antarmuka yang **sederhana, ramah, dan profesional** untuk UMKM Moring Suksok. Target user customer adalah masyarakat awam (berbagai usia, dominan 25-50 tahun) yang familiar dengan e-commerce seperti Tokopedia/Shopee tapi tidak tech-savvy. Target user admin adalah owner (40 tahun) yang butuh dashboard simple dengan info penting prominent.
+Membangun antarmuka yang **sederhana, ramah, dan profesional** untuk UMKM Suksok Snack. Target user customer adalah masyarakat awam (berbagai usia, dominan 25-50 tahun) yang familiar dengan e-commerce seperti Tokopedia/Shopee tapi tidak tech-savvy. Target user admin adalah owner (40 tahun) yang butuh dashboard simple dengan info penting prominent.
 
 ### 1.2 Prinsip Desain
 
@@ -25,7 +25,7 @@ Membangun antarmuka yang **sederhana, ramah, dan profesional** untuk UMKM Moring
 - **Bahasa**: Indonesia formal-santai (tidak kaku, tapi profesional)
 - **Tone**: Ramah, transparent, helpful
 - **Example copy**:
-  - ✅ "Selamat datang di Moring Suksok! 🌿"
+  - ✅ "Selamat datang di Suksok Snack! 🌿"
   - ✅ "Pesanan Anda sedang diproses. Kami akan memberi tahu saat sudah dikirim."
   - ❌ "Pesanan dalam proses verifikasi administratif."
   - ❌ "Terima kasih telah melakukan transaksi pada platform kami."
@@ -556,7 +556,7 @@ Respect `prefers-reduced-motion: reduce` (CSS media query). Disable non-essentia
 ## 14. Branding Assets
 
 ### 14.1 Logo
-- **Primary**: Logo Moring Suksok (leaf icon + text)
+- **Primary**: Logo Suksok Snack (leaf icon + text)
 - **Variants**:
   - Horizontal (header)
   - Stacked (footer, splash)

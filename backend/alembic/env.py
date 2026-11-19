@@ -1,6 +1,6 @@
 """Alembic environment configuration.
 
-Customized for Moring Suksok:
+Customized for Suksok Snack:
   - Reads DATABASE_URL from backend/.env via app.core.config.settings (DB-agnostic).
   - Imports all SQLAlchemy models so `alembic revision --autogenerate` detects them.
   - Supports both SQLite (sandbox) and MySQL (production).

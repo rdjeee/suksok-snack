@@ -2,8 +2,8 @@
 Application settings — loaded from backend/.env via pydantic-settings.
 
 DB-agnostic: DATABASE_URL can be either:
-  - SQLite (sandbox demo):  sqlite:///./moring_suksok_sandbox.db
-  - MySQL (production):     mysql+pymysql://root:@localhost:3306/moring_suksok
+  - SQLite (sandbox demo):  sqlite:///./suksok_snack_sandbox.db
+  - MySQL (production):     mysql+pymysql://root:@localhost:3306/suksok_snack
 
 NOTE: We use python-dotenv with `override=True` to ensure our backend/.env takes
 precedence over any DATABASE_URL env var that might be set globally (e.g. the Z.ai
@@ -33,7 +33,7 @@ class Settings(BaseSettings):
     # ------------------------------------------------------------------ #
     # Database
     # ------------------------------------------------------------------ #
-    DATABASE_URL: str = "sqlite:///./moring_suksok_sandbox.db"
+    DATABASE_URL: str = "sqlite:///./suksok_snack_sandbox.db"
 
     # ------------------------------------------------------------------ #
     # JWT Authentication

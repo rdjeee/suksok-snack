@@ -42,7 +42,7 @@ Scenario: Registrasi berhasil dengan data valid
   And sistem return response 201 dengan token
   And frontend simpan token ke localStorage
   And frontend redirect ke halaman katalog
-  And frontend tampilkan toast "Selamat datang di Moring Suksok!"
+  And frontend tampilkan toast "Selamat datang di Suksok Snack!"
 
 Scenario: Registrasi gagal karena email sudah terdaftar
   Given customer mengisi email "existing@example.com" yang sudah ada di DB
@@ -144,7 +144,7 @@ Scenario: Field validation
 
 ```gherkin
 Scenario: Login admin berhasil
-  Given admin terdaftar dengan email "admin@moring-suksok.com" dan password "admin123"
+  Given admin terdaftar dengan email "admin@suksok-snack.com" dan password "admin123"
   When admin submit form login di URL /admin/login
   Then sistem cek kredensial di tabel `admins` (bukan `customers`)
   And sistem generate JWT token dengan expiry 1 hari (lebih pendek dari customer)
@@ -1026,7 +1026,7 @@ Scenario: Pilih transfer manual ke DANA
   When customer pilih radio "Transfer Manual ke DANA"
   Then tampilkan:
     - Nomor DANA: 0812-xxxx-xxxx (dari settings.owner_dana_number)
-    - Atas nama: Moring Suksok
+    - Atas nama: Suksok Snack
     - Total: Rp 55.000
     - Instruksi: "Transfer ke nomor DANA di atas, lalu upload bukti pembayaran"
     - Tombol "Copy Nomor DANA" (clipboard)
@@ -1122,7 +1122,7 @@ Scenario: Mark complete
   Then frontend PATCH /api/v1/admin/orders/42/complete
   And backend:
     - Update `orders.status = 'done'`
-    - Trigger push notif ke customer: "Pesanan ORD-XXX selesai. Terima kasih sudah berbelanja di Moring Suksok! 🌿"
+    - Trigger push notif ke customer: "Pesanan ORD-XXX selesai. Terima kasih sudah berbelanja di Suksok Snack! 🌿"
   And return 200
   And transaksi otomatis tercatat di laporan sebagai "completed"
 ```
@@ -1265,7 +1265,7 @@ Scenario: Mark as read
 Scenario: Install prompt muncul
   Given customer buka aplikasi di Chrome Android (sudah kunjungi 2+ halaman)
   Then tampilkan custom install prompt:
-    "Install Aplikasi Moring Suksok untuk akses cepat & notifikasi pesanan"
+    "Install Aplikasi Suksok Snack untuk akses cepat & notifikasi pesanan"
     [Install] [Nanti saja]
   When customer klik "Install"
   Then Chrome tampilkan native install prompt
@@ -1340,18 +1340,18 @@ Scenario: Export PDF berhasil
   When admin klik "Export PDF"
   Then frontend GET /api/v1/admin/reports/export?format=pdf&from=...&to=...
   And backend generate PDF dengan ReportLab:
-    - Header: "Laporan Transaksi Moring Suksok"
+    - Header: "Laporan Transaksi Suksok Snack"
     - Periode: dari-tanggal sampai tanggal
     - Summary section (total transaksi, revenue, AOV)
     - Tabel detail transaksi
     - Footer: "Dibuat pada [tanggal], oleh [admin name]"
   And return response dengan Content-Type: application/pdf
-  And download file: "laporan-moring-suksok-2026-10-01-2026-10-31.pdf"
+  And download file: "laporan-suksok-snack-2026-10-01-2026-10-31.pdf"
   And tampilkan toast "PDF berhasil didownload"
 
 Scenario: PDF layout professional
   Then PDF harus punya:
-    - Page header dengan logo Moring Suksok
+    - Page header dengan logo Suksok Snack
     - Page numbers di footer
     - Table dengan border horizontal
     - Font Times New Roman atau Arial
@@ -1370,7 +1370,7 @@ Scenario: Export Excel berhasil
     - Sheet 1: "Summary" (cards summary)
     - Sheet 2: "Detail Transaksi" (table)
   And return dengan Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet
-  And download file: "laporan-moring-suksok-2026-10-01-2026-10-31.xlsx"
+  And download file: "laporan-suksok-snack-2026-10-01-2026-10-31.xlsx"
 ```
 
 ---
@@ -1533,7 +1533,7 @@ Scenario: Deploy berhasil
   When git push ke main branch
   Then Vercel auto-deploy
   And build success (npm run build)
-  And dapat URL production: https://moringsuksok.vercel.app
+  And dapat URL production: https://suksoksnack.vercel.app
   And environment variables ter-set
 
 Scenario: Production test
@@ -1551,7 +1551,7 @@ Scenario: Production test
 Scenario: Deploy backend berhasil
   When git push backend ke Railway
   Then Railway auto-deploy
-  And dapat URL production: https://api.moringsuksok.railway.app
+  And dapat URL production: https://api.suksoksnack.railway.app
   And Swagger UI accessible di /docs
 
 Scenario: Database migration di production

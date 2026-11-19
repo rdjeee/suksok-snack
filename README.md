@@ -1,6 +1,6 @@
-# 🌿 Moring Suksok — Sistem Distribusi & Pencatatan Transaksi
+# 🌿 Suksok Snack — Sistem Distribusi & Pencatatan Transaksi
 
-> **Tugas Akhir** — Aplikasi mini e-commerce untuk UMKM Moring Suksok (snack kripik cimol kering)
+> **Tugas Akhir** — Aplikasi mini e-commerce untuk UMKM Suksok Snack (snack kripik cimol kering)
 > Menggantikan pemesanan via WhatsApp & nota manual dengan sistem terstruktur + pencatatan transaksi otomatis.
 
 ![Status](https://img.shields.io/badge/Status-Planning%20v1.0.0-success)
@@ -17,14 +17,14 @@ Project Root:    /home/z/my-project/   (sudah digabung dengan workspace root)
 ```
 
 > ⚠️ **PENTING**: Repository sekarang berada langsung di root workspace `/home/z/my-project/`.
-> Folder `MoringSuksok/` sudah dihapus (semua isinya dipindahkan ke root).
+> Folder `SuksokSnack/` sudah dihapus (semua isinya dipindahkan ke root).
 > Ini agar Agent B (Z.ai Full-Stack) bisa langsung akses tanpa perlu navigate ke subfolder.
 
 ---
 
 ## 📖 Tentang Proyek
 
-Moring Suksok adalah UMKM pengcamilan cimol kering (moring) dengan produk utama cimol kering (moring). Saat ini penjualan masih dilakukan via WhatsApp dengan pencatatan manual menggunakan nota. Sistem ini dibangun untuk:
+Suksok Snack adalah UMKM pengcamilan cimol kering (moring) dengan produk utama cimol kering (moring). Saat ini penjualan masih dilakukan via WhatsApp dengan pencatatan manual menggunakan nota. Sistem ini dibangun untuk:
 
 1. **Menggantikan pemesanan via WhatsApp** dengan mini e-commerce terstruktur
 2. **Menggantikan nota manual** dengan nota digital otomatis (PDF)
@@ -247,7 +247,7 @@ cd my-app
 # Pastikan Laragon running (MySQL + Apache)
 # Buka phpMyAdmin: http://localhost/phpmyadmin
 # Buat database baru:
-#   Name: moring_suksok
+#   Name: suksok_snack
 #   Collation: utf8mb4_unicode_ci
 ```
 
@@ -305,9 +305,9 @@ npm run dev
 #### 5. Verify Setup
 
 Buka browser dan verify:
-- ✅ `http://localhost:3000` → Landing page Moring Suksok muncul
+- ✅ `http://localhost:3000` → Landing page Suksok Snack muncul
 - ✅ `http://localhost:8000/docs` → Swagger UI dengan list endpoint
-- ✅ `http://localhost/phpmyadmin` → Database `moring_suksok` dengan 9 tabel terlihat
+- ✅ `http://localhost/phpmyadmin` → Database `suksok_snack` dengan 9 tabel terlihat
 
 ---
 
@@ -478,7 +478,7 @@ Setelah `python seed.py` dijalankan:
 
 | Role | Email | Password |
 |---|---|---|
-| Admin (Owner) | `admin@moring-suksok.com` | `admin123` |
+| Admin (Owner) | `admin@suksok-snack.com` | `admin123` |
 
 > ⚠️ **UBAH PASSWORD INI SEGERA** setelah login pertama di production!
 
@@ -486,9 +486,9 @@ Setelah `python seed.py` dijalankan:
 
 ## 🌿 Branding
 
-- **Nama Bisnis**: Moring Suksok
+- **Nama Bisnis**: Suksok Snack
 - **Tagline**: Snack Khas Suksok 🌿
-- **Logo**: Leaf icon (moring) + text "Moring Suksok"
+- **Logo**: Leaf icon (moring) + text "Suksok Snack"
 - **Color**: Hijau cimol kering (moring-green #2D6A4F)
 
 ---
@@ -497,7 +497,7 @@ Setelah `python seed.py` dijalankan:
 
 Proyek ini adalah **Tugas Akhir** untuk menyelesaikan studi. Source code boleh dipakai untuk referensi akademik dengan attribution yang sesuai.
 
-© 2026 Moring Suksok TA Project. All rights reserved.
+© 2026 Suksok Snack TA Project. All rights reserved.
 
 ---
 
@@ -505,13 +505,13 @@ Proyek ini adalah **Tugas Akhir** untuk menyelesaikan studi. Source code boleh d
 
 - **Mahasiswa (Developer)**: [Nama Anda]
 - **Dosen Pembimbing**: [Nama Dosen]
-- **Mitra (Owner Moring Suksok)**: Owner, 40 tahun
+- **Mitra (Owner Suksok Snack)**: Owner, 40 tahun
 
 ---
 
 ## 🙏 Acknowledgments
 
-- Owner Moring Suksok sebagai mitra TA
+- Owner Suksok Snack sebagai mitra TA
 - Dosen pembimbing atas guidance-nya
 - Komunitas open source: FastAPI, Next.js, Tailwind, shadcn/ui
 - Cloudinary, Firebase, Vercel, Railway untuk free tiers
@@ -522,4 +522,4 @@ Proyek ini adalah **Tugas Akhir** untuk menyelesaikan studi. Source code boleh d
 **Last Updated**: 2026-10-29
 **Status**: Ready for Development Phase (Agent B)
 
-🌿 *Moring Suksok — Snack Khas Suksok untuk Indonesia*
+🌿 *Suksok Snack — Snack Khas Suksok untuk Indonesia*

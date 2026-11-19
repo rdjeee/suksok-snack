@@ -1,5 +1,5 @@
 # 00 — Vision Document
-# Sistem Distribusi & Pencatatan Transaksi Produk Moring Suksok
+# Sistem Distribusi & Pencatatan Transaksi Produk Suksok Snack
 
 > **Spec Owner**: Agent A (Planning) | **Status**: Final v1.0.0 | **Last Updated**: 2026-10-29
 > **Source**: Dokumen Perencanaan Bab 1 & 3
@@ -8,7 +8,7 @@
 
 ## 1. Ringkasan Visi
 
-Membangun **sistem distribusi produk berbasis mini e-commerce** untuk UMKM **Moring Suksok**, sebuah bisnis camilan cimol kering (cimol kering (moring)) yang saat ini masih melakukan transaksi melalui WhatsApp dan pencatatan manual menggunakan nota. Sistem yang dibangun bertujuan untuk **menggantikan proses pemesanan via WhatsApp** dengan aplikasi terstruktur, serta **menggantikan nota manual** dengan pencatatan transaksi digital otomatis yang dapat berfungsi sebagai pembukuan akuntan.
+Membangun **sistem distribusi produk berbasis mini e-commerce** untuk UMKM **Suksok Snack**, sebuah bisnis camilan cimol kering (cimol kering (moring)) yang saat ini masih melakukan transaksi melalui WhatsApp dan pencatatan manual menggunakan nota. Sistem yang dibangun bertujuan untuk **menggantikan proses pemesanan via WhatsApp** dengan aplikasi terstruktur, serta **menggantikan nota manual** dengan pencatatan transaksi digital otomatis yang dapat berfungsi sebagai pembukuan akuntan.
 
 Sistem dibangun dengan **arsitektur decoupled** (Frontend-Backend terpisah): Frontend menggunakan Next.js PWA yang dapat diinstall di Android dan berjalan di web browser, sedangkan Backend menggunakan Python FastAPI dengan database MySQL yang dikelola melalui phpMyAdmin. Pendekatan ini dipilih untuk memberikan separation of concerns yang jelas, memudahkan maintenance, serta memanfaatkan ekosistem Python yang kuat untuk pengembangan API modern.
 
@@ -16,7 +16,7 @@ Sistem dibangun dengan **arsitektur decoupled** (Frontend-Backend terpisah): Fro
 
 | Item | Detail |
 |---|---|
-| Nama Mitra | Moring Suksok |
+| Nama Mitra | Suksok Snack |
 | Jenis Usaha | UMKM Camilan Khas (Cimol Kering / Moring) |
 | Usia Owner | 40 Tahun |
 | Sejarah Usaha | Berawal dari hobi dan coba-coba — awalnya dibuat sendiri, diracik sendiri, lalu dibagikan ke tetangga untuk dicicipi. Dari respons positif, muncul keberanian untuk mulai berjualan. Memulai dari harga Rp500 saja, kini produk moring ukuran mini dihargai Rp2.000. Perjalanannya terus berkembang dengan berbagai pilihan kemasan. |
@@ -26,7 +26,7 @@ Sistem dibangun dengan **arsitektur decoupled** (Frontend-Backend terpisah): Fro
 | Cara Penjualan Saat Ini | Pemesanan via WhatsApp + nota manual |
 | Jalur Pemasaran Existing | (1) Reseller, (2) E-commerce (platform belanja online), (3) Sekolah-sekolah, (4) Penjualan online via media sosial, (5) Retail modern (Alfamart & Indomart di Kab. Subang), (6) Toko oleh-oleh di Kab. Subang |
 | Skala Bisnis | Lokal kecil (<100 customer aktif, <50 order/bulan) |
-| Impian Owner | Moring Suksok dikenal dan dinikmati oleh masyarakat di seluruh Indonesia |
+| Impian Owner | Suksok Snack dikenal dan dinikmati oleh masyarakat di seluruh Indonesia |
 | Timeline TA | 16 minggu implementation (8 sprint × 2 minggu) + pre-implementation phase |
 
 ## 3. Highlight Fitur Utama
@@ -45,11 +45,11 @@ Sistem akan memiliki fitur-fitur kunci sebagai berikut:
 
 ## 4. Tujuan Umum
 
-Membangun sistem distribusi produk dan pencatatan transaksi berbasis aplikasi web (PWA) yang dapat diinstall di perangkat Android dan diakses via browser, khusus untuk UMKM Moring Suksok, yang menggantikan proses pemesanan via WhatsApp dan pencatatan manual menggunakan nota.
+Membangun sistem distribusi produk dan pencatatan transaksi berbasis aplikasi web (PWA) yang dapat diinstall di perangkat Android dan diakses via browser, khusus untuk UMKM Suksok Snack, yang menggantikan proses pemesanan via WhatsApp dan pencatatan manual menggunakan nota.
 
 ## 5. Tujuan Khusus
 
-1. Membangun mini e-commerce untuk Moring Suksok dengan fitur katalog produk, keranjang belanja, checkout, dan pembayaran yang dapat diakses oleh Mitra Kerjasama maupun Masyarakat melalui registrasi akun terlebih dahulu
+1. Membangun mini e-commerce untuk Suksok Snack dengan fitur katalog produk, keranjang belanja, checkout, dan pembayaran yang dapat diakses oleh Mitra Kerjasama maupun Masyarakat melalui registrasi akun terlebih dahulu
 2. Mengimplementasikan pembayaran via QRIS dinamis dengan nominal embedded (sesuai standar EMVCo QRIS) yang dapat di-scan menggunakan berbagai e-wallet (DANA, OVO, GoPay, SeaBank, ShopeePay, m-banking), dengan mekanisme upload bukti pembayaran dan verifikasi manual oleh owner
 3. Menggantikan nota manual dengan nota digital otomatis yang ter-generate setiap checkout, lengkap dengan order ID unik, timestamp, detail items, customer info, total transaksi, dan dapat diekspor ke PDF untuk pembukuan akuntan
 4. Memantau distribusi produk melalui tracking status pesanan dengan state machine yang jelas (Pending → Diproses → Dikirim → Selesai), dapat dipantau oleh customer secara real-time dan oleh owner melalui dashboard terpusat
@@ -59,7 +59,7 @@ Membangun sistem distribusi produk dan pencatatan transaksi berbasis aplikasi we
 
 ## 6. Manfaat Sistem
 
-### Manfaat bagi Owner Moring Suksok
+### Manfaat bagi Owner Suksok Snack
 - Menghemat waktu administratif (tidak perlu buat nota manual, tidak perlu cari status di chat WhatsApp)
 - Memiliki data terstruktur untuk pembukuan akuntan (bisa export PDF/Excel per periode)
 - Mendapat visibility terhadap distribusi produk (status setiap pesanan)
@@ -84,7 +84,7 @@ Membangun sistem distribusi produk dan pencatatan transaksi berbasis aplikasi we
 
 | # | Stakeholder | Kepentingan |
 |---|---|---|
-| 1 | Owner Moring Suksok | Operasional harian, pembukuan, keputusan strategis |
+| 1 | Owner Suksok Snack | Operasional harian, pembukuan, keputusan strategis |
 | 2 | Mitra Kerjasama | Pemesanan grosir, riwayat, repeat order |
 | 3 | Konsumen Akhir | Pemesanan eceran, tracking pesanan |
 | 4 | Mahasiswa (Anda) | Penyelesaian TA |
@@ -112,7 +112,7 @@ Proyek dinyatakan selesai ketika:
 3. ✅ PWA installable di Android dengan push notification berfungsi
 4. ✅ Dokumentasi user untuk owner lengkap (README + User Manual)
 5. ✅ Dokumen laporan TA siap untuk sidang
-6. ✅ Handover formal ke owner Moring Suksok
+6. ✅ Handover formal ke owner Suksok Snack
 
 ---
 

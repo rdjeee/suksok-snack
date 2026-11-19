@@ -7,12 +7,12 @@
 
 ## Context
 
-Untuk Tugas Akhir "Sistem Distribusi & Pencatatan Transaksi Produk Moring Suksok", saya perlu memilih tech stack yang:
+Untuk Tugas Akhir "Sistem Distribusi & Pencatatan Transaksi Produk Suksok Snack", saya perlu memilih tech stack yang:
 
 1. **Cross-platform output**: Aplikasi harus jalan di Android (installable) dan Web
 2. **Modern & profesional**: Untuk demo sidang TA
 3. **Akademik impresive**: Menunjukkan skill yang relevan
-4. **Real-world applicable**: Owner Moring Suksok bisa pakai setelah lulus
+4. **Real-world applicable**: Owner Suksok Snack bisa pakai setelah lulus
 5. **Timeline 16 minggu (8 sprint × 2 minggu)**: Harus achievable dengan effort reasonable
 6. **Free / low-cost**: Budget mahasiswa terbatas
 

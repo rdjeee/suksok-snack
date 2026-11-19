@@ -1,5 +1,5 @@
 // Generate Word Document: Rencana Pengajuan Judul Tugas Akhir
-// Moring Suksok Project — Template-following document for lecturer submission
+// Suksok Snack Project — Template-following document for lecturer submission
 
 const {
   Document, Packer, Paragraph, TextRun, Header, Footer,
@@ -220,7 +220,7 @@ function buildBody() {
     indent: { firstLine: 480 },
     spacing: { line: 360, after: 240 },
     children: [new TextRun({
-      text: "Rancang Bangun Sistem Distribusi dan Pencatatan Transaksi Produk UMKM Moring Suksok Berbasis Progressive Web App dengan Verifikasi Pembayaran QRIS dan Notifikasi Otomatis",
+      text: "Rancang Bangun Sistem Distribusi dan Pencatatan Transaksi Produk UMKM Suksok Snack Berbasis Progressive Web App dengan Verifikasi Pembayaran QRIS dan Notifikasi Otomatis",
       bold: true, size: 26, color: c(P.body),
       font: { ascii: "Times New Roman", eastAsia: "SimSun" }
     })],
@@ -229,11 +229,11 @@ function buildBody() {
   // ============ Latar Belakang Masalah ============
   children.push(h1("Latar Belakang Masalah"));
 
-  children.push(bodyPara("UMKM Moring Suksok merupakan usaha kuliner yang mengolah produk camilan khas berupa cimol kering (moring) — yaitu cimol yang digoreng dengan tekstur kering, renyah, dan tahan lama. Produk ini memiliki beberapa varian rasa, antara lain Original, Pedas, Keju, Balado, dan Jagung. Usaha ini dimiliki oleh seorang pengusaha berusia 40 tahun dan melayani dua jenis pelanggan, yaitu Customer Ritel (toko/agen yang membeli untuk dijual ulang) dan Customer Masyarakat (konsumen akhir yang membeli untuk konsumsi pribadi)."));
+  children.push(bodyPara("UMKM Suksok Snack merupakan usaha kuliner yang mengolah produk camilan khas berupa cimol kering (moring) — yaitu cimol yang digoreng dengan tekstur kering, renyah, dan tahan lama. Produk ini memiliki beberapa varian rasa, antara lain Original, Pedas, Keju, Balado, dan Jagung. Usaha ini dimiliki oleh seorang pengusaha berusia 40 tahun dan melayani dua jenis pelanggan, yaitu Customer Ritel (toko/agen yang membeli untuk dijual ulang) dan Customer Masyarakat (konsumen akhir yang membeli untuk konsumsi pribadi)."));
 
   children.push(bodyPara("Saat ini, proses penjualan masih dilakukan secara konvensional. Pelanggan menghubungi pemilik usaha melalui WhatsApp untuk melakukan pemesanan, kemudian pemilik mencatat transaksi pada nota manual sebagai bukti pembelian dan pembukuan akuntan. Pendekatan ini telah berjalan cukup lama, namun seiring bertambahnya jumlah pelanggan dan kompleksitas transaksi, muncul berbagai kendala operasional yang perlu diatasi."));
 
-  children.push(bodyPara("Berdasarkan observasi awal yang dilakukan terhadap proses bisnis Moring Suksok, beberapa potensi masalah yang ditemukan adalah sebagai berikut:"));
+  children.push(bodyPara("Berdasarkan observasi awal yang dilakukan terhadap proses bisnis Suksok Snack, beberapa potensi masalah yang ditemukan adalah sebagai berikut:"));
 
   children.push(numberedItem(1, "Pencatatan transaksi manual yang tidak terstruktur: Pemilik mencatat setiap transaksi pada nota manual, baik yang dijual ke customer Ritel maupun Masyarakat. Pencatatan ini rentan terhadap human error (salah catat jumlah, varian, atau harga), sulit dilakukan rekapitulasi bulanan, dan tidak ada backup digital jika nota hilang atau rusak. Untuk keperluan pembukuan akuntan, pemilik harus memilah-milah nota satu per satu yang memakan waktu berjam-jam setiap akhir bulan."));
 
@@ -250,7 +250,7 @@ function buildBody() {
   // ============ Analisis yang sudah dilakukan ============
   children.push(h1("Analisis yang sudah dilakukan"));
 
-  children.push(bodyPara("Analisis yang telah dilakukan pada tahap pengajuan ini terbatas pada penelaahan ketentuan tugas akhir, kajian awal regulasi dan standar industri terkait QRIS (Quick Response Code Indonesian Standard), serta penyusunan model kebutuhan sistem. Observasi lapangan dan wawancara mendalam pada mitra UMKM Moring Suksok telah dilakukan secara awal untuk memahami alur bisnis existing yang berjalan."));
+  children.push(bodyPara("Analisis yang telah dilakukan pada tahap pengajuan ini terbatas pada penelaahan ketentuan tugas akhir, kajian awal regulasi dan standar industri terkait QRIS (Quick Response Code Indonesian Standard), serta penyusunan model kebutuhan sistem. Observasi lapangan dan wawancara mendalam pada mitra UMKM Suksok Snack telah dilakukan secara awal untuk memahami alur bisnis existing yang berjalan."));
 
   // Analisis Objek dan Batas Proses
   children.push(h2("Analisis Objek dan Batas Proses"));
@@ -266,7 +266,7 @@ function buildBody() {
 
   children.push(bodyPara("Rancangan awal mencakup tiga peran berikut:"));
 
-  children.push(numberedItem(1, "Admin/Owner (Pemilik Moring Suksok): Mengelola data produk dan varian, melihat semua pesanan masuk, memverifikasi pembayaran, memperbarui status pesanan, menginput nomor resi pengiriman, mengunduh laporan transaksi, serta mengelola pengaturan sistem (QRIS statis pemilik, info bisnis, ongkir default)."));
+  children.push(numberedItem(1, "Admin/Owner (Pemilik Suksok Snack): Mengelola data produk dan varian, melihat semua pesanan masuk, memverifikasi pembayaran, memperbarui status pesanan, menginput nomor resi pengiriman, mengunduh laporan transaksi, serta mengelola pengaturan sistem (QRIS statis pemilik, info bisnis, ongkir default)."));
 
   children.push(numberedItem(2, "Customer Ritel: Pelanggan pemilik toko/agen yang melakukan registrasi akun, browse katalog produk, menambah produk ke keranjang, checkout, melakukan pembayaran via QRIS dinamis, mengunggah bukti pembayaran, serta melacak status pesanan. Tidak dapat melihat pesanan customer lain atau mengakses dashboard admin."));
 
@@ -319,7 +319,7 @@ function buildBody() {
   // ============ Rencana Solusi ============
   children.push(h1("Rencana Solusi"));
 
-  children.push(bodyPara("Solusi yang direncanakan adalah aplikasi Progressive Web App (PWA) terpusat untuk mengelola distribusi dan pencatatan transaksi produk Moring Suksok, dengan arsitektur decoupled antara frontend (Next.js PWA) dan backend (Python FastAPI):"));
+  children.push(bodyPara("Solusi yang direncanakan adalah aplikasi Progressive Web App (PWA) terpusat untuk mengelola distribusi dan pencatatan transaksi produk Suksok Snack, dengan arsitektur decoupled antara frontend (Next.js PWA) dan backend (Python FastAPI):"));
 
   children.push(numberedItem(1, "Pengelolaan katalog produk: Sistem menyediakan pencatatan produk cimol kering (moring) dengan varian rasa (Original, Pedas, Keju, Balado, Jagung) dan ukuran (100gr, 250gr, 500gr), harga, foto, dan stok. Pemilik dapat menambah, mengedit, dan menghapus produk melalui dashboard admin. Foto produk diunggah dan disimpan di Cloudinary untuk optimasi CDN."));
 
@@ -337,7 +337,7 @@ function buildBody() {
 
   children.push(numberedItem(8, "PWA installable: Aplikasi dapat diinstall di perangkat Android melalui fitur \"Add to Home Screen\" tanpa perlu download dari Play Store, sehingga customer dapat mengakses aplikasi seperti native app. Service worker memungkinkan offline caching untuk halaman utama dan push notification di background."));
 
-  children.push(bodyPara("Batasan pengembangan: Diterapkan untuk satu UMKM (Moring Suksok) dengan skala lokal kecil (di bawah 100 customer aktif), berfokus pada produk camilan cimol kering (moring) dengan varian rasa (Original, Pedas, Keju, Balado, Jagung), tidak mencakup integrasi payment gateway berbayar (Midtrans/Xendit/Faspay) dengan biaya admin per transaksi, tidak mencakup WhatsApp Business API otomatis (Fonnte/Wablas) yang berbayar per pesan dan cukup menggunakan deep link wa.me sebagai alternatif gratis, tidak mencakup auto-calculate ongkir berdasarkan jarak (RajaOngkir/Binderbyte), tidak mencakup inventory management advanced dengan alert stok otomatis, tidak mencakup multi-vendor/multi-seller, serta tidak mencakup fitur loyalty program, wishlist, review produk, dan coupon system."));
+  children.push(bodyPara("Batasan pengembangan: Diterapkan untuk satu UMKM (Suksok Snack) dengan skala lokal kecil (di bawah 100 customer aktif), berfokus pada produk camilan cimol kering (moring) dengan varian rasa (Original, Pedas, Keju, Balado, Jagung), tidak mencakup integrasi payment gateway berbayar (Midtrans/Xendit/Faspay) dengan biaya admin per transaksi, tidak mencakup WhatsApp Business API otomatis (Fonnte/Wablas) yang berbayar per pesan dan cukup menggunakan deep link wa.me sebagai alternatif gratis, tidak mencakup auto-calculate ongkir berdasarkan jarak (RajaOngkir/Binderbyte), tidak mencakup inventory management advanced dengan alert stok otomatis, tidak mencakup multi-vendor/multi-seller, serta tidak mencakup fitur loyalty program, wishlist, review produk, dan coupon system."));
 
   // ============ Referensi ============
   children.push(h1("Referensi"));
@@ -369,8 +369,8 @@ function buildBody() {
 
 const doc = new Document({
   creator: "Raid Javier Julian",
-  title: "Rencana Pengajuan Judul Tugas Akhir - Moring Suksok",
-  description: "Pengajuan Judul Tugas Akhir untuk mitra UMKM Moring Suksok",
+  title: "Rencana Pengajuan Judul Tugas Akhir - Suksok Snack",
+  description: "Pengajuan Judul Tugas Akhir untuk mitra UMKM Suksok Snack",
   styles: {
     default: {
       document: {
@@ -426,7 +426,7 @@ const doc = new Document({
 
 // Generate the document
 Packer.toBuffer(doc).then(buf => {
-  const outputPath = "/home/z/my-project/download/Pengajuan_Judul_TA_Moring_Suksok.docx";
+  const outputPath = "/home/z/my-project/download/Pengajuan_Judul_TA_Suksok_Snack.docx";
   fs.writeFileSync(outputPath, buf);
   console.log("✅ Document generated successfully!");
   console.log("   Path:", outputPath);

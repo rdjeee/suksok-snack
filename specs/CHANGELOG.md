@@ -26,7 +26,7 @@ Semua perubahan signifikan pada files di `specs/` akan didokumentasikan di sini.
 
 #### Background
 
-Owner Moring Suksok pernah ditawari sebagai Sponsor oleh universitas/politeknik dalam acara "Expo". User mendapat ide untuk membagi customer menjadi:
+Owner Suksok Snack pernah ditawari sebagai Sponsor oleh universitas/politeknik dalam acara "Expo". User mendapat ide untuk membagi customer menjadi:
 - **Mitra Kerjasama** = Ritel, Alfamart, Indomaret, Kantin Sekolah, Organisasi Kampus, Koperasi (institusi/organisasi)
 - **Konsumen Akhir** = Masyarakat/individu
 
@@ -95,7 +95,7 @@ Timeline references diupdate di 5 files:
 - `specs/decisions/ADR-002-qris-self-generated.md` — Timeline reference updated
 - `specs/decisions/ADR-003-decoupled-architecture.md` — Timeline reference updated
 - `README.md` — Roadmap diupdate ke 8 sprint
-- `Proposal_TA_Moring_Suksok.docx` — Regenerated dengan:
+- `Proposal_TA_Suksok_Snack.docx` — Regenerated dengan:
   - Abstrak: 8 sprint × 2 minggu = 16 minggu (10 Des 2026 - 3 April 2027)
   - Bab II §2.2.5: Agile (Scrum) dengan 8 sprint
   - Bab III §3.2: Prosedur penelitian 8 sprint
@@ -134,7 +134,7 @@ Sprint 8 (18-31 Mar 2027): Testing (Black Box + UAT) + Deploy
 
 #### Background
 
-User melakukan wawancara langsung dengan owner Moring Suksok, mendapatkan 3 jawaban penting:
+User melakukan wawancara langsung dengan owner Suksok Snack, mendapatkan 3 jawaban penting:
 1. Latar belakang usaha (hobi → rezeki, Rp500 → Rp2.000)
 2. Masalah yang dihadapi (SDM, bahan baku, pemasaran, tempat produksi, pasar)
 3. Alur pemesanan (6 jalur pemasaran: reseller, e-commerce, sekolah, sosmed, retail modern, toko oleh-oleh)
@@ -186,7 +186,7 @@ User melakukan wawancara langsung dengan owner Moring Suksok, mendapatkan 3 jawa
 
 User (mahasiswa) sedang dalam proses pengajuan judul Tugas Akhir ke dosen pembimbing. Judul yang diajukan:
 
-> **"Rancang Bangun Sistem Distribusi dan Pencatatan Transaksi Produk UMKM Moring Suksok Berbasis Progressive Web App dengan Verifikasi Pembayaran QRIS dan Notifikasi Otomatis"**
+> **"Rancang Bangun Sistem Distribusi dan Pencatatan Transaksi Produk UMKM Suksok Snack Berbasis Progressive Web App dengan Verifikasi Pembayaran QRIS dan Notifikasi Otomatis"**
 
 Dosen pembimbing sedang review judul. Ada kemungkinan dosen akan meminta revisi judul atau penyesuaian scope proyek.
 
@@ -336,14 +336,14 @@ Agent B (after pulling this update):
 
 ## [1.0.4] — 2026-10-30
 
-### CRITICAL: Koreksi Deskripsi Produk Moring Suksok
+### CRITICAL: Koreksi Deskripsi Produk Suksok Snack
 
 #### Background
 
-Setelah verifikasi lebih mendalam dengan mitra (owner Moring Suksok), ditemukan bahwa deskripsi produk yang dipakai di seluruh spec adalah **SALAH**. Awalnya kita mengira Moring Suksok adalah "produk olahan daun kelor (moringa)" dengan "snack/kripik moring". Faktanya:
+Setelah verifikasi lebih mendalam dengan mitra (owner Suksok Snack), ditemukan bahwa deskripsi produk yang dipakai di seluruh spec adalah **SALAH**. Awalnya kita mengira Suksok Snack adalah "produk olahan daun kelor (moringa)" dengan "snack/kripik moring". Faktanya:
 
-- **Moring Suksok BUKAN produk olahan daun kelor**
-- **Moring Suksok adalah produk camilan khas berupa cimol kering (moring)** — yaitu cimol yang digoreng dengan tekstur kering, renyah, dan tahan lama
+- **Suksok Snack BUKAN produk olahan daun kelor**
+- **Suksok Snack adalah produk camilan khas berupa cimol kering (moring)** — yaitu cimol yang digoreng dengan tekstur kering, renyah, dan tahan lama
 
 #### Changes Applied (39 replacements across 8 files)
 
@@ -368,7 +368,7 @@ Produk 4: Moring Balado      — varian: 100gr, 250gr (2 varian)  ← BARU
 Produk 5: Moring Jagung      — varian: 100gr, 250gr (2 varian)  ← BARU
 ```
 
-#### Logo Resmi Moring Suksok
+#### Logo Resmi Suksok Snack
 
 - File: `docs/branding/logo_moring.jpg` (BARU)
 - Deskripsi: Background pure green, center white leaf shape dengan text "Suksok" + "Snack"
@@ -388,7 +388,7 @@ File-file berikut masih mengandung terminologi lama dan HARUS diupdate oleh Agen
 
 #### Other Updates
 
-- `Pengajuan_Judul_TA_Moring_Suksok.docx` — di-regenerate dengan info yang benar (file lama di-overwrite)
+- `Pengajuan_Judul_TA_Suksok_Snack.docx` — di-regenerate dengan info yang benar (file lama di-overwrite)
 - `specs/SPECS-UPDATE-NOTIFICATION.md` — Added NOTIF-004 dengan priority 🔴 HIGH untuk Agent B
 - `scripts/fix_product_description.py` — Python script bulk replacement (saved for reference)
 
@@ -435,8 +435,8 @@ Agent B (after pulling this update):
 
 ##### SCR-002 (MySQL Tidak Tersedia di Sandbox) — ✅ APPROVED dengan Catatan
 - Agent B proposed dual-mode DB strategy:
-  - Sandbox: SQLite (`sqlite:///./moring_suksok_sandbox.db`) untuk demo
-  - Production: MySQL (`mysql+pymysql://root:@localhost:3306/moring_suksok`) di Laragon
+  - Sandbox: SQLite (`sqlite:///./suksok_snack_sandbox.db`) untuk demo
+  - Production: MySQL (`mysql+pymysql://root:@localhost:3306/suksok_snack`) di Laragon
 - SQLAlchemy models DB-agnostic — only difference is `DATABASE_URL` in `.env`
 - **Agent A approved** with conditions:
   1. Sandbox mode (SQLite) untuk demo sidang: OK
@@ -498,12 +498,12 @@ Agent B (after pulling this update):
 ### Repository Restructured to Root Level
 
 #### Changed
-- Repository dipindahkan dari `/home/z/my-project/MoringSuksok/` ke root `/home/z/my-project/`
-- Frontend folder (`MoringSuksok/frontend/`) dihapus — sekarang dikelola Z.ai Full-Stack feature di root
+- Repository dipindahkan dari `/home/z/my-project/SuksokSnack/` ke root `/home/z/my-project/`
+- Frontend folder (`SuksokSnack/frontend/`) dihapus — sekarang dikelola Z.ai Full-Stack feature di root
 - `frontend/.env.example` dipindahkan & direname menjadi `.env.local.example` di root (Next.js convention)
 - `Makefile` paths diupdate: semua command frontend sekarang jalan di root (tidak `cd frontend`)
 - `docker-compose.yml` paths diupdate: frontend service pakai `context: .` (root)
-- `.gitignore` di-merge: combine Z.ai defaults (skills/, node_modules/) + MoringSuksok rules
+- `.gitignore` di-merge: combine Z.ai defaults (skills/, node_modules/) + SuksokSnack rules
 - `README.md` update struktur repository + ownership rules table
 
 #### Added
@@ -513,14 +513,14 @@ Agent B (after pulling this update):
 - `[NOTIF-002]` di SPECS-UPDATE-NOTIFICATION.md (inform restructure ke Agent B)
 
 #### Removed
-- Folder `MoringSuksok/` (semua isinya sudah dipindahkan ke root)
+- Folder `SuksokSnack/` (semua isinya sudah dipindahkan ke root)
 - Folder `frontend/` (sekarang Z.ai Full-Stack yang handle di root)
 
 #### Migration Guide dari v1.0.1 → v1.0.2
 
 Agent B yang sudah baca v1.0.1:
-1. Pathspecs files berubah: dari `/MoringSuksok/specs/` → `/specs/`
-2. Path backend berubah: dari `/MoringSuksok/backend/` → `/backend/`
+1. Pathspecs files berubah: dari `/SuksokSnack/specs/` → `/specs/`
+2. Path backend berubah: dari `/SuksokSnack/backend/` → `/backend/`
 3. Folder `frontend/` TIDAK ADA LAGI — Agent B pakai Z.ai Full-Stack feature yang akan create frontend di root
 4. **WAJIB HAPUS** default Z.ai Full-Stack: `prisma/`, `db/`, NextAuth setup (tidak sesuai specs)
 5. **WAJIB BUAT** `/backend/` Python FastAPI secara manual
@@ -548,7 +548,7 @@ Agent B yang sudah baca v1.0.1:
 
 #### Repository Structure (Updated)
 ```
-MoringSuksok/
+SuksokSnack/
 ├── specs/                              ← 🤖 ZONE AGENT A
 │   ├── ... (9 spec files + 3 ADR + CHANGELOG + VERSION)
 │   └── SPECS-UPDATE-NOTIFICATION.md   ← NEW: mailbox antar agent
@@ -621,7 +621,7 @@ Agent B yang sudah baca v1.0.0:
 - `specs/CHANGELOG.md` (this file)
 
 ### Context
-- Dokumen perencanaan asli (`Dokumen_Perencanaan_Moring_Suksok.md`, 2.668 baris) telah di-split menjadi 9 spec files terstruktur untuk memudahkan handover ke Agent B (Dev).
+- Dokumen perencanaan asli (`Dokumen_Perencanaan_Suksok_Snack.md`, 2.668 baris) telah di-split menjadi 9 spec files terstruktur untuk memudahkan handover ke Agent B (Dev).
 - Spec files ini menjadi **single source of truth** untuk development.
 - Setiap spec file memiliki ownership jelas (Agent A) dan tidak boleh diedit oleh Agent B langsung (lihat `README.md` workflow).
 

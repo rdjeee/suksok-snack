@@ -40,7 +40,7 @@
 9. `settings`
 
 **Seed data inserted**:
-- Admin: `admin@moring-suksok.com` (default password: `admin123`)
+- Admin: `admin@suksok-snack.com` (default password: `admin123`)
 - Settings: 6 keys (owner_qris_static, owner_dana_number, owner_whatsapp, business_name, business_address, shipping_cost_flat)
 - Products: 3 contoh produk (Original, Pedas, Keju) dengan varian masing-masing
 

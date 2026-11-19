@@ -8,17 +8,17 @@
 
 ## 1. Latar Belakang & Profil Mitra
 
-### 1.1 Profil Moring Suksok
+### 1.1 Profil Suksok Snack
 
-Moring Suksok adalah UMKM kuliner yang mengolah produk camilan khas berupa cimol kering (moring) — yaitu cimol yang digoreng dengan tekstur kering, renyah, dan tahan lama. Produk ini memiliki beberapa varian rasa antara lain Original, Pedas, Keju, Balado, dan Jagung, dengan pilihan kemasan yang disesuaikan dengan kebutuhan dan target pasar: ukuran mini, standing pouch, hingga aluminium foil. Usaha ini dimiliki oleh seorang pengusaha berusia 40 tahun, dan memiliki dua jenis customer yaitu Mitra Kerjasama (toko/agen/reseller yang membeli untuk dijual ulang) dan Konsumen Akhir (konsumen akhir yang membeli untuk konsumsi pribadi).
+Suksok Snack adalah UMKM kuliner yang mengolah produk camilan khas berupa cimol kering (moring) — yaitu cimol yang digoreng dengan tekstur kering, renyah, dan tahan lama. Produk ini memiliki beberapa varian rasa antara lain Original, Pedas, Keju, Balado, dan Jagung, dengan pilihan kemasan yang disesuaikan dengan kebutuhan dan target pasar: ukuran mini, standing pouch, hingga aluminium foil. Usaha ini dimiliki oleh seorang pengusaha berusia 40 tahun, dan memiliki dua jenis customer yaitu Mitra Kerjasama (toko/agen/reseller yang membeli untuk dijual ulang) dan Konsumen Akhir (konsumen akhir yang membeli untuk konsumsi pribadi).
 
-Moring Suksok berdiri bukan karena rencana besar, tapi berawal dari hobi dan coba-coba. Awalnya dibuat sendiri, diracik sendiri, lalu dibagikan ke tetangga untuk dicicipi. Alhamdulillah, responsnya positif. Dari situlah muncul keberanian untuk mulai berjualan. Dulu memulai dari harga Rp500 saja, dan kini produk moring ukuran mini sudah dihargai Rp2.000. Perjalanannya terus berkembang dengan pemasaran yang semakin luas melalui berbagai jalur: reseller, e-commerce (platform belanja online), sekolah-sekolah, penjualan online via media sosial, retail modern (Alfamart dan Indomart di Kabupaten Subang), serta toko oleh-oleh di Kabupaten Subang.
+Suksok Snack berdiri bukan karena rencana besar, tapi berawal dari hobi dan coba-coba. Awalnya dibuat sendiri, diracik sendiri, lalu dibagikan ke tetangga untuk dicicipi. Alhamdulillah, responsnya positif. Dari situlah muncul keberanian untuk mulai berjualan. Dulu memulai dari harga Rp500 saja, dan kini produk moring ukuran mini sudah dihargai Rp2.000. Perjalanannya terus berkembang dengan pemasaran yang semakin luas melalui berbagai jalur: reseller, e-commerce (platform belanja online), sekolah-sekolah, penjualan online via media sosial, retail modern (Alfamart dan Indomart di Kabupaten Subang), serta toko oleh-oleh di Kabupaten Subang.
 
 Saat ini, proses penjualan masih dilakukan secara konvensional: customer menghubungi owner melalui WhatsApp untuk memesan produk, lalu owner mencatat transaksi pada nota manual sebagai bukti pembelian dan pembukuan akuntan. Pendekatan ini telah berjalan cukup lama, namun seiring bertambahnya jumlah customer dan kompleksitas transaksi, muncul berbagai kendala operasional yang perlu diatasi.
 
 ### 1.2 Identifikasi Masalah
 
-Berdasarkan analisis kondisi existing Moring Suksok, ditemukan beberapa permasalahan utama yang menjadi pain point baik bagi owner maupun customer:
+Berdasarkan analisis kondisi existing Suksok Snack, ditemukan beberapa permasalahan utama yang menjadi pain point baik bagi owner maupun customer:
 
 #### Masalah 1: Pencatatan Transaksi Manual yang Tidak Terstruktur
 Owner mencatat setiap transaksi pada nota manual, baik yang dijual ke Mitra Kerjasama maupun Masyarakat. Pencatatan ini rentan terhadap human error (salah catat jumlah, varian, atau harga), sulit dilakukan rekapitulasi bulanan, dan tidak ada backup digital jika nota hilang atau rusak. Untuk keperluan pembukuan akuntan, owner harus memilah-milah nota satu per satu yang memakan waktu berjam-jam setiap akhir bulan.
@@ -36,11 +36,11 @@ Owner secara informal membedakan Mitra Kerjasama dan Masyarakat, namun tidak ada
 Saat customer membayar via transfer ke DANA owner atau scan QRIS statis, owner harus memverifikasi manual melalui mutasi rekening. Tidak ada audit trail digital yang menghubungkan pembayaran dengan pesanan tertentu, sehingga sulit untuk rekonsiliasi jika ada sengketa atau pertanyaan dari customer di kemudian hari.
 
 #### Masalah 6: Pemasaran Belum Tergabungkan Secara Digital
-Owner menjalankan 6 jalur pemasaran (reseller, e-commerce, sekolah-sekolah, penjualan online via media sosial, retail modern seperti Alfamart/Indomart, serta toko oleh-oleh), namun belum terdapat sistem terpusat yang dapat mengelola dan melacak customer dari berbagai sumber tersebut. Owner berkeinginan untuk memperluas jaringan pemasaran agar Moring Suksok dapat dikenal dan dinikmati oleh masyarakat di seluruh Indonesia, namun tidak memiliki data terstruktur tentang dari mana customer berasal (acquisition channel) untuk mengukur efektivitas tiap jalur pemasaran.
+Owner menjalankan 6 jalur pemasaran (reseller, e-commerce, sekolah-sekolah, penjualan online via media sosial, retail modern seperti Alfamart/Indomart, serta toko oleh-oleh), namun belum terdapat sistem terpusat yang dapat mengelola dan melacak customer dari berbagai sumber tersebut. Owner berkeinginan untuk memperluas jaringan pemasaran agar Suksok Snack dapat dikenal dan dinikmati oleh masyarakat di seluruh Indonesia, namun tidak memiliki data terstruktur tentang dari mana customer berasal (acquisition channel) untuk mengukur efektivitas tiap jalur pemasaran.
 
 ### 1.3 Urgensi & Justifikasi Proyek
 
-Permasalahan-permasalahan di atas menghambat pertumbuhan Moring Suksok sebagai UMKM. Tanpa sistem yang terstruktur, owner menghabiskan waktu berharga untuk tugas administratif yang seharusnya bisa diotomatisasi, alih-alih fokus pada pengembangan produk dan ekspansi pasar. Selain itu, customer experience yang buruk (sulit lihat katalog, tidak tahu status pesanan) dapat menurunkan loyalitas dan repeat order.
+Permasalahan-permasalahan di atas menghambat pertumbuhan Suksok Snack sebagai UMKM. Tanpa sistem yang terstruktur, owner menghabiskan waktu berharga untuk tugas administratif yang seharusnya bisa diotomatisasi, alih-alih fokus pada pengembangan produk dan ekspansi pasar. Selain itu, customer experience yang buruk (sulit lihat katalog, tidak tahu status pesanan) dapat menurunkan loyalitas dan repeat order.
 
 Pembangunan sistem distribusi dan pencatatan transaksi digital akan menyelesaikan keenam masalah di atas secara komprehensif: nota manual diganti dengan nota digital otomatis ter-generate, status pesanan ter-track real-time, katalog produk dapat diakses mandiri oleh customer, segmentasi customer tercatat dalam database, setiap pembayaran terdokumentasi dengan bukti upload, serta acquisition channel customer tercatat untuk analisis efektivitas pemasaran.
 
@@ -145,7 +145,7 @@ Backend services yang harus diimplementasi:
 
 Sistem memiliki **3 jenis pengguna** dengan kewenangan berbeda. Detail lengkap matriks akses lihat di `02-architecture.md` § 4.
 
-### 3.1 Admin (Owner Moring Suksok)
+### 3.1 Admin (Owner Suksok Snack)
 
 - **Auth**: Email + password, disimpan di tabel `admins`
 - **Token expiry**: 1 hari
@@ -242,7 +242,7 @@ Agar proyek tetap fokus dan selesai dalam timeline 2-3 bulan, beberapa hal berik
 4. **Fitur loyalty program / point reward**
 5. **Fitur wishlist produk**
 6. **Review & rating produk oleh customer**
-7. **Multi-vendor / multi-seller** (hanya Moring Suksok)
+7. **Multi-vendor / multi-seller** (hanya Suksok Snack)
 8. **Integrasi kurir otomatis** (JNE, JNT, SiCepat API) — owner input no resi manual
 9. **Auto-calculate ongkir** (integrasi RajaOngkir/Binderbyte) — ongkir flat atau di-set manual owner
 10. **Inventory management advanced** (alert stok menipis, auto-update stok setelah order)
@@ -277,8 +277,8 @@ Batasan-batasan teknis dan operasional yang melekat pada sistem ini:
 
 ### 5.1 Asumsi
 
-1. Owner Moring Suksok sudah memiliki QRIS statis (yang aktif dan terhubung ke DANA/e-wallet) yang akan di-input ke sistem settings
-2. Owner Moring Suksok sudah memiliki nomor DANA untuk pembayaran manual alternatif
+1. Owner Suksok Snack sudah memiliki QRIS statis (yang aktif dan terhubung ke DANA/e-wallet) yang akan di-input ke sistem settings
+2. Owner Suksok Snack sudah memiliki nomor DANA untuk pembayaran manual alternatif
 3. Customer memiliki smartphone Android (mayoritas) atau iOS 16.4+ (minoritas) dengan akses internet
 4. Customer memiliki setidaknya 1 e-wallet (DANA/OVO/GoPay/SeaBank/ShopeePay) untuk scan QRIS
 5. Dosen pembimbing menyetujui dokumen perencanaan ini sebelum development dimulai
@@ -307,9 +307,9 @@ Batasan-batasan teknis dan operasional yang melekat pada sistem ini:
 | **wa.me** | WhatsApp deep link URL scheme (https://wa.me/62xxx?text=...) |
 | **JWT** | JSON Web Token — standar token untuk autentikasi |
 | **UMKM** | Usaha Mikro, Kecil, dan Menengah |
-| **Mitra Kerjasama** | Toko/agen yang membeli produk Moring Suksok untuk dijual ulang |
-| **Konsumen Akhir** | Konsumen akhir yang membeli produk Moring Suksok untuk konsumsi pribadi |
-| **Owner** | Pemilik Moring Suksok (40 tahun) |
+| **Mitra Kerjasama** | Toko/agen yang membeli produk Suksok Snack untuk dijual ulang |
+| **Konsumen Akhir** | Konsumen akhir yang membeli produk Suksok Snack untuk konsumsi pribadi |
+| **Owner** | Pemilik Suksok Snack (40 tahun) |
 | **Nota Digital** | Bukti transaksi digital (PDF) yang ter-generate otomatis oleh sistem, menggantikan nota manual |
 | **State Machine** | Model status pesanan dengan transisi yang jelas (Pending → Diproses → Dikirim → Selesai) |
 | **Decoupled Architecture** | Arsitektur dengan Frontend dan Backend terpisah, berkomunikasi via REST API |

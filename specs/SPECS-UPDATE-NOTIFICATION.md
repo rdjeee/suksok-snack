@@ -35,32 +35,32 @@ Setiap kali specs di-update, tulis notifikasi baru di section "Pending Notificat
 
 > Urut dari TERBARU di atas ke TERLAMA di bawah. Agent B harus baca dari atas.
 
-[NOTIF-011] — 2026-11-19 — ⚠️ BREAKING CHANGE: Rename "Moring Suksok" → "Suksok Snack" (Brand Correction, v1.4.0)
-Spec files changed: Semua file di specs/, backend/, my-app/, MoringSuksok/, src/, docs/, dan root files (README.md, Makefile, package.json, docker-compose.yml, .env.example, PROGRESS.md, DECISIONS-DEV.md, MIGRATION-NOTES.md, OWNERSHIP.md, public/manifest.json, public/icon.svg)Change type: MAJOR — Brand name correction across entire codebaseAuthor: Agent A — atas klarifikasi user bahwa nama brand sebenarnya adalah "Suksok Snack", bukan "Moring Suksok"Priority: 🔴 HIGH — apply saat resume (NOTIF-010), sebelum mulai Sprint 1
+[NOTIF-011] — 2026-11-19 — ⚠️ BREAKING CHANGE: Rename "Suksok Snack" → "Suksok Snack" (Brand Correction, v1.4.0)
+Spec files changed: Semua file di specs/, backend/, my-app/, SuksokSnack/, src/, docs/, dan root files (README.md, Makefile, package.json, docker-compose.yml, .env.example, PROGRESS.md, DECISIONS-DEV.md, MIGRATION-NOTES.md, OWNERSHIP.md, public/manifest.json, public/icon.svg)Change type: MAJOR — Brand name correction across entire codebaseAuthor: Agent A — atas klarifikasi user bahwa nama brand sebenarnya adalah "Suksok Snack", bukan "Suksok Snack"Priority: 🔴 HIGH — apply saat resume (NOTIF-010), sebelum mulai Sprint 1
 
 📋 Konteks
-Setelah ditelusuri lebih dalam, "Moring Suksok" ternyata hanya salah satu produk dari brand/UMKM. Nama brand/UMKM yang sebenarnya adalah "Suksok Snack". Oleh karena itu, semua referensi "Moring Suksok" di seluruh codebase harus diganti menjadi "Suksok Snack" agar konsisten.
+Setelah ditelusuri lebih dalam, "Suksok Snack" ternyata hanya salah satu produk dari brand/UMKM. Nama brand/UMKM yang sebenarnya adalah "Suksok Snack". Oleh karena itu, semua referensi "Suksok Snack" di seluruh codebase harus diganti menjadi "Suksok Snack" agar konsisten.
 
 ✅ Yang Sudah Agent A Update
 Di area dokumen (folder download/ dan scripts/ — TIDAK perlu Agent B sentuh):
 
-Proposal_TA_Suksok_Snack.docx (rename dari Proposal_TA_Moring_Suksok.docx)
+Proposal_TA_Suksok_Snack.docx (rename dari Proposal_TA_Suksok_Snack.docx)
 Pengajuan_Judul_TA_Suksok_Snack.docx
 Dokumen_Perencanaan_Suksok_Snack.docx
 Catatan_Insight_Skema_dan_Kriteria_Penolakan_TA.md
-GitHub URL moring-suksok → suksok-snack (repo sudah di-rename di GitHub oleh user)
+GitHub URL suksok-snack → suksok-snack (repo sudah di-rename di GitHub oleh user)
 ⚠️ Yang Agent B WAJIB Lakukan SAAT RESUME
 1. Rename 4 pattern teks di SEMUA file teknis (estimasi 78 file, 324 occurrences):
 
-Pattern 1: Moring Suksok → Suksok Snack
+Pattern 1: Suksok Snack → Suksok Snack
 Lokasi: Display name di docs, comments, UI text, README
-Pattern 2: moring-suksok → suksok-snack
+Pattern 2: suksok-snack → suksok-snack
 Lokasi: URL slug, package name di pyproject.toml, package.json, GitHub URL references
-Pattern 3: MoringSuksok → SuksokSnack
+Pattern 3: SuksokSnack → SuksokSnack
 Lokasi: Identifier, class name, directory name
-Pattern 4: Moring_Suksok → Suksok_Snack
+Pattern 4: Suksok_Snack → Suksok_Snack
 Lokasi: Filename, snake_Pascal identifier
-2. Rename direktori MoringSuksok/ → SuksokSnack/ (jika masih dipakai sebagai working copy)
+2. Rename direktori SuksokSnack/ → SuksokSnack/ (jika masih dipakai sebagai working copy)
 
 3. File-file yang terdampak (prioritas tinggi):
 
@@ -104,7 +104,7 @@ Root files:
 
 README.md — project overview
 Makefile — make commands comments
-package.json — package name (jika name field mengandung moring-suksok)
+package.json — package name (jika name field mengandung suksok-snack)
 docker-compose.yml — service names, container names
 .env.example — env variables referencing brand
 PROGRESS.md — progress log (rename saja, jangan rewrite history)
@@ -114,10 +114,10 @@ OWNERSHIP.md — ownership doc references
 docs/:
 
 docs/api-openapi.json — OpenAPI spec info (title, description)
-Duplicate folder MoringSuksok/ (terlihat sebagai backup/working copy — Agent B boleh:
+Duplicate folder SuksokSnack/ (terlihat sebagai backup/working copy — Agent B boleh:
 
 Opsi A: Rename folder jadi SuksokSnack/ lalu replace semua pattern di dalamnya
-Opsi B: Hapus folder MoringSuksok/ jika sudah tidak dipakai (backup lama)
+Opsi B: Hapus folder SuksokSnack/ jika sudah tidak dipakai (backup lama)
 my-app/ (jika masih dipakai):
 
 my-app/README.md, my-app/MIGRATION-NOTES.md, my-app/specs/* — rename pattern
@@ -125,17 +125,17 @@ my-app/README.md, my-app/MIGRATION-NOTES.md, my-app/specs/* — rename pattern
 moring (lowercase, sebagai kata biasa) — Nama produk cimol kering, bukan brand. Contoh: "cimol kering (moring)"
 Moring Original, Moring Pedas, Moring Keju, Moring Balado, Moring Jagung — Nama varian produk, bukan brand
 moring.jpg (filename logo) — File logo asli, tetap dipakai
-moring-suksok di historical entries CHANGELOG/PROGRESS/DECISIONS-DEV — Sejarah perubahan, biarkan apa adanya (rename hanya di section konteks/naratif, bukan di entry tanggal historical)
+suksok-snack di historical entries CHANGELOG/PROGRESS/DECISIONS-DEV — Sejarah perubahan, biarkan apa adanya (rename hanya di section konteks/naratif, bukan di entry tanggal historical)
 Aturan praktis: Pattern yang diganti HANYA yang merujuk ke nama brand/UMKM/sistem/proyek. Pattern yang merujuk ke nama produk cimol kering "moring" TETAP dipertahankan.
 
 🔧 Cara Cepat Apply (suggested workflow Agent B)
-# Step 1: Replace "Moring Suksok" → "Suksok Snack" (display name)cd /home/z/my-projectgrep -rl "Moring Suksok" --include="*.{md,py,ts,tsx,json,toml,yml,yaml,js,sh,txt,example}" \  --include="Makefile" . 2>/dev/null | grep -v node_modules | grep -v tool-results | \  xargs sed -i 's/Moring Suksok/Suksok Snack/g'
-# Step 2: Replace "moring-suksok" → "suksok-snack" (URL/slug/package)grep -rl "moring-suksok" --include="*.{md,py,ts,tsx,json,toml,yml,yaml,js,sh,txt,example}" \  --include="Makefile" . 2>/dev/null | grep -v node_modules | grep -v tool-results | \  xargs sed -i 's/moring-suksok/suksok-snack/g'
-# Step 3: Replace "MoringSuksok" → "SuksokSnack" (no separator)grep -rl "MoringSuksok" --include="*.{md,py,ts,tsx,json,toml,yml,yaml,js,sh,txt,example}" \  --include="Makefile" . 2>/dev/null | grep -v node_modules | grep -v tool-results | \  xargs sed -i 's/MoringSuksok/SuksokSnack/g'
-# Step 4: Replace "Moring_Suksok" → "Suksok_Snack" (snake_Pascal)grep -rl "Moring_Suksok" --include="*.{md,py,ts,tsx,json,toml,yml,yaml,js,sh,txt,example}" \  --include="Makefile" . 2>/dev/null | grep -v node_modules | grep -v tool-results | \  xargs sed -i 's/Moring_Suksok/Suksok_Snack/g'
-# Step 5: Rename folder MoringSuksok/ → SuksokSnack/ (opsional, jika masih dipakai)mv MoringSuksok SuksokSnack 2>/dev/null || true
+# Step 1: Replace "Suksok Snack" → "Suksok Snack" (display name)cd /home/z/my-projectgrep -rl "Suksok Snack" --include="*.{md,py,ts,tsx,json,toml,yml,yaml,js,sh,txt,example}" \  --include="Makefile" . 2>/dev/null | grep -v node_modules | grep -v tool-results | \  xargs sed -i 's/Suksok Snack/Suksok Snack/g'
+# Step 2: Replace "suksok-snack" → "suksok-snack" (URL/slug/package)grep -rl "suksok-snack" --include="*.{md,py,ts,tsx,json,toml,yml,yaml,js,sh,txt,example}" \  --include="Makefile" . 2>/dev/null | grep -v node_modules | grep -v tool-results | \  xargs sed -i 's/suksok-snack/suksok-snack/g'
+# Step 3: Replace "SuksokSnack" → "SuksokSnack" (no separator)grep -rl "SuksokSnack" --include="*.{md,py,ts,tsx,json,toml,yml,yaml,js,sh,txt,example}" \  --include="Makefile" . 2>/dev/null | grep -v node_modules | grep -v tool-results | \  xargs sed -i 's/SuksokSnack/SuksokSnack/g'
+# Step 4: Replace "Suksok_Snack" → "Suksok_Snack" (snake_Pascal)grep -rl "Suksok_Snack" --include="*.{md,py,ts,tsx,json,toml,yml,yaml,js,sh,txt,example}" \  --include="Makefile" . 2>/dev/null | grep -v node_modules | grep -v tool-results | \  xargs sed -i 's/Suksok_Snack/Suksok_Snack/g'
+# Step 5: Rename folder SuksokSnack/ → SuksokSnack/ (opsional, jika masih dipakai)mv SuksokSnack SuksokSnack 2>/dev/null || true
 # Step 6: Update git remote URL (repo sudah di-rename di GitHub)git remote set-url origin https://github.com/rdjeee/suksok-snack.gitgit remote -v  # verifikasi
-# Step 7: Manual review — jalankan ulang grep untuk verifikasigrep -r "Moring Suksok\|moring-suksok\|MoringSuksok\|Moring_Suksok" \  --include="*.{md,py,ts,tsx,json,toml,yml,yaml,js,sh,txt,example}" \  --include="Makefile" . 2>/dev/null | grep -v node_modules | grep -v tool-results
+# Step 7: Manual review — jalankan ulang grep untuk verifikasigrep -r "Suksok Snack\|suksok-snack\|SuksokSnack\|Suksok_Snack" \  --include="*.{md,py,ts,tsx,json,toml,yml,yaml,js,sh,txt,example}" \  --include="Makefile" . 2>/dev/null | grep -v node_modules | grep -v tool-results
 # Step 8: Regression test# - Backend: make dev (cek FastAPI title di /docs → harus "Suksok Snack API")# - Frontend: npm run dev (cek title browser & PWA manifest)# - PWA installable di Android (cek manifest name)# - Database seed: cek nama brand di /api/v1/products (description field)
 
 📊 Impact
@@ -148,7 +148,7 @@ Files affected: 78 file, 324 occurrences
 Development status: Apply saat resume (NOTIF-010), SEBELUM mulai Sprint 1
 
 ✅ Acceptance Criteria untuk NOTIF-011
-Tidak ada lagi "Moring Suksok", "moring-suksok", "MoringSuksok", atau "Moring_Suksok" di seluruh codebase (kecuali historical entries di CHANGELOG/PROGRESS/DECISIONS-DEV)
+Tidak ada lagi "Suksok Snack", "suksok-snack", "SuksokSnack", atau "Suksok_Snack" di seluruh codebase (kecuali historical entries di CHANGELOG/PROGRESS/DECISIONS-DEV)
 Backend FastAPI docs (/docs) menampilkan title "Suksok Snack API"
 Frontend browser title dan PWA manifest menampilkan "Suksok Snack"
 public/manifest.json name & short_name = "Suksok Snack"
@@ -156,13 +156,13 @@ package.json name field = "suksok-snack"
 backend/pyproject.toml name = "suksok-snack"
 docker-compose.yml service names konsisten dengan brand baru
 Git remote URL = https://github.com/rdjeee/suksok-snack.git
-Folder MoringSuksok/ (jika masih dipakai) sudah di-rename ke SuksokSnack/
+Folder SuksokSnack/ (jika masih dipakai) sudah di-rename ke SuksokSnack/
 Regression test pass: auth login, register, product list, PWA installable
 PROGRESS.md & DECISIONS-DEV.md di-update dengan entry rename ini
 
 ### [NOTIF-010] — 2026-11-10 — Basic Cashflow Module + Remove BPS/BI refs dari Proposal (v1.3.0)
 
-**Spec files changed**: `Proposal_TA_Moring_Suksok.docx`, `specs/VERSION.txt`
+**Spec files changed**: `Proposal_TA_Suksok_Snack.docx`, `specs/VERSION.txt`
 **Change type**: MINOR — Added cashflow feature to Proposal
 **Author**: Agent A
 **Priority**: 🟡 MEDIUM
@@ -209,7 +209,7 @@ PROGRESS.md & DECISIONS-DEV.md di-update dengan entry rename ini
 
 #### 📋 Konteks
 
-Owner Moring Suksok pernah ditawari sebagai Sponsor oleh universitas/politeknik dalam acara "Expo". User mendapat ide untuk membagi customer menjadi:
+Owner Suksok Snack pernah ditawari sebagai Sponsor oleh universitas/politeknik dalam acara "Expo". User mendapat ide untuk membagi customer menjadi:
 - **Mitra Kerjasama** = Ritel, Alfamart, Indomaret, Kantin Sekolah, Organisasi Kampus, Koperasi (institusi/organisasi)
 - **Konsumen Akhir** = Masyarakat/individu
 
@@ -275,7 +275,7 @@ customer_type ENUM('partner', 'consumer') DEFAULT 'consumer'
 
 ### [NOTIF-008] — 2026-11-09 — 📅 Timeline Update: 8 Minggu → 16 Minggu (8 Sprint × 2 Minggu) + Pre-Implementation Plan
 
-**Spec files changed**: `specs/00-vision.md`, `specs/CHANGELOG.md`, `specs/decisions/ADR-001/002/003.md`, `README.md`, `Proposal_TA_Moring_Suksok.docx`, `specs/VERSION.txt`
+**Spec files changed**: `specs/00-vision.md`, `specs/CHANGELOG.md`, `specs/decisions/ADR-001/002/003.md`, `README.md`, `Proposal_TA_Suksok_Snack.docx`, `specs/VERSION.txt`
 **Change type**: MINOR — Timeline expansion
 **Author**: Agent A — atas informasi timeline TA dari dosen
 **Priority**: 🟡 MEDIUM — baca & understand, apply saat resume
@@ -315,7 +315,7 @@ FASE 3: IMPLEMENTATION (16 minggu = 8 sprint × 2 minggu)
 - `specs/decisions/ADR-002-qris-self-generated.md` — Timeline reference updated
 - `specs/decisions/ADR-003-decoupled-architecture.md` — Timeline reference updated
 - `README.md` — Roadmap diupdate ke 8 sprint
-- `Proposal_TA_Moring_Suksok.docx` — Regenerated dengan:
+- `Proposal_TA_Suksok_Snack.docx` — Regenerated dengan:
   - Abstrak: 8 sprint × 2 minggu = 16 minggu
   - Bab II §2.2.5: Agile (Scrum) dengan 8 sprint
   - Bab III §3.2: Prosedur penelitian 8 sprint
@@ -346,7 +346,7 @@ FASE 3: IMPLEMENTATION (16 minggu = 8 sprint × 2 minggu)
 
 **Spec files changed**: `specs/00-vision.md`, `specs/01-requirements.md`, `specs/05-data-model.md`, `specs/06-api-contracts.md`
 **Change type**: MINOR — Added new field + enriched documentation
-**Author**: Agent A — atas hasil wawancara user dengan owner Moring Suksok
+**Author**: Agent A — atas hasil wawancara user dengan owner Suksok Snack
 **Priority**: 🟡 MEDIUM — apply saat resume (NOTIF-008), bukan sekarang
 
 #### Konteks
@@ -366,7 +366,7 @@ User melakukan wawancara dengan owner, mendapat: (1) sejarah usaha (hobi→rezek
 2. Generate Alembic migration: `make migrate-create m="add acquisition_channel to customers"`
 3. Update `RegisterRequest` schema di `backend/app/schemas/auth.py`
 4. Update `register()` endpoint di `backend/app/api/v1/auth.py`
-5. Update frontend register form: tambah dropdown "Darimana Anda mengetahui Moring Suksok?"
+5. Update frontend register form: tambah dropdown "Darimana Anda mengetahui Suksok Snack?"
 6. Estimasi effort: ~30 menit
 
 #### Impact
@@ -517,13 +517,13 @@ User melakukan wawancara dengan owner, mendapat: (1) sejarah usaha (hobi→rezek
 **Acknowledged by**: Agent B
 **Date acknowledged**: 2026-11-10 04:30 (Asia/Jakarta)
 **Actions taken**:
-- [x] Baca NOTIF-011: BREAKING CHANGE — Rename "Moring Suksok" → "Suksok Snack" (v1.4.0)
-- [x] Updated git remote URL: `moring-suksok.git` → `suksok-snack.git` ✅
+- [x] Baca NOTIF-011: BREAKING CHANGE — Rename "Suksok Snack" → "Suksok Snack" (v1.4.0)
+- [x] Updated git remote URL: `suksok-snack.git` → `suksok-snack.git` ✅
 - [x] Understand 4 rename patterns (78 files, 324 occurrences):
-  - `Moring Suksok` → `Suksok Snack` (display name)
-  - `moring-suksok` → `suksok-snack` (URL/slug/package)
-  - `MoringSuksok` → `SuksokSnack` (identifier)
-  - `Moring_Suksok` → `Suksok_Snack` (filename)
+  - `Suksok Snack` → `Suksok Snack` (display name)
+  - `suksok-snack` → `suksok-snack` (URL/slug/package)
+  - `SuksokSnack` → `SuksokSnack` (identifier)
+  - `Suksok_Snack` → `Suksok_Snack` (filename)
 - [x] DO NOT change: "moring" (product name), variant names (Moring Original, dll), logo filename
 - [x] Will apply saat resume: rename across ~78 files BEFORE Sprint 1
 **Notes**: Brand rename understood. Will apply FIRST when development resumes (before Sprint 1). Estimasi ~2-3 jam (rename + review + regression test).
@@ -537,7 +537,7 @@ User melakukan wawancara dengan owner, mendapat: (1) sejarah usaha (hobi→rezek
 | Total notifications sent | 12 (NOTIF-000 to NOTIF-011) |
 | Pending (belum dibaca Agent B) | 0 (semua sudah acknowledged) |
 | Acknowledged | 12 (NOTIF-001 to NOTIF-011, all acknowledged) |
-| Last notification date | 2026-11-19 (NOTIF-011 — Brand rename Moring Suksok → Suksok Snack) |
+| Last notification date | 2026-11-19 (NOTIF-011 — Brand rename Suksok Snack → Suksok Snack) |
 | Specs current version | v1.3.0 (v1.4.0 pending — brand rename apply saat resume) |
 | Development status | ⏸️ PAUSED — tunggu resume signal (~9 Des 2026). NOTIF-007 to NOTIF-011 akan di-apply saat resume, SEBELUM Sprint 1. |
 

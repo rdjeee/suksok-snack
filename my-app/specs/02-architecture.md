@@ -191,9 +191,9 @@ Database menggunakan **MySQL 8.4.3** yang sudah terinstall via Laragon. Akses ke
 | Host | localhost (dev) / Railway MySQL host (prod) |
 | Port | 3306 |
 | User | root (dev, no password) / production user |
-| Database | moring_suksok |
+| Database | suksok_snack |
 | Charset | utf8mb4_unicode_ci |
-| Connection URL | `mysql+pymysql://root:@localhost:3306/moring_suksok` |
+| Connection URL | `mysql+pymysql://root:@localhost:3306/suksok_snack` |
 
 ---
 
@@ -311,7 +311,7 @@ async def get_current_admin(token: str = Depends(oauth2_scheme), db: Session = D
 
 Hanya origin frontend yang diizinkan:
 - Dev: `http://localhost:3000`
-- Prod: `https://moringsuksok.vercel.app` dan `https://*.vercel.app`
+- Prod: `https://suksoksnack.vercel.app` dan `https://*.vercel.app`
 
 ### 6.5 Input Validation
 
@@ -337,7 +337,7 @@ Secret keys disimpan di `.env` dan tidak di-commit ke repository:
 
 ```bash
 # .env.example
-DATABASE_URL=mysql+pymysql://root:@localhost:3306/moring_suksok
+DATABASE_URL=mysql+pymysql://root:@localhost:3306/suksok_snack
 JWT_SECRET=your-super-secret-key-min-32-chars-change-this
 JWT_ALGORITHM=HS256
 ACCESS_TOKEN_EXPIRE_MINUTES_CUSTOMER=10080   # 7 days
@@ -363,7 +363,7 @@ NEXT_PUBLIC_FIREBASE_APP_ID=xxx
 NEXT_PUBLIC_VAPID_PUBLIC_KEY=xxx
 
 # CORS
-CORS_ORIGINS=http://localhost:3000,https://moringsuksok.vercel.app
+CORS_ORIGINS=http://localhost:3000,https://suksoksnack.vercel.app
 ```
 
 ### 6.8 Logging & Monitoring
@@ -392,16 +392,16 @@ CORS_ORIGINS=http://localhost:3000,https://moringsuksok.vercel.app
 
 | Komponen | URL |
 |---|---|
-| Frontend | `https://moring-suksok-staging.vercel.app` |
-| Backend | `https://moring-suksok-staging.railway.app` |
+| Frontend | `https://suksok-snack-staging.vercel.app` |
+| Backend | `https://suksok-snack-staging.railway.app` |
 | Database | Railway MySQL (free tier 5GB) |
 
 ### 7.3 Production (Minggu 8)
 
 | Komponen | URL |
 |---|---|
-| Frontend | `https://moringsuksok.vercel.app` (atau custom domain `moringsuksok.id`) |
-| Backend | `https://api.moringsuksok.railway.app` (atau `api.moringsuksok.id`) |
+| Frontend | `https://suksoksnack.vercel.app` (atau custom domain `suksoksnack.id`) |
+| Backend | `https://api.suksoksnack.railway.app` (atau `api.suksoksnack.id`) |
 | Database | PlanetScale atau Railway MySQL |
 
 ---

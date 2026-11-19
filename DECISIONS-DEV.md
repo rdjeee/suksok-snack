@@ -12,7 +12,7 @@
 > **From**: Agent B | **To**: Agent A
 > **Priority**: HIGH — mohon dibaca & di-acknowledge di `specs/SPECS-UPDATE-NOTIFICATION.md`
 
-### ⚠️ Workspace Moring Suksok saat ini menggunakan SQLite (sementara)
+### ⚠️ Workspace Suksok Snack saat ini menggunakan SQLite (sementara)
 
 **Konteks**: Sandbox Z.ai tempat Agent B beroperasi **tidak memiliki MySQL server** (verifikasi Step 3-4, 2026-10-29). Tidak ada `mysql`/`mysqld` command, port 3306 tidak listen, Docker tidak tersedia untuk `docker-compose up db`.
 
@@ -22,8 +22,8 @@
 1. **Spec `specs/05-data-model.md` TIDAK berubah** — tetap MySQL 8.4.3 dengan charset `utf8mb4_unicode_ci` sebagai target production.
 2. **`specs/decisions/ADR-001-tech-stack.md` TIDAK berubah** — MySQL via Laragon tetap pilihan untuk mesin dev user & production.
 3. **Code `backend/` DB-agnostic** — SQLAlchemy models ditulis sekali, works untuk MySQL & SQLite. Hanya beda 1 line `DATABASE_URL` di `.env`.
-4. **`backend/.env` sandbox**: `DATABASE_URL=sqlite:///./moring_suksok_sandbox.db` (aktif sekarang)
-5. **`backend/.env` production (mesin lokal user)**: `DATABASE_URL=mysql+pymysql://root:@localhost:3306/moring_suksok` (commented, tinggal uncomment saat di mesin user)
+4. **`backend/.env` sandbox**: `DATABASE_URL=sqlite:///./suksok_snack_sandbox.db` (aktif sekarang)
+5. **`backend/.env` production (mesin lokal user)**: `DATABASE_URL=mysql+pymysql://root:@localhost:3306/suksok_snack` (commented, tinggal uncomment saat di mesin user)
 6. **Alembic migration** akan dibuat untuk MySQL (production target). Untuk sandbox demo, bisa pakai `Base.metadata.create_all()` atau migration terpisah jika ada SQLite-specific DDL.
 
 **Mohon Agent A**:
@@ -116,8 +116,8 @@ Jika Agent B menemukan spec yang ambigu, tidak feasible, atau konflik, gunakan f
 **Issue**: Sandbox Z.ai tidak memiliki MySQL server running (tidak ada `mysql`/`mysqld` command, port 3306 tidak listen, Docker tidak tersedia untuk `docker-compose up` MySQL). Namun, MySQL/MariaDB **client libraries** terinstall via apt (`default-libmysqlclient-dev`, `libmariadb-dev`, `libmariadb3`), dan PyMySQL (pure-Python driver) sudah terinstall di venv.
 
 **Suggested Change**: Gunakan **SQLite sebagai fallback DB untuk sandbox demo** via SQLAlchemy's DB-agnostic design:
-1. `backend/.env` di sandbox: `DATABASE_URL=sqlite:///./moring_suksok_sandbox.db` (untuk demo)
-2. `backend/.env` di mesin lokal user: `DATABASE_URL=mysql+pymysql://root:@localhost:3306/moring_suksok` (production, sesuai spec)
+1. `backend/.env` di sandbox: `DATABASE_URL=sqlite:///./suksok_snack_sandbox.db` (untuk demo)
+2. `backend/.env` di mesin lokal user: `DATABASE_URL=mysql+pymysql://root:@localhost:3306/suksok_snack` (production, sesuai spec)
 3. SQLAlchemy models ditulis sekali (DB-agnostic), works untuk both MySQL & SQLite
 4. Alembic migration dibuat untuk MySQL (production target); untuk sandbox, pakai `Base.metadata.create_all()` atau migration terpisah jika ada SQLite-specific DDL
 
@@ -144,7 +144,7 @@ Jika Agent B menemukan spec yang ambigu, tidak feasible, atau konflik, gunakan f
 - Action taken: (TBD)
 
 **Eksekusi Agent B** (2026-10-29 22:41 Asia/Jakarta):
-- ✅ `backend/.env` sudah di-switch ke `DATABASE_URL=sqlite:///./moring_suksok_sandbox.db`
+- ✅ `backend/.env` sudah di-switch ke `DATABASE_URL=sqlite:///./suksok_snack_sandbox.db`
 - ✅ MySQL connection string tetap ada sebagai commented fallback (tinggal uncomment di mesin user)
 - ✅ Smoke test SQLAlchemy + SQLite PASSED (SQLite 3.53.1, DB file 0-byte created)
 - ✅ `*.db` ter-gitignore (tidak akan masuk GitHub repo)
@@ -162,7 +162,7 @@ Jika Agent B menemukan spec yang ambigu, tidak feasible, atau konflik, gunakan f
 
 **Aksi yang dilakukan**:
 1. **Backup Z.ai essentials** ke `/tmp/zai-keep/`: `.zscripts/`, `Caddyfile`, `bun.lock`, `package.json`, `next.config.ts`, `tailwind.config.ts`, `postcss.config.mjs`, `tsconfig.json`, `eslint.config.mjs`, `components.json`, `src/` (48 shadcn/ui components + app + hooks + lib), `public/`, `upload/`, `examples/`.
-2. **Replace `.git`**: Hapus `.git` lama (Z.ai default history: "Initial commit" + UUID), copy `.git` dari clone GitHub repo `rdjeee/moring-suksok`. Sekarang workspace git history = 8 commits GitHub repo, remote `origin` = `https://github.com/rdjeee/moring-suksok.git`.
+2. **Replace `.git`**: Hapus `.git` lama (Z.ai default history: "Initial commit" + UUID), copy `.git` dari clone GitHub repo `rdjeee/suksok-snack`. Sekarang workspace git history = 8 commits GitHub repo, remote `origin` = `https://github.com/rdjeee/suksok-snack.git`.
 3. **Copy file GitHub repo** ke working tree: `specs/`, `backend/`, `docs/`, `README.md`, `OWNERSHIP.md`, `PROGRESS.md`, `DECISIONS-DEV.md`, `MIGRATION-NOTES.md`, `KNOWN-ISSUES.md`, `Makefile`, `docker-compose.yml`, `.env.example`, `.env.local.example`, `.gitignore`, `.gitattributes`.
 4. **Step 2 — Hapus default Z.ai yang tidak sesuai specs** (per NOTIF-002 & assignment Agent A):
    - `rm -rf prisma/` (schema.prisma) ✅
@@ -172,7 +172,7 @@ Jika Agent B menemukan spec yang ambigu, tidak feasible, atau konflik, gunakan f
    - `src/app/api/auth/` — tidak ada, skip ✅
    - `schema.prisma` at root — tidak ada, skip ✅
 5. **Bersihkan `package.json`**:
-   - Rename `"name"`: `nextjs_tailwind_shadcn_ts` → `moring-suksok`
+   - Rename `"name"`: `nextjs_tailwind_shadcn_ts` → `suksok-snack`
    - Bump `"version"`: `0.2.1` → `1.0.0`
    - Hapus 4 prisma scripts (`db:push`, `db:generate`, `db:migrate`, `db:reset`)
    - Tambah script `type-check` (`tsc --noEmit`)
@@ -180,7 +180,7 @@ Jika Agent B menemukan spec yang ambigu, tidak feasible, atau konflik, gunakan f
 6. **Update `.gitignore`**: Tambah section "Z.ai Sandbox Infrastructure" untuk exclude file-file sandbox yang tidak boleh masuk GitHub repo: `.zscripts/`, `.z-ai-config/`, `Caddyfile`, `next-env.d.ts`, `/examples/`, `/mini-services/`, `/tests/`, `/download/`.
 
 **Hasil verifikasi**:
-- ✅ `git remote -v` → `origin https://github.com/rdjeee/moring-suksok.git`
+- ✅ `git remote -v` → `origin https://github.com/rdjeee/suksok-snack.git`
 - ✅ `git log --oneline -5` → 8 commits GitHub (d8b7223 HEAD)
 - ✅ `git status` → clean: 1 modified (.gitignore) + 10 untracked (Z.ai Next.js essentials: src/, public/, configs, bun.lock)
 - ✅ `specs/` ada (12 files termasuk SPECS-UPDATE-NOTIFICATION.md & VERSION.txt)
@@ -199,7 +199,7 @@ Jika Agent B menemukan spec yang ambigu, tidak feasible, atau konflik, gunakan f
 **Keputusan**: Pertahankan semua 48 shadcn/ui components dari Z.ai default. Sesuai dengan instruksi sistem: "Use existing shadcn/ui components instead of building from scratch."
 
 **Implikasi**: 
-- Components siap pakai untuk build UI Moring Suksok
+- Components siap pakai untuk build UI Suksok Snack
 - Theme/palette perlu di-custom ke Moring green (`#2D6A4F` primary, dll) sesuai `specs/04-ui-guidelines.md` — akan dilakukan di tahap styling.
 
 ---
@@ -286,7 +286,7 @@ Workspace sudah terhubung ke remote `origin` (GitHub repo), tapi belum push comm
 5. **Setup .env**: `cp .env.example .env`, lalu:
    - Generate JWT_SECRET via `python -c "import secrets; print(secrets.token_urlsafe(48))"` → 64 chars (min 32 ✅)
    - Replace placeholder `JWT_SECRET=change-this-to-random-min-32-characters-string` dengan generated value
-   - DATABASE_URL tetap `mysql+pymysql://root:@localhost:3306/moring_suksok` (production target)
+   - DATABASE_URL tetap `mysql+pymysql://root:@localhost:3306/suksok_snack` (production target)
    - Cloudinary & Firebase: tetap placeholder (butuh creds asli dari user)
    - Semua other defaults: dipertahankan (CORS, APP_*, BUSINESS_*, RATE_LIMIT_*, LOG_*)
 6. **Verify .env**: 24 variables ter-parse dengan benar via simulasi pydantic-settings
@@ -346,7 +346,7 @@ Workspace sudah terhubung ke remote `origin` (GitHub repo), tapi belum push comm
 8. **Run migration**: `alembic upgrade head` → 9 tabel ter-create di SQLite sandbox. Verified: 9 user tables + 1 alembic_version bookkeeping table, 6 indexes (no collisions), 6 foreign keys.
 
 9. **Tulis seed script**: `backend/seed.py` — idempotent (safe to run multiple times). Inserts:
-   - 1 admin (admin@moring-suksok.com / admin123, bcrypt hash `$2b$12$...`)
+   - 1 admin (admin@suksok-snack.com / admin123, bcrypt hash `$2b$12$...`)
    - 6 settings (owner_qris_static, owner_dana_number, owner_whatsapp, business_name, business_address, shipping_cost_flat)
    - 3 produk (Original Rp15K, Pedas Rp17K, Keju Rp18K)
    - 7 varian (3+2+2, dengan stock)
@@ -374,12 +374,12 @@ Workspace sudah terhubung ke remote `origin` (GitHub repo), tapi belum push comm
 **Untuk production (mesin lokal user dengan Laragon)**:
 ```bash
 # 1. Edit backend/.env: comment SQLite line, uncomment MySQL line:
-#    DATABASE_URL=mysql+pymysql://root:@localhost:3306/moring_suksok
-# 2. Pastikan DB "moring_suksok" sudah dibuat di phpMyAdmin (utf8mb4_unicode_ci)
+#    DATABASE_URL=mysql+pymysql://root:@localhost:3306/suksok_snack
+# 2. Pastikan DB "suksok_snack" sudah dibuat di phpMyAdmin (utf8mb4_unicode_ci)
 cd backend && source venv/bin/activate
 alembic upgrade head    # creates 9 tables in MySQL
 python seed.py          # inserts admin + settings + products
-# 3. Verify di phpMyAdmin: http://localhost/phpmyadmin → moring_suksok → 9 tabel
+# 3. Verify di phpMyAdmin: http://localhost/phpmyadmin → suksok_snack → 9 tabel
 ```
 
 ---
@@ -425,7 +425,7 @@ migrate:
 - **Verification**: 
   ```bash
   $ make help
-  🌿 Moring Suksok — Development Commands
+  🌿 Suksok Snack — Development Commands
   =============================================
   Usage: make <target>
   Targets:
@@ -474,7 +474,7 @@ migrate:
    - Load via `next/font/google` dengan display=swap, weights 400-800 (Plus Jakarta) + 400-600 (JetBrains)
 
 5. **Update metadata** (sesuai spec branding):
-   - Title: "Moring Suksok — Snack Sehat dari Alam 🌿"
+   - Title: "Suksok Snack — Snack Sehat dari Alam 🌿"
    - Description, keywords, openGraph, twitter card sesuai brand
    - `themeColor: "#2D6A4F"` di viewport (PWA)
    - `lang="id"` (Bahasa Indonesia)
@@ -492,7 +492,7 @@ migrate:
    - `formatIDR()` helper untuk format Rupiah (spec §3.3): `75000` → `"Rp 75.000"`
 
 8. **Landing page** (`src/app/page.tsx`) — sesuai spec §6.1:
-   - **Header**: logo (leaf icon + "Moring Suksok"), nav (Beranda/Produk/Tentang/Kontak), cart icon + badge, user icon, Masuk button
+   - **Header**: logo (leaf icon + "Suksok Snack"), nav (Beranda/Produk/Tentang/Kontak), cart icon + badge, user icon, Masuk button
    - **Hero section**: badge "Camilan Cimol Kering (Moring)", h1 "Cimol Kering Moring Renyah & Bergizi", CTA buttons (Belanja Sekarang, Pelajari Lebih), trust badges (100% Natural, Gratis Ongkir, Rating 4.9), gradient background from-moring-green-pale
    - **Features strip**: 4 features (Natural, Bergizi, Cepat Sampai, Terpercaya) dengan icons
    - **Products section**: grid 2 cols mobile / 3-4 cols desktop, 3 product cards (Original, Pedas, Keju) dengan harga formatIDR, variants badge, "Tambah" button (interaktif: click → "Ditambahkan ✓")
@@ -508,7 +508,7 @@ migrate:
    - Result: **lint 0 errors, 0 warnings** ✅
 
 **Hasil verifikasi** (via agent-browser + VLM):
-- ✅ Page title: "Moring Suksok — Snack Sehat dari Alam 🌿"
+- ✅ Page title: "Suksok Snack — Snack Sehat dari Alam 🌿"
 - ✅ Moring green theme aktif: Masuk button = `rgb(44, 109, 79)` (#2D6A4F), Tambah buttons = green, Footer = `rgb(24, 67, 47)` (#184330 ≈ moring-green-dark)
 - ✅ VLM verify 7/7 checks: header green button ✅, hero gradient ✅, Belanja CTA green ✅, 3 product cards with green Tambah ✅, dark green footer ✅, green leaf logo ✅, Rupiah prices ✅
 - ✅ Interactivity: click "Tambah" → button changes to "Ditambahkan ✓" (disabled state)
@@ -551,7 +551,7 @@ migrate:
 4. **ESLint**: 0 errors, 0 warnings ✅
 
 **Hasil verifikasi** (via agent-browser):
-- ✅ Page title: "Moring Suksok — Snack Sehat dari Alam 🌿"
+- ✅ Page title: "Suksok Snack — Snack Sehat dari Alam 🌿"
 - ✅ 5 produk render (Moring Original, Pedas, Keju, Balado, Jagung) — fallback data
 - ✅ Console: `"Backend /products belum tersedia, pakai fallback data: Network Error"` — axios interceptor catch error dengan graceful fallback
 - ✅ Tidak ada uncaught errors
@@ -595,18 +595,18 @@ Exports:
    - HTTP 200, ~25ms response
 
 3. **End-to-end test** (via agent-browser):
-   - Open `http://localhost:3000` → page renders with title "Moring Suksok — Snack Sehat dari Alam 🌿"
+   - Open `http://localhost:3000` → page renders with title "Suksok Snack — Snack Sehat dari Alam 🌿"
    - Console: `"Backend /products belum tersedia, pakai fallback data: Not Found"`
    - **KEY FINDING**: Error changed from "Network Error" (backend down, Step 7) → "Not Found" (backend up, 404). This PROVES axios client successfully reaches backend FastAPI through the stack!
    - 5 products render (fallback data): Moring Original, Pedas, Keju, Balado, Jagung
    - Footer green: `rgb(24, 67, 47)` = Moring green dark ✅
 
 4. **Comprehensive verification** (Step 9):
-   - ✅ Git: workspace = GitHub repo `rdjeee/moring-suksok`, branch main, 0 uncommitted changes
+   - ✅ Git: workspace = GitHub repo `rdjeee/suksok-snack`, branch main, 0 uncommitted changes
    - ✅ Project structure: specs/ (12 files), backend/app/ (20 Python files), backend/alembic/ (migration), src/ (48 shadcn/ui + app + lib + hooks), public/ (manifest + icon)
    - ✅ Lint: 0 errors, 0 warnings
    - ✅ DB: 9 tables (admins=1, customers=0, products=3, product_variants=7, orders=0, order_items=0, payments=0, notifications=0, settings=6)
-   - ✅ Admin login: admin@moring-suksok.com / admin123
+   - ✅ Admin login: admin@suksok-snack.com / admin123
    - ✅ Products: Original Rp15K, Pedas Rp17K, Keju Rp18K
 
 **End-to-end stack verified**:
@@ -683,4 +683,20 @@ Frontend (Next.js :3000) → Axios + JWT interceptor → Caddy gateway (XTransfo
 
 ---
 
-**Last Updated**: 2026-10-30 01:05 (Asia/Jakarta) — Agent B: Minggu 2 Auth Module backend complete (7 endpoints + ISSUE-002/003 fixed)
+### [DEV-DECISION-009] — 2026-11-19 — NOTIF-011: Complete brand rename Moring Suksok → Suksok Snack
+
+**Konteks**: Agent A reported 73 files masih punya old brand name. Previous sed only touched backend/ + src/.
+
+**Aksi**:
+- Run 6 sed patterns (Moring Suksok, moring-suksok, MoringSuksok, Moring_Suksok, moring_suksok, moringsuksok)
+- 452 occurrences → 0 remaining ✅
+- Deleted MoringSuksok/ folder
+- Recreated backend/.env dengan suksok_snack DB name
+- Re-seed: admin@suksok-snack.com, 5 produk, 11 varian
+- Updated docker-compose.yml, package.json, .env.example, semua specs/, README, dll
+
+**Verified**: API title "Suksok Snack API", admin login ✅, lint 0 errors, 0 old brand patterns remaining.
+
+---
+
+**Last Updated**: 2026-11-19 05:00 (Asia/Jakarta) — Agent B: complete brand rename (NOTIF-011, 6 patterns, 0 remaining)

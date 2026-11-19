@@ -7,7 +7,7 @@
 
 ## Context
 
-Sistem perlu modul pembayaran untuk customer Moring Suksok. Owner Moring Suksok adalah UMKM kecil dengan budget terbatas. Owner sudah memiliki QRIS statis (terhubung ke DANA) yang aktif dan dipakai untuk transaksi via WhatsApp saat ini.
+Sistem perlu modul pembayaran untuk customer Suksok Snack. Owner Suksok Snack adalah UMKM kecil dengan budget terbatas. Owner sudah memiliki QRIS statis (terhubung ke DANA) yang aktif dan dipakai untuk transaksi via WhatsApp saat ini.
 
 Pertanyaan: Apakah sistem harus mengintegrasikan payment gateway berbayar (Midtrans/Xendit/Faspay) atau cukup gunakan QRIS self-generated (tanpa gateway)?
 
@@ -27,7 +27,7 @@ Pertanyaan: Apakah sistem harus mengintegrasikan payment gateway berbayar (Midtr
 - Credit Card: 2.9% + Rp 2.000 per transaksi
 - Settlement: H+1 (QRIS, VA BCA) atau H+2 (VA lain, credit card)
 
-**Contoh perhitungan untuk Moring Suksok (50 order/bulan, avg Rp 75.000)**:
+**Contoh perhitungan untuk Suksok Snack (50 order/bulan, avg Rp 75.000)**:
 - 0.7% × 50 × 75.000 = Rp 26.250/bulan
 - Rp 315.000/tahun
 
@@ -96,7 +96,7 @@ Pilih **Option B: QRIS Self-Generated**.
 
 ## Rationale
 
-1. **UMKM budget constraint**: Owner Moring Suksok adalah UMKM kecil. Fee Rp 315rb/tahun mungkin terasa kecil untuk bisnis besar, tapi untuk UMKM yang transaksinya <50/bulan, setiap rupiah dihitung. Apalagi fee ini ongoing selama sistem dipakai.
+1. **UMKM budget constraint**: Owner Suksok Snack adalah UMKM kecil. Fee Rp 315rb/tahun mungkin terasa kecil untuk bisnis besar, tapi untuk UMKM yang transaksinya <50/bulan, setiap rupiah dihitung. Apalagi fee ini ongoing selama sistem dipakai.
 
 2. **Cash flow real-time critical**: Owner sering butuh uang langsung dipakai (beli bahan baku cimol kering, dll). Settlement H+1 dari Midtrans akan menghambat operasional. Dengan QRIS self-generated, uang langsung masuk DANA owner dan bisa dipakai hari yang sama.
 

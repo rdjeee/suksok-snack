@@ -1,5 +1,5 @@
 # =============================================================================
-# Moring Suksok — Backend Python Dependencies
+# Suksok Snack — Backend Python Dependencies
 # =============================================================================
 # Install via: pip install -r requirements.txt
 # Atau via Makefile: make setup-backend

@@ -135,7 +135,7 @@ Pilih **Option B: Decoupled Architecture (Next.js + Python FastAPI)**.
 
 | Risk | Mitigation |
 |---|---|
-| CORS error | Setup `fastapi-cors` middleware sejak Minggu 1; allow origin `localhost:3000` (dev), `*.vercel.app` (staging), `moringsuksok.id` (prod) |
+| CORS error | Setup `fastapi-cors` middleware sejak Minggu 1; allow origin `localhost:3000` (dev), `*.vercel.app` (staging), `suksoksnack.id` (prod) |
 | Type sync manual | Buat shared types di `frontend/src/types/api.ts` (manual sync dari Pydantic schemas); atau gunakan OpenAPI generator (future improvement) |
 | 2 deployment | Setup GitHub Actions untuk auto-deploy frontend ke Vercel dan backend ke Railway (CI/CD) |
 | 2 servers di dev | Buat `dev.sh` script yang menjalankan `npm run dev` (frontend) + `uvicorn` (backend) paralel; atau pakai `concurrently` package |
@@ -191,9 +191,9 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:3000",                    # dev
-        "https://moring-suksok-staging.vercel.app",  # staging
-        "https://moringsuksok.vercel.app",           # production
-        "https://moringsuksok.id",                  # custom domain (future)
+        "https://suksok-snack-staging.vercel.app",  # staging
+        "https://suksoksnack.vercel.app",           # production
+        "https://suksoksnack.id",                  # custom domain (future)
     ],
     allow_credentials=True,
     allow_methods=["*"],
@@ -205,8 +205,8 @@ app.add_middleware(
 
 | Component | Platform | URL | Cost |
 |---|---|---|---|
-| Frontend | Vercel | `moringsuksok.vercel.app` | Free (Hobby plan) |
-| Backend | Railway | `api.moringsuksok.railway.app` | Free (with sleep) atau $5/mo |
+| Frontend | Vercel | `suksoksnack.vercel.app` | Free (Hobby plan) |
+| Backend | Railway | `api.suksoksnack.railway.app` | Free (with sleep) atau $5/mo |
 | Database | Railway MySQL | internal Railway network | Free 5GB |
 | Image storage | Cloudinary | `res.cloudinary.com/moring` | Free 25 credits/month |
 | Push notif | Firebase FCM | - | Free unlimited |

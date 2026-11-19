@@ -353,7 +353,7 @@ INSERT INTO settings (key_name, value, description) VALUES
 ('owner_qris_static', '', 'QRIS statis owner (raw string payload)'),
 ('owner_dana_number', '', 'Nomor DANA owner'),
 ('owner_whatsapp', '', 'Nomor WhatsApp owner untuk notifikasi'),
-('business_name', 'Moring Suksok', 'Nama bisnis'),
+('business_name', 'Suksok Snack', 'Nama bisnis'),
 ('business_address', '', 'Alamat bisnis'),
 ('shipping_cost_flat', '10000', 'Ongkir default (flat) dalam Rupiah');
 ```
@@ -399,9 +399,9 @@ Setelah schema ter-create via Alembic migration, jalankan seed script (`backend/
 
 ### 6.1 Admin Default
 ```python
-# Email: admin@moring-suksok.com
+# Email: admin@suksok-snack.com
 # Password: admin123 (CHANGE THIS IMMEDIATELY!)
-# Name: Owner Moring Suksok
+# Name: Owner Suksok Snack
 # Phone: 0812-xxxx-xxxx
 ```
 
@@ -411,7 +411,7 @@ settings_data = {
     'owner_qris_static': '',  # Owner input via admin settings page
     'owner_dana_number': '',
     'owner_whatsapp': '62812xxxxxxx',
-    'business_name': 'Moring Suksok',
+    'business_name': 'Suksok Snack',
     'business_address': 'Jl. [Alamat Owner], [Kota]',
     'shipping_cost_flat': '10000',
 }
@@ -524,7 +524,7 @@ cd backend
 alembic init alembic
 
 # Edit alembic.ini:
-# sqlalchemy.url = mysql+pymysql://root:@localhost:3306/moring_suksok
+# sqlalchemy.url = mysql+pymysql://root:@localhost:3306/suksok_snack
 
 # Edit alembic/env.py: import all models to enable autogenerate
 

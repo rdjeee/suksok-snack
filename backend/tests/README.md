@@ -57,7 +57,7 @@ Sesuai `specs/03-features.json`:
 
 ## Test Database
 
-Integration tests menggunakan database terpisah (`moring_suksok_test`) yang auto-create & teardown per test session. Lihat `conftest.py` untuk setup.
+Integration tests menggunakan database terpisah (`suksok_snack_test`) yang auto-create & teardown per test session. Lihat `conftest.py` untuk setup.
 
 ## Mocking External Services
 

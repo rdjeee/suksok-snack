@@ -1,5 +1,5 @@
 # DOKUMEN PERENCANAAN PROYEK (PROJECT PLANNING DOCUMENT)
-## Sistem Distribusi & Pencatatan Transaksi Produk Moring Suksok
+## Sistem Distribusi & Pencatatan Transaksi Produk Suksok Snack
 
 > **Dokumen Tahap 1: Perencanaan** dari 3 tahap proyek (Perencanaan → Development → Deployment)
 > Versi: 1.0 | Status: Final | Tanggal: 2026-10-29
@@ -30,7 +30,7 @@
 
 ### 1.1 Ringkasan Proyek
 
-Proyek ini merupakan pembangunan **sistem distribusi produk berbasis mini e-commerce** untuk UMKM **Moring Suksok**, sebuah bisnis olahan daun kelor (snack/kripik moring) yang saat ini masih melakukan transaksi melalui WhatsApp dan pencatatan manual menggunakan nota. Sistem yang dibangun bertujuan untuk **menggantikan proses pemesanan via WhatsApp** dengan aplikasi terstruktur, serta **menggantikan nota manual** dengan pencatatan transaksi digital otomatis yang dapat berfungsi sebagai pembukuan akuntan.
+Proyek ini merupakan pembangunan **sistem distribusi produk berbasis mini e-commerce** untuk UMKM **Suksok Snack**, sebuah bisnis olahan daun kelor (snack/kripik moring) yang saat ini masih melakukan transaksi melalui WhatsApp dan pencatatan manual menggunakan nota. Sistem yang dibangun bertujuan untuk **menggantikan proses pemesanan via WhatsApp** dengan aplikasi terstruktur, serta **menggantikan nota manual** dengan pencatatan transaksi digital otomatis yang dapat berfungsi sebagai pembukuan akuntan.
 
 Sistem dibangun dengan arsitektur **decoupled (terpisah)**: Frontend menggunakan Next.js PWA yang dapat diinstall di perangkat Android (Add to Home Screen) dan berjalan di web browser, sedangkan Backend menggunakan Python FastAPI dengan database MySQL yang dikelola melalui phpMyAdmin. Pendekatan ini dipilih untuk memberikan separation of concerns yang jelas, memudahkan skalabilitas, serta memanfaatkan ekosistem Python yang kuat untuk pengembangan API modern.
 
@@ -40,7 +40,7 @@ Sistem akan memiliki fitur-fitur kunci sebagai berikut: (1) registrasi akun waji
 
 ### 1.3 Nilai Akademik & Praktis
 
-Sebagai Tugas Akhir, proyek ini mendemonstrasikan: (a) implementasi standar EMVCo QRIS dengan modifikasi payload untuk embed transaction amount; (b) arsitektur decoupled modern dengan REST API dan JWT authentication; (c) Progressive Web App dengan service worker dan push notification; (d) integrasi Firebase Cloud Messaging untuk notifikasi server-to-client; dan (e) analisis trade-off teknis-vs-biaya pada pemilihan QRIS self-generated dibanding payment gateway berbayar. Output proyek ini tidak hanya bernilai akademik, tetapi juga dapat langsung digunakan oleh owner Moring Suksok untuk produksi nyata setelah lulus.
+Sebagai Tugas Akhir, proyek ini mendemonstrasikan: (a) implementasi standar EMVCo QRIS dengan modifikasi payload untuk embed transaction amount; (b) arsitektur decoupled modern dengan REST API dan JWT authentication; (c) Progressive Web App dengan service worker dan push notification; (d) integrasi Firebase Cloud Messaging untuk notifikasi server-to-client; dan (e) analisis trade-off teknis-vs-biaya pada pemilihan QRIS self-generated dibanding payment gateway berbayar. Output proyek ini tidak hanya bernilai akademik, tetapi juga dapat langsung digunakan oleh owner Suksok Snack untuk produksi nyata setelah lulus.
 
 ---
 
@@ -48,13 +48,13 @@ Sebagai Tugas Akhir, proyek ini mendemonstrasikan: (a) implementasi standar EMVC
 
 ### 2.1 Profil Mitra
 
-Moring Suksok adalah UMKM yang bergerak di bidang pengolahan produk berbahan dasar daun kelor (moringa), dengan produk utama berupa snack/kripik moring yang memiliki beberapa varian rasa. Usaha ini dimiliki oleh seorang pengusia berusia 40 tahun, dan memiliki dua jenis customer yaitu Customer Ritel (toko/agen yang membeli untuk dijual ulang) dan Customer Masyarakat (konsumen akhir yang membeli untuk konsumsi pribadi).
+Suksok Snack adalah UMKM yang bergerak di bidang pengolahan produk berbahan dasar daun kelor (moringa), dengan produk utama berupa snack/kripik moring yang memiliki beberapa varian rasa. Usaha ini dimiliki oleh seorang pengusia berusia 40 tahun, dan memiliki dua jenis customer yaitu Customer Ritel (toko/agen yang membeli untuk dijual ulang) dan Customer Masyarakat (konsumen akhir yang membeli untuk konsumsi pribadi).
 
 Saat ini, proses penjualan masih dilakukan secara konvensional: customer menghubungi owner melalui WhatsApp untuk memesan produk, lalu owner mencatat transaksi pada nota manual sebagai bukti pembelian dan pembukuan akuntan. Pendekatan ini telah berjalan cukup lama, namun seiring bertambahnya jumlah customer dan kompleksitas transaksi, muncul berbagai kendala operasional yang perlu diatasi.
 
 ### 2.2 Identifikasi Masalah
 
-Berdasarkan analisis kondisi existing Moring Suksok, ditemukan beberapa permasalahan utama yang menjadi pain point baik bagi owner maupun customer. Permasalahan-permasalahan ini menjadi dasar urgensi dibangunnya sistem distribusi dan pencatatan transaksi digital.
+Berdasarkan analisis kondisi existing Suksok Snack, ditemukan beberapa permasalahan utama yang menjadi pain point baik bagi owner maupun customer. Permasalahan-permasalahan ini menjadi dasar urgensi dibangunnya sistem distribusi dan pencatatan transaksi digital.
 
 **Masalah 1: Pencatatan Transaksi Manual yang Tidak Terstruktur**
 Owner mencatat setiap transaksi pada nota manual, baik yang dijual ke customer Ritel maupun Masyarakat. Pencatatan ini rentan terhadap human error (salah catat jumlah, varian, atau harga), sulit dilakukan rekapitulasi bulanan, dan tidak ada backup digital jika nota hilang atau rusak. Untuk keperluan pembukuan akuntan, owner harus memilah-milah nota satu per satu yang memakan waktu berjam-jam setiap akhir bulan.
@@ -73,9 +73,9 @@ Saat customer membayar via transfer ke DANA owner atau scan QRIS statis, owner h
 
 ### 2.3 Urgensi & Justifikasi Proyek
 
-Permasalahan-permasalahan di atas menghambat pertumbuhan Moring Suksok sebagai UMKM. Tanpa sistem yang terstruktur, owner menghabiskan waktu berharga untuk tugas administratif yang seharusnya bisa diotomatisasi, alih-alih fokus pada pengembangan produk dan ekspansi pasar. Selain itu, customer experience yang buruk (sulit lihat katalog, tidak tahu status pesanan) dapat menurunkan loyalitas dan repeat order.
+Permasalahan-permasalahan di atas menghambat pertumbuhan Suksok Snack sebagai UMKM. Tanpa sistem yang terstruktur, owner menghabiskan waktu berharga untuk tugas administratif yang seharusnya bisa diotomatisasi, alih-alih fokus pada pengembangan produk dan ekspansi pasar. Selain itu, customer experience yang buruk (sulit lihat katalog, tidak tahu status pesanan) dapat menurunkan loyalitas dan repeat order.
 
-Pembangunan sistem distribusi dan pencatatan transaksi digital akan menyelesaikan kelima masalah di atas secara komprehensif: nota manual diganti dengan nota digital otomatis ter-generate, status pesanan ter-track real-time, katalog produk dapat diakses mandiri oleh customer, segmentasi customer tercatat dalam database, dan setiap pembayaran terdokumentasi dengan bukti upload. Sistem ini juga menjadi fondasi untuk ekspansi bisnis Moring Suksok di masa depan, seperti penambahan fitur loyalty program, analitik penjualan lanjutan, atau integrasi dengan marketplace.
+Pembangunan sistem distribusi dan pencatatan transaksi digital akan menyelesaikan kelima masalah di atas secara komprehensif: nota manual diganti dengan nota digital otomatis ter-generate, status pesanan ter-track real-time, katalog produk dapat diakses mandiri oleh customer, segmentasi customer tercatat dalam database, dan setiap pembayaran terdokumentasi dengan bukti upload. Sistem ini juga menjadi fondasi untuk ekspansi bisnis Suksok Snack di masa depan, seperti penambahan fitur loyalty program, analitik penjualan lanjutan, atau integrasi dengan marketplace.
 
 ---
 
@@ -83,13 +83,13 @@ Pembangunan sistem distribusi dan pencatatan transaksi digital akan menyelesaika
 
 ### 3.1 Tujuan Umum
 
-Membangun sistem distribusi produk dan pencatatan transaksi berbasis aplikasi web (PWA) yang dapat diinstall di perangkat Android dan diakses via browser, khusus untuk UMKM Moring Suksok, yang menggantikan proses pemesanan via WhatsApp dan pencatatan manual menggunakan nota.
+Membangun sistem distribusi produk dan pencatatan transaksi berbasis aplikasi web (PWA) yang dapat diinstall di perangkat Android dan diakses via browser, khusus untuk UMKM Suksok Snack, yang menggantikan proses pemesanan via WhatsApp dan pencatatan manual menggunakan nota.
 
 ### 3.2 Tujuan Khusus
 
 Sistem ini memiliki beberapa tujuan khusus yang spesifik dan terukur, yang masing-masing dirancang untuk menjawab permasalahan yang telah diidentifikasi pada bagian sebelumnya:
 
-1. **Membangun mini e-commerce untuk Moring Suksok** dengan fitur katalog produk, keranjang belanja, checkout, dan pembayaran yang dapat diakses oleh customer Ritel maupun Masyarakat melalui registrasi akun terlebih dahulu.
+1. **Membangun mini e-commerce untuk Suksok Snack** dengan fitur katalog produk, keranjang belanja, checkout, dan pembayaran yang dapat diakses oleh customer Ritel maupun Masyarakat melalui registrasi akun terlebih dahulu.
 2. **Mengimplementasikan pembayaran via QRIS dinamis** dengan nominal embedded (sesuai standar EMVCo QRIS) yang dapat di-scan menggunakan berbagai e-wallet (DANA, OVO, GoPay, SeaBank, ShopeePay, m-banking), dengan mekanisme upload bukti pembayaran dan verifikasi manual oleh owner.
 3. **Menggantikan nota manual dengan nota digital otomatis** yang ter-generate setiap checkout, lengkap dengan order ID unik, timestamp, detail items, customer info, total transaksi, dan dapat diekspor ke PDF untuk pembukuan akuntan.
 4. **Memantau distribusi produk melalui tracking status pesanan** dengan state machine yang jelas (Pending → Diproses → Dikirim → Selesai), dapat dipantau oleh customer secara real-time dan oleh owner melalui dashboard terpusat.
@@ -99,7 +99,7 @@ Sistem ini memiliki beberapa tujuan khusus yang spesifik dan terukur, yang masin
 
 ### 3.3 Manfaat Sistem
 
-**Manfaat bagi Owner Moring Suksok:**
+**Manfaat bagi Owner Suksok Snack:**
 - Menghemat waktu administratif (tidak perlu buat nota manual, tidak perlu cari status di chat WhatsApp)
 - Memiliki data terstruktur untuk pembukuan akuntan (bisa export PDF/Excel per periode)
 - Mendapat visibility terhadap distribusi produk (status setiap pesanan)
@@ -195,7 +195,7 @@ Agar proyek tetap fokus dan selesai dalam timeline 2-3 bulan, beberapa hal berik
 4. **Fitur loyalty program / point reward**
 5. **Fitur wishlist produk**
 6. **Review & rating produk oleh customer**
-7. **Multi-vendor / multi-seller** (hanya Moring Suksok)
+7. **Multi-vendor / multi-seller** (hanya Suksok Snack)
 8. **Integrasi kurir otomatis** (JNE, JNT, SiCepat API) — owner input no resi manual
 9. **Auto-calculate ongkir** (integrasi RajaOngkir/Binderbyte) — ongkir flat atau di-set manual owner
 10. **Inventory management advanced** (alert stok menipis, auto-update stok setelah order)
@@ -232,7 +232,7 @@ Batasan-batasan teknis dan operasional yang melekat pada sistem ini:
 
 | # | Stakeholder | Deskripsi | Kepentingan |
 |---|---|---|---|
-| 1 | Owner Moring Suksok (Pemilik Usaha, 40 thn) | Pemilik UMKM yang akan menggunakan sistem | Operasional harian, pembukuan, pengambilan keputusan strategis |
+| 1 | Owner Suksok Snack (Pemilik Usaha, 40 thn) | Pemilik UMKM yang akan menggunakan sistem | Operasional harian, pembukuan, pengambilan keputusan strategis |
 | 2 | Customer Ritel | Toko/agen yang membeli produk untuk dijual ulang | Pemesanan grosir, riwayat pembelian, kemudahan repeat order |
 | 3 | Customer Masyarakat | Konsumen akhir yang membeli untuk konsumsi pribadi | Pemesanan eceran, tracking pesanan, notifikasi status |
 | 4 | Mahasiswa (Anda) | Pengembang sistem sekaligus pemilik Tugas Akhir | Penyelesaian TA dengan implementasi teknis yang dapat dipertanggungjawabkan |
@@ -244,7 +244,7 @@ Batasan-batasan teknis dan operasional yang melekat pada sistem ini:
 
 Sistem memiliki **3 jenis pengguna** dengan kewenangan berbeda:
 
-#### Role 1: ADMIN (Owner Moring Suksok)
+#### Role 1: ADMIN (Owner Suksok Snack)
 
 Admin adalah role dengan akses tertinggi yang dimiliki oleh owner. Admin memiliki kewenangan penuh terhadap seluruh operasional sistem.
 
@@ -485,7 +485,7 @@ Database menggunakan MySQL 8.4.3 yang sudah terinstall via Laragon. Akses ke dat
 - Port: 3306
 - User: root
 - Password: (kosong untuk default Laragon)
-- Database: moring_suksok
+- Database: suksok_snack
 - Charset: utf8mb4_unicode_ci (support emoji & karakter Indonesia)
 
 ### 6.4 Alur Komunikasi (Request Flow)
@@ -829,7 +829,7 @@ INSERT INTO settings (key_name, value, description) VALUES
 ('owner_qris_static', '', 'QRIS statis owner (raw string payload)'),
 ('owner_dana_number', '', 'Nomor DANA owner'),
 ('owner_whatsapp', '', 'Nomor WhatsApp owner untuk notifikasi'),
-('business_name', 'Moring Suksok', 'Nama bisnis'),
+('business_name', 'Suksok Snack', 'Nama bisnis'),
 ('business_address', '', 'Alamat bisnis'),
 ('shipping_cost_flat', '10000', 'Ongkir default (flat)');
 ```
@@ -905,7 +905,7 @@ Flow berikut menggambarkan perjalanan customer dari pertama kali membuka aplikas
         │
         ├─ Simpan token di localStorage
         ├─ Redirect ke halaman katalog
-        └─ Tampilkan toast: "Selamat datang di Moring Suksok!"
+        └─ Tampilkan toast: "Selamat datang di Suksok Snack!"
 ```
 
 #### Flow 8.1.2: Login Customer
@@ -1046,7 +1046,7 @@ Flow berikut menggambarkan perjalanan customer dari pertama kali membuka aplikas
         ├─ Tampilkan status real-time
         ├─ Tombol: "📢 Notifikasi Owner via WhatsApp"
         │   ├─ Generate wa.me link dengan pesan otomatis:
-        │   │   "Halo Owner Moring Suksok! Saya baru checkout pesanan
+        │   │   "Halo Owner Suksok Snack! Saya baru checkout pesanan
         │   │    ORD-XXX sebesar Rp YYY. Mohon segera diverifikasi."
         │   └─ Buka tab baru → wa.me → customer klik Send
         │
@@ -1093,7 +1093,7 @@ Flow berikut menggambarkan perjalanan customer dari pertama kali membuka aplikas
         ▼
 [Halaman Login Admin]
         │
-        ├─ Email + Password (default: admin@moring-suksok.com)
+        ├─ Email + Password (default: admin@suksok-snack.com)
         │
         ▼
 [Submit] ──► POST /api/v1/auth/admin/login
@@ -1339,7 +1339,7 @@ Flow berikut menggambarkan perjalanan customer dari pertama kali membuka aplikas
 | 2 | Owner konfirmasi pembayaran lunas | Customer | Push (FCM) | "Pembayaran terverifikasi! Pesanan {order_code} sedang diproses. Terima kasih 🌿" |
 | 3 | Owner tolak pembayaran | Customer | Push (FCM) | "Maaf, pembayaran untuk pesanan {order_code} ditolak. Alasan: {reason}. Silakan hubungi owner." |
 | 4 | Owner update status dikirim | Customer | Push (FCM) | "Pesanan {order_code} telah dikirim. No resi: {tracking_number}" |
-| 5 | Owner update status selesai | Customer | Push (FCM) | "Pesanan {order_code} selesai. Terima kasih sudah berbelanja di Moring Suksok! 🌿" |
+| 5 | Owner update status selesai | Customer | Push (FCM) | "Pesanan {order_code} selesai. Terima kasih sudah berbelanja di Suksok Snack! 🌿" |
 | 6 | (Opsional) Owner klik "Kirim WA" | Customer | WhatsApp (wa.me) | Custom message dari owner (template pre-filled) |
 
 ---
@@ -1483,7 +1483,7 @@ Sistem dibagi menjadi **7 Epic** utama yang masing-masing mencakup satu domain f
 
 | Aspek | Konvensi |
 |---|---|
-| Base URL | `http://localhost:8000/api/v1` (dev) / `https://api.moringsuksok.id/api/v1` (prod) |
+| Base URL | `http://localhost:8000/api/v1` (dev) / `https://api.suksoksnack.id/api/v1` (prod) |
 | Format Request | JSON (application/json), kecuali upload file: multipart/form-data |
 | Format Response | JSON konsisten: `{ "success": bool, "message": str, "data": obj/arr, "meta": obj }` |
 | Auth | Bearer Token JWT di header: `Authorization: Bearer <token>` |
@@ -1851,7 +1851,7 @@ async def upload_payment_proof(
 ### 11.6 File Structure Proyek
 
 ```
-moring-suksok/
+suksok-snack/
 ├── frontend/                    # Next.js PWA
 │   ├── src/
 │   │   ├── app/                  # App Router pages
@@ -1922,7 +1922,7 @@ moring-suksok/
 │   └── Dockerfile
 │
 ├── docs/                        # Documentation
-│   ├── Dokumen_Perencanaan_Moring_Suksok.md  (this file)
+│   ├── Dokumen_Perencanaan_Suksok_Snack.md  (this file)
 │   ├── api-collection.json     # Postman collection
 │   └── screenshots/
 │
@@ -1958,10 +1958,10 @@ Minggu 7-8: FASE 4 — Polish, PWA, Testing, Deploy
 
 | # | Task | Output | Status Check |
 |---|---|---|---|
-| 1.1 | Setup Git repo + .gitignore + README | GitHub repo `moring-suksok` | Repo bisa di-clone |
+| 1.1 | Setup Git repo + .gitignore + README | GitHub repo `suksok-snack` | Repo bisa di-clone |
 | 1.2 | Setup Python venv + install FastAPI stack | `requirements.txt` | `uvicorn` bisa jalan di localhost:8000 |
 | 1.3 | Setup Node.js + create Next.js app | `frontend/` folder | `npm run dev` jalan di localhost:3000 |
-| 1.4 | Buat database MySQL `moring_suksok` via phpMyAdmin | Database kosong | Bisa lihat di phpMyAdmin |
+| 1.4 | Buat database MySQL `suksok_snack` via phpMyAdmin | Database kosong | Bisa lihat di phpMyAdmin |
 | 1.5 | Setup SQLAlchemy models (9 tabel) | `models/*.py` | Models terdefinisi |
 | 1.6 | Setup Alembic + initial migration | `alembic/` | `alembic upgrade head` jalan, tabel ter-create |
 | 1.7 | Buat seed script (admin, contoh produk) | `seed.py` | phpMyAdmin menampilkan data seed |
@@ -2133,8 +2133,8 @@ Minggu 7-8: FASE 4 — Polish, PWA, Testing, Deploy
 | 8.6 | End-to-end testing happy path | Test scenarios | All flow works |
 | 8.7 | Bug fixing & polishing UI | Various | No critical bugs |
 | 8.8 | Setup environment variables production | Vercel + Railway | Set in dashboards |
-| 8.9 | Deploy frontend ke Vercel | Vercel URL | https://moringsuksok.vercel.app |
-| 8.10 | Deploy backend ke Railway/Render | Railway URL | https://api.moringsuksok.railway.app |
+| 8.9 | Deploy frontend ke Vercel | Vercel URL | https://suksoksnack.vercel.app |
+| 8.10 | Deploy backend ke Railway/Render | Railway URL | https://api.suksoksnack.railway.app |
 | 8.11 | Setup MySQL production (PlanetScale) | Production DB | Migration run |
 | 8.12 | Run production migration + seed admin | Alembic + seed | Production ready |
 | 8.13 | Final testing di production | Manual test | All features work in prod |
@@ -2231,7 +2231,7 @@ Pada laporan Tugas Akhir, limitasi sistem adalah bagian penting yang menunjukkan
 
 **Alasan Teknis:** QRIS self-generated (yang menggunakan QRIS statis owner sebagai base) tidak terhubung ke payment gateway resmi (Midtrans, Xendit, Faspay) yang menyediakan webhook callback. Hanya payment gateway resmi yang memiliki akses ke notifikasi transaksi dari bank/e-wallet.
 
-**Justifikasi Pilihan:** Owner Moring Suksok sebagai UMKM kecil tidak mau membayar fee 0.7% per transaksi (sekitar Rp 26.250/bulan untuk 50 order) yang dikenakan oleh payment gateway. Sebagai trade-off, owner mengorbankan otomatisasi verifikasi pembayaran. Untuk skala Moring Suksok saat ini (<50 order/bulan), verifikasi manual masih feasible.
+**Justifikasi Pilihan:** Owner Suksok Snack sebagai UMKM kecil tidak mau membayar fee 0.7% per transaksi (sekitar Rp 26.250/bulan untuk 50 order) yang dikenakan oleh payment gateway. Sebagai trade-off, owner mengorbankan otomatisasi verifikasi pembayaran. Untuk skala Suksok Snack saat ini (<50 order/bulan), verifikasi manual masih feasible.
 
 **Mitigasi di Sistem:** Sistem menyediakan push notification otomatis ke owner saat customer upload bukti pembayaran, sehingga owner langsung tahu ada pesanan yang perlu diverifikasi. Bukti pembayaran tersimpan digital di Cloudinary sehingga owner bisa cek kapan saja.
 
@@ -2241,7 +2241,7 @@ Pada laporan Tugas Akhir, limitasi sistem adalah bagian penting yang menunjukkan
 
 **Alasan Teknis:** WhatsApp Business API (resmi) yang memungkinkan pengiriman otomatis memerlukan registrasi via provider pihak ketiga (Fonnte, Wablas, Twilio) dengan biaya per pesan (~Rp 50-100/pesan). Tidak ada API gratis dari WhatsApp/Meta untuk pengiriman otomatis kecuali via provider berbayar.
 
-**Justifikasi Pilihan:** Untuk skala Moring Suksok (~50 order/bulan), biaya WhatsApp Business API (~Rp 250rb/bulan) tidak sebanding dengan manfaat. Sebagai alternatif, deep link wa.me digunakan sebagai fallback gratis dengan konsekuensi 1 klik manual.
+**Justifikasi Pilihan:** Untuk skala Suksok Snack (~50 order/bulan), biaya WhatsApp Business API (~Rp 250rb/bulan) tidak sebanding dengan manfaat. Sebagai alternatif, deep link wa.me digunakan sebagai fallback gratis dengan konsekuensi 1 klik manual.
 
 **Mitigasi di Sistem:** Sistem mengimplementasikan Push Notification PWA (gratis via Firebase Cloud Messaging) sebagai channel notifikasi utama yang otomatis 100%. WhatsApp deep link hanya sebagai backup untuk customer yang belum install PWA atau menolak permission notifikasi.
 
@@ -2261,7 +2261,7 @@ Pada laporan Tugas Akhir, limitasi sistem adalah bagian penting yang menunjukkan
 
 **Alasan Teknis:** Apple baru mendukung Web Push API untuk PWA di iOS 16.4+ (Maret 2023). Sebelum itu, push notification PWA tidak didukung di iOS (hanya di Android & desktop).
 
-**Justifikasi Pilihan:** Karena target customer Moring Suksok mayoritas pengguna Android (UMKM lokal Indonesia), limitasi iOS dianggap minor. Selain itu, tidak ada solusi alternatif gratis selain PWA untuk push notification cross-platform.
+**Justifikasi Pilihan:** Karena target customer Suksok Snack mayoritas pengguna Android (UMKM lokal Indonesia), limitasi iOS dianggap minor. Selain itu, tidak ada solusi alternatif gratis selain PWA untuk push notification cross-platform.
 
 **Mitigasi di Sistem:** Sistem mendeteksi iOS version dan menampilkan pesan yang sesuai (recommend upgrade atau use WhatsApp fallback). Dokumentasi user mencantumkan requirement iOS 16.4+.
 
@@ -2271,7 +2271,7 @@ Pada laporan Tugas Akhir, limitasi sistem adalah bagian penting yang menunjukkan
 
 **Alasan Teknis:** Integrasi API RajaOngkir/Binderbyte memerlukan subscription berbayar (Rp 100rb-500rb/bulan tergantung plan). Selain itu, perhitungan ongkir yang akurat memerlukan input berat paket yang belum tentu owner punya data-nya.
 
-**Justifikasi Pilihan:** Untuk skala Moring Suksok lokal (1 kota), ongkir flat sudah representatif. Owner bisa update ongkir di settings sesuai kondisi. Implementasi auto-calculate akan ditambahkan di versi future jika owner ekspansi ke lintas kota.
+**Justifikasi Pilihan:** Untuk skala Suksok Snack lokal (1 kota), ongkir flat sudah representatif. Owner bisa update ongkir di settings sesuai kondisi. Implementasi auto-calculate akan ditambahkan di versi future jika owner ekspansi ke lintas kota.
 
 **Mitigasi di Sistem:** Owner bisa set ongkir flat di settings. Pada checkout, customer melihat ongkir yang sama untuk semua order. Field catatan disediakan jika customer mau nego ongkir (misal: pickup di lokasi owner).
 
@@ -2291,17 +2291,17 @@ Pada laporan Tugas Akhir, limitasi sistem adalah bagian penting yang menunjukkan
 
 **Alasan Teknis:** Implementasi auto-decrement stok memerlukan trigger atau transaction yang kompleks (terutama untuk handle cancel/refund). Untuk MVP TA, ini di-skip agar fokus ke happy path.
 
-**Justifikasi Pilihan:** Owner Moring Suksok bisa cek stok via phpMyAdmin atau dashboard. Untuk skala kecil, manual stock management masih memadai.
+**Justifikasi Pilihan:** Owner Suksok Snack bisa cek stok via phpMyAdmin atau dashboard. Untuk skala kecil, manual stock management masih memadai.
 
 **Mitigasi di Sistem:** Stok tetap tersimpan di database (untuk referensi). Field stock di form varian bisa diupdate manual oleh owner. Future improvement: implementasi auto-decrement + alert.
 
 #### Limitasi 8: Single Admin Account (Tidak Multi-User)
 
-**Deskripsi:** Sistem hanya mendukung 1 akun admin (owner Moring Suksok). Tidak ada role-based access control (RBAC) untuk multiple admin (kasir, gudang, owner).
+**Deskripsi:** Sistem hanya mendukung 1 akun admin (owner Suksok Snack). Tidak ada role-based access control (RBAC) untuk multiple admin (kasir, gudang, owner).
 
 **Alasan Teknis:** Implementasi RBAC menambah kompleksitas. Untuk skala UMKM kecil, single admin sudah cukup.
 
-**Justifikasi Pilihan:** Owner Moring Suksok mengelola sendiri semua operasional. Tidak ada staf tambahan yang butuh akses sistem.
+**Justifikasi Pilihan:** Owner Suksok Snack mengelola sendiri semua operasional. Tidak ada staf tambahan yang butuh akses sistem.
 
 **Mitigasi di Sistem:** Owner bisa share login credentials dengan staf kepercayaan jika diperlukan (dengan risiko keamanan ditanggung owner). Future improvement: multi-admin dengan role.
 
@@ -2331,7 +2331,7 @@ Limitasi-limitasi di atas dapat ditulis di Bab IV (Hasil & Pembahasan) atau Bab 
 
 > **4.X Keterbatasan Sistem (Limitations)**
 >
-> Sistem yang dibangun memiliki beberapa keterbatasan yang merupakan keputusan desain dengan justifikasi teknis dan biaya tertentu. Keterbatasan-keterbatasan ini dipilih sebagai trade-off yang disengaja untuk sesuai dengan kebutuhan dan kapasitas UMKM Moring Suksok sebagai mitra Tugas Akhir.
+> Sistem yang dibangun memiliki beberapa keterbatasan yang merupakan keputusan desain dengan justifikasi teknis dan biaya tertentu. Keterbatasan-keterbatasan ini dipilih sebagai trade-off yang disengaja untuk sesuai dengan kebutuhan dan kapasitas UMKM Suksok Snack sebagai mitra Tugas Akhir.
 >
 > 1. **Pembayaran QRIS tanpa auto-update status**: Sistem tidak menerima notifikasi otomatis dari bank/e-wallet...
 > 2. **WhatsApp notifikasi semi-otomatis**: ...
@@ -2353,8 +2353,8 @@ Sistem akan dijalankan di 3 environment berbeda sepanjang development:
 | Environment | Tujuan | Tech Stack | Database | URL |
 |---|---|---|---|---|
 | **Local Development** | Coding & testing harian | Next.js dev + FastAPI dev | MySQL via Laragon (localhost) | `localhost:3000` + `localhost:8000` |
-| **Staging** | Pre-production testing | Vercel preview + Railway preview | Railway MySQL (free) | `preview-moringsuksok.vercel.app` |
-| **Production** | Live untuk owner & customer | Vercel + Railway | PlanetScale atau Railway MySQL | `moringsuksok.vercel.app` (frontend) + `api.moringsuksok.railway.app` (backend) |
+| **Staging** | Pre-production testing | Vercel preview + Railway preview | Railway MySQL (free) | `preview-suksoksnack.vercel.app` |
+| **Production** | Live untuk owner & customer | Vercel + Railway | PlanetScale atau Railway MySQL | `suksoksnack.vercel.app` (frontend) + `api.suksoksnack.railway.app` (backend) |
 
 ### 15.3 Local Development Setup
 
@@ -2363,8 +2363,8 @@ Untuk setup environment local development (yang akan dipakai selama TA):
 **Backend (Python FastAPI):**
 ```bash
 # 1. Clone repo
-git clone https://github.com/username/moring-suksok.git
-cd moring-suksok/backend
+git clone https://github.com/username/suksok-snack.git
+cd suksok-snack/backend
 
 # 2. Setup Python venv
 python -m venv venv
@@ -2377,7 +2377,7 @@ pip install -r requirements.txt
 # 4. Setup .env file (copy dari .env.example)
 cp .env.example .env
 # Edit .env:
-#   DATABASE_URL=mysql+pymysql://root:@localhost:3306/moring_suksok
+#   DATABASE_URL=mysql+pymysql://root:@localhost:3306/suksok_snack
 #   JWT_SECRET=your-secret-key-change-this
 #   CLOUDINARY_CLOUD_NAME=xxx
 #   CLOUDINARY_API_KEY=xxx
@@ -2387,7 +2387,7 @@ cp .env.example .env
 
 # 5. Setup database MySQL via phpMyAdmin (Laragon)
 #    - Buka http://localhost/phpmyadmin
-#    - Buat database baru: moring_suksok (collation: utf8mb4_unicode_ci)
+#    - Buat database baru: suksok_snack (collation: utf8mb4_unicode_ci)
 
 # 6. Run migration
 alembic upgrade head
@@ -2429,7 +2429,7 @@ npm run dev
 **Test Setup Local Berhasil:**
 - Buka `http://localhost:3000` → Next.js landing page muncul
 - Buka `http://localhost:8000/docs` → Swagger UI muncul dengan list endpoint
-- Buka `http://localhost/phpmyadmin` → database `moring_suksok` dengan 9 tabel terlihat
+- Buka `http://localhost/phpmyadmin` → database `suksok_snack` dengan 9 tabel terlihat
 
 ### 15.4 Staging Deployment (Opsional - Pre-Production)
 
@@ -2448,7 +2448,7 @@ Staging digunakan untuk testing di lingkungan yang mirip production sebelum depl
 ```bash
 # 1. Push code ke branch staging di GitHub
 # 2. Vercel auto-deploy
-# 3. Dapat preview URL: https://moring-suksok-staging.vercel.app
+# 3. Dapat preview URL: https://suksok-snack-staging.vercel.app
 ```
 
 **Database Staging:**
@@ -2466,16 +2466,16 @@ Production deployment dilakukan di Minggu 8, setelah semua fitur selesai dan tes
 # 1. Pastikan code sudah merge ke branch main di GitHub
 # 2. Login ke Vercel dashboard
 # 3. Import project dari GitHub
-# 4. Pilih repo: moring-suksok
+# 4. Pilih repo: suksok-snack
 # 5. Set Root Directory: frontend
 # 6. Set Build Command: npm run build
 # 7. Set Output Directory: .next
 # 8. Set Environment Variables (production):
-#    - NEXT_PUBLIC_API_URL=https://api.moringsuksok.railway.app/api/v1
+#    - NEXT_PUBLIC_API_URL=https://api.suksoksnack.railway.app/api/v1
 #    - [Firebase config vars]
 # 9. Click "Deploy"
-# 10. Dapat URL: https://moringsuksok.vercel.app
-# 11. (Opsional) Setup custom domain: moringsuksok.id
+# 10. Dapat URL: https://suksoksnack.vercel.app
+# 11. (Opsional) Setup custom domain: suksoksnack.id
 ```
 
 #### 15.5.2 Backend → Railway Production
@@ -2483,7 +2483,7 @@ Production deployment dilakukan di Minggu 8, setelah semua fitur selesai dan tes
 ```bash
 # 1. Login ke Railway dashboard
 # 2. New Project → Deploy from GitHub repo
-# 3. Pilih repo: moring-suksok
+# 3. Pilih repo: suksok-snack
 # 4. Set Root Directory: backend
 # 5. Set Start Command: uvicorn app.main:app --host 0.0.0.0 --port $PORT
 # 6. Add MySQL Database plugin (Railway provision MySQL)
@@ -2493,12 +2493,12 @@ Production deployment dilakukan di Minggu 8, setelah semua fitur selesai dan tes
 #    - CLOUDINARY_CLOUD_NAME=xxx
 #    - [other env vars]
 # 8. Deploy
-# 9. Dapat URL: https://api.moringsuksok.railway.app
+# 9. Dapat URL: https://api.suksoksnack.railway.app
 # 10. Run production migration:
 #     railway run alembic upgrade head
 # 11. Run seed (admin only):
 #     railway run python seed.py
-# 12. Setup custom domain (opsional): api.moringsuksok.id
+# 12. Setup custom domain (opsional): api.suksoksnack.id
 ```
 
 #### 15.5.3 Database Production
@@ -2561,8 +2561,8 @@ Setelah deployment production, jalankan checklist berikut untuk memastikan siste
 
 ### Database (PlanetScale / Railway MySQL)
 - [ ] 9 tabel ter-create (cek via web GUI)
-- [ ] Admin account ter-seed (email: admin@moring-suksok.com)
-- [ ] Settings ter-seed (business_name: Moring Suksok)
+- [ ] Admin account ter-seed (email: admin@suksok-snack.com)
+- [ ] Settings ter-seed (business_name: Suksok Snack)
 - [ ] Connection string benar di env vars
 
 ### External Services
@@ -2589,7 +2589,7 @@ Setelah deployment production, jalankan checklist berikut untuk memastikan siste
 
 ### 15.7 Handover ke Owner (Pasca TA)
 
-Setelah TA selesai dan lulus, lakukan handover formal ke owner Moring Suksok:
+Setelah TA selesai dan lulus, lakukan handover formal ke owner Suksok Snack:
 
 **Dokumen yang Diserahkan:**
 1. Laporan TA lengkap (cetak & soft copy)
@@ -2640,7 +2640,7 @@ Dokumen perencanaan ini merupakan output Tahap 1 dari 3 tahap proyek (Perencanaa
 
 | Dimensi | Keputusan |
 |---|---|
-| Mitra | Moring Suksok (UMKM snack kripik moring) |
+| Mitra | Suksok Snack (UMKM snack kripik moring) |
 | Produk | Snack/Kripik Moring dengan varian |
 | Customer | Ritel & Masyarakat (label segmentasi untuk analisis) |
 | Harga | Sama rata untuk semua segmen |

@@ -49,7 +49,7 @@
 **Total foreign keys**: 6
 
 **Seed data inserted** (via `python seed.py`):
-- Admin: `admin@moring-suksok.com` (password: `admin123`, bcrypt hash with 12 rounds)
+- Admin: `admin@suksok-snack.com` (password: `admin123`, bcrypt hash with 12 rounds)
 - Settings: 6 keys (owner_qris_static, owner_dana_number, owner_whatsapp, business_name, business_address, shipping_cost_flat)
 - Products: 5 produk (Moring Original Rp15K, Pedas Rp17K, Keju Rp18K, Balado Rp17K, Jagung Rp16K) — cimol kering (moring), BUKAN kripik daun kelor
 - Variants: 7 total (Original: 3, Pedas: 2, Keju: 2)
@@ -71,7 +71,7 @@ python seed.py
 
 **Verification** (all passed):
 - [x] 9 tabel ter-create di SQLite (admins, customers, products, product_variants, orders, order_items, payments, notifications, settings)
-- [x] `admins` table: 1 record (admin@moring-suksok.com)
+- [x] `admins` table: 1 record (admin@suksok-snack.com)
 - [x] `settings` table: 6 records
 - [x] `products` table: 3 records
 - [x] `product_variants` table: 7 records
@@ -80,13 +80,13 @@ python seed.py
 **For production (MySQL via Laragon)**:
 ```bash
 # 1. Uncomment MySQL line in backend/.env, comment SQLite line:
-#    DATABASE_URL=mysql+pymysql://root:@localhost:3306/moring_suksok
-# 2. Pastikan DB "moring_suksok" sudah dibuat di phpMyAdmin (utf8mb4_unicode_ci)
+#    DATABASE_URL=mysql+pymysql://root:@localhost:3306/suksok_snack
+# 2. Pastikan DB "suksok_snack" sudah dibuat di phpMyAdmin (utf8mb4_unicode_ci)
 cd backend
 source venv/bin/activate
 alembic upgrade head    # creates 9 tables in MySQL
 python seed.py          # inserts admin + settings + products
-# 3. Verify di phpMyAdmin: http://localhost/phpmyadmin → moring_suksok
+# 3. Verify di phpMyAdmin: http://localhost/phpmyadmin → suksok_snack
 ```
 
 ---

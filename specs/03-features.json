@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "version": "1.0.0",
   "last_updated": "2026-10-29",
-  "project": "Moring Suksok Distribution & Transaction System",
+  "project": "Suksok Snack Distribution & Transaction System",
   "description": "Machine-readable feature breakdown. Source of truth for development scope. Each story has unique ID, priority, acceptance criteria reference, and owning module.",
   "priority_levels": {
     "must": "Wajib untuk MVP TA - harus selesai",

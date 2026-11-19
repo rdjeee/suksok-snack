@@ -1,4 +1,4 @@
-// Generate Word Document for Moring Suksok Planning Document
+// Generate Word Document for Suksok Snack Planning Document
 // Converting Markdown to professional .docx for TA report to advisor
 
 const {
@@ -215,7 +215,7 @@ function buildCover() {
   }));
 
   // 3. Main title (2 lines)
-  const titleLines = ["Dokumen Perencanaan Proyek", "Sistem Distribusi & Pencatatan", "Transaksi Produk Moring Suksok"];
+  const titleLines = ["Dokumen Perencanaan Proyek", "Sistem Distribusi & Pencatatan", "Transaksi Produk Suksok Snack"];
   for (let i = 0; i < titleLines.length; i++) {
     children.push(new Paragraph({
       indent: { left: padL },
@@ -240,7 +240,7 @@ function buildCover() {
 
   // 5. Meta info lines with left accent border
   const metaLines = [
-    "Mitra: Moring Suksok (UMKM Snack Kripik Moring)",
+    "Mitra: Suksok Snack (UMKM Snack Kripik Moring)",
     "Tahap: 1 dari 3 (Perencanaan → Development → Deployment)",
     "Versi Dokumen: 1.0",
     "Tanggal: 29 Oktober 2026",
@@ -329,23 +329,23 @@ function buildBody() {
   // === 1. EXECUTIVE SUMMARY ===
   children.push(h1("1. EXECUTIVE SUMMARY"));
   children.push(h2("1.1 Ringkasan Proyek"));
-  children.push(bodyPara("Proyek ini merupakan pembangunan sistem distribusi produk berbasis mini e-commerce untuk UMKM Moring Suksok, sebuah bisnis olahan daun kelor (snack/kripik moring) yang saat ini masih melakukan transaksi melalui WhatsApp dan pencatatan manual menggunakan nota. Sistem yang dibangun bertujuan untuk menggantikan proses pemesanan via WhatsApp dengan aplikasi terstruktur, serta menggantikan nota manual dengan pencatatan transaksi digital otomatis yang dapat berfungsi sebagai pembukuan akuntan."));
+  children.push(bodyPara("Proyek ini merupakan pembangunan sistem distribusi produk berbasis mini e-commerce untuk UMKM Suksok Snack, sebuah bisnis olahan daun kelor (snack/kripik moring) yang saat ini masih melakukan transaksi melalui WhatsApp dan pencatatan manual menggunakan nota. Sistem yang dibangun bertujuan untuk menggantikan proses pemesanan via WhatsApp dengan aplikasi terstruktur, serta menggantikan nota manual dengan pencatatan transaksi digital otomatis yang dapat berfungsi sebagai pembukuan akuntan."));
   children.push(bodyPara("Sistem dibangun dengan arsitektur decoupled (terpisah): Frontend menggunakan Next.js PWA yang dapat diinstall di perangkat Android (Add to Home Screen) dan berjalan di web browser, sedangkan Backend menggunakan Python FastAPI dengan database MySQL yang dikelola melalui phpMyAdmin. Pendekatan ini dipilih untuk memberikan separation of concerns yang jelas, memudahkan maintenance, serta memanfaatkan ekosistem Python yang kuat untuk pengembangan API modern."));
 
   children.push(h2("1.2 Highlight Fitur Utama"));
   children.push(bodyPara("Sistem akan memiliki fitur-fitur kunci sebagai berikut: (1) registrasi akun wajib untuk customer dengan segmentasi Ritel/Masyarakat sebagai label analisis; (2) katalog produk dengan varian dan harga yang sama untuk semua segmen customer; (3) keranjang belanja (cart) dengan kalkulasi total otomatis; (4) pembayaran via QRIS dinamis (nominal embedded) yang difoto dan di-upload sebagai bukti; (5) verifikasi pembayaran manual oleh owner; (6) tracking status pesanan end-to-end (Pending → Diproses → Dikirim → Selesai); (7) notifikasi hybrid (Push Notification PWA + WhatsApp deep link); (8) laporan transaksi otomatis dengan ekspor PDF/Excel untuk pembukuan akuntan; dan (9) PWA yang installable di Android."));
 
   children.push(h2("1.3 Nilai Akademik & Praktis"));
-  children.push(bodyPara("Sebagai Tugas Akhir, proyek ini mendemonstrasikan: (a) implementasi standar EMVCo QRIS dengan modifikasi payload untuk embed transaction amount; (b) arsitektur decoupled modern dengan REST API dan JWT authentication; (c) Progressive Web App dengan service worker dan push notification; (d) integrasi Firebase Cloud Messaging untuk notifikasi server-to-client; dan (e) analisis trade-off teknis-vs-biaya pada pemilihan QRIS self-generated dibanding payment gateway berbayar. Output proyek ini tidak hanya bernilai akademik, tetapi juga dapat langsung digunakan oleh owner Moring Suksok untuk produksi nyata setelah lulus."));
+  children.push(bodyPara("Sebagai Tugas Akhir, proyek ini mendemonstrasikan: (a) implementasi standar EMVCo QRIS dengan modifikasi payload untuk embed transaction amount; (b) arsitektur decoupled modern dengan REST API dan JWT authentication; (c) Progressive Web App dengan service worker dan push notification; (d) integrasi Firebase Cloud Messaging untuk notifikasi server-to-client; dan (e) analisis trade-off teknis-vs-biaya pada pemilihan QRIS self-generated dibanding payment gateway berbayar. Output proyek ini tidak hanya bernilai akademik, tetapi juga dapat langsung digunakan oleh owner Suksok Snack untuk produksi nyata setelah lulus."));
 
   // === 2. LATAR BELAKANG ===
   children.push(h1("2. LATAR BELAKANG & RUMUSAN MASALAH"));
   children.push(h2("2.1 Profil Mitra"));
-  children.push(bodyPara("Moring Suksok adalah UMKM yang bergerak di bidang pengolahan produk berbahan dasar daun kelor (moringa), dengan produk utama berupa snack/kripik moring yang memiliki beberapa varian rasa. Usaha ini dimiliki oleh seorang pengusaha berusia 40 tahun, dan memiliki dua jenis customer yaitu Customer Ritel (toko/agen yang membeli untuk dijual ulang) dan Customer Masyarakat (konsumen akhir yang membeli untuk konsumsi pribadi)."));
+  children.push(bodyPara("Suksok Snack adalah UMKM yang bergerak di bidang pengolahan produk berbahan dasar daun kelor (moringa), dengan produk utama berupa snack/kripik moring yang memiliki beberapa varian rasa. Usaha ini dimiliki oleh seorang pengusaha berusia 40 tahun, dan memiliki dua jenis customer yaitu Customer Ritel (toko/agen yang membeli untuk dijual ulang) dan Customer Masyarakat (konsumen akhir yang membeli untuk konsumsi pribadi)."));
   children.push(bodyPara("Saat ini, proses penjualan masih dilakukan secara konvensional: customer menghubungi owner melalui WhatsApp untuk memesan produk, lalu owner mencatat transaksi pada nota manual sebagai bukti pembelian dan pembukuan akuntan. Pendekatan ini telah berjalan cukup lama, namun seiring bertambahnya jumlah customer dan kompleksitas transaksi, muncul berbagai kendala operasional yang perlu diatasi."));
 
   children.push(h2("2.2 Identifikasi Masalah"));
-  children.push(bodyPara("Berdasarkan analisis kondisi existing Moring Suksok, ditemukan beberapa permasalahan utama yang menjadi pain point baik bagi owner maupun customer. Permasalahan-permasalahan ini menjadi dasar urgensi dibangunnya sistem distribusi dan pencatatan transaksi digital."));
+  children.push(bodyPara("Berdasarkan analisis kondisi existing Suksok Snack, ditemukan beberapa permasalahan utama yang menjadi pain point baik bagi owner maupun customer. Permasalahan-permasalahan ini menjadi dasar urgensi dibangunnya sistem distribusi dan pencatatan transaksi digital."));
 
   children.push(h3("Masalah 1: Pencatatan Transaksi Manual yang Tidak Terstruktur"));
   children.push(bodyPara("Owner mencatat setiap transaksi pada nota manual, baik yang dijual ke customer Ritel maupun Masyarakat. Pencatatan ini rentan terhadap human error (salah catat jumlah, varian, atau harga), sulit dilakukan rekapitulasi bulanan, dan tidak ada backup digital jika nota hilang atau rusak. Untuk keperluan pembukuan akuntan, owner harus memilah-milah nota satu per satu yang memakan waktu berjam-jam setiap akhir bulan."));
@@ -363,17 +363,17 @@ function buildBody() {
   children.push(bodyPara("Saat customer membayar via transfer ke DANA owner atau scan QRIS statis, owner harus memverifikasi manual melalui mutasi rekening. Tidak ada audit trail digital yang menghubungkan pembayaran dengan pesanan tertentu, sehingga sulit untuk rekonsiliasi jika ada sengketa atau pertanyaan dari customer di kemudian hari."));
 
   children.push(h2("2.3 Urgensi & Justifikasi Proyek"));
-  children.push(bodyPara("Permasalahan-permasalahan di atas menghambat pertumbuhan Moring Suksok sebagai UMKM. Tanpa sistem yang terstruktur, owner menghabiskan waktu berharga untuk tugas administratif yang seharusnya bisa diotomatisasi, alih-alih fokus pada pengembangan produk dan ekspansi pasar. Selain itu, customer experience yang buruk (sulit lihat katalog, tidak tahu status pesanan) dapat menurunkan loyalitas dan repeat order."));
-  children.push(bodyPara("Pembangunan sistem distribusi dan pencatatan transaksi digital akan menyelesaikan kelima masalah di atas secara komprehensif: nota manual diganti dengan nota digital otomatis ter-generate, status pesanan ter-track real-time, katalog produk dapat diakses mandiri oleh customer, segmentasi customer tercatat dalam database, dan setiap pembayaran terdokumentasi dengan bukti upload. Sistem ini juga menjadi fondasi untuk ekspansi bisnis Moring Suksok di masa depan, seperti penambahan fitur loyalty program, analitik penjualan lanjutan, atau integrasi dengan marketplace."));
+  children.push(bodyPara("Permasalahan-permasalahan di atas menghambat pertumbuhan Suksok Snack sebagai UMKM. Tanpa sistem yang terstruktur, owner menghabiskan waktu berharga untuk tugas administratif yang seharusnya bisa diotomatisasi, alih-alih fokus pada pengembangan produk dan ekspansi pasar. Selain itu, customer experience yang buruk (sulit lihat katalog, tidak tahu status pesanan) dapat menurunkan loyalitas dan repeat order."));
+  children.push(bodyPara("Pembangunan sistem distribusi dan pencatatan transaksi digital akan menyelesaikan kelima masalah di atas secara komprehensif: nota manual diganti dengan nota digital otomatis ter-generate, status pesanan ter-track real-time, katalog produk dapat diakses mandiri oleh customer, segmentasi customer tercatat dalam database, dan setiap pembayaran terdokumentasi dengan bukti upload. Sistem ini juga menjadi fondasi untuk ekspansi bisnis Suksok Snack di masa depan, seperti penambahan fitur loyalty program, analitik penjualan lanjutan, atau integrasi dengan marketplace."));
 
   // === 3. TUJUAN ===
   children.push(h1("3. TUJUAN & MANFAAT SISTEM"));
   children.push(h2("3.1 Tujuan Umum"));
-  children.push(bodyPara("Membangun sistem distribusi produk dan pencatatan transaksi berbasis aplikasi web (PWA) yang dapat diinstall di perangkat Android dan diakses via browser, khusus untuk UMKM Moring Suksok, yang menggantikan proses pemesanan via WhatsApp dan pencatatan manual menggunakan nota."));
+  children.push(bodyPara("Membangun sistem distribusi produk dan pencatatan transaksi berbasis aplikasi web (PWA) yang dapat diinstall di perangkat Android dan diakses via browser, khusus untuk UMKM Suksok Snack, yang menggantikan proses pemesanan via WhatsApp dan pencatatan manual menggunakan nota."));
 
   children.push(h2("3.2 Tujuan Khusus"));
   children.push(bodyPara("Sistem ini memiliki beberapa tujuan khusus yang spesifik dan terukur, yang masing-masing dirancang untuk menjawab permasalahan yang telah diidentifikasi pada bagian sebelumnya:"));
-  children.push(numberedPara("Membangun mini e-commerce untuk Moring Suksok dengan fitur katalog produk, keranjang belanja, checkout, dan pembayaran yang dapat diakses oleh customer Ritel maupun Masyarakat melalui registrasi akun terlebih dahulu."));
+  children.push(numberedPara("Membangun mini e-commerce untuk Suksok Snack dengan fitur katalog produk, keranjang belanja, checkout, dan pembayaran yang dapat diakses oleh customer Ritel maupun Masyarakat melalui registrasi akun terlebih dahulu."));
   children.push(numberedPara("Mengimplementasikan pembayaran via QRIS dinamis dengan nominal embedded (sesuai standar EMVCo QRIS) yang dapat di-scan menggunakan berbagai e-wallet (DANA, OVO, GoPay, SeaBank, ShopeePay, m-banking), dengan mekanisme upload bukti pembayaran dan verifikasi manual oleh owner."));
   children.push(numberedPara("Menggantikan nota manual dengan nota digital otomatis yang ter-generate setiap checkout, lengkap dengan order ID unik, timestamp, detail items, customer info, total transaksi, dan dapat diekspor ke PDF untuk pembukuan akuntan."));
   children.push(numberedPara("Memantau distribusi produk melalui tracking status pesanan dengan state machine yang jelas (Pending → Diproses → Dikirim → Selesai), dapat dipantau oleh customer secara real-time dan oleh owner melalui dashboard terpusat."));
@@ -382,7 +382,7 @@ function buildBody() {
   children.push(numberedPara("Membangun Progressive Web App (PWA) yang installable di perangkat Android (Add to Home Screen) sehingga customer dapat mengakses aplikasi seperti native app tanpa harus mendownload dari Play Store."));
 
   children.push(h2("3.3 Manfaat Sistem"));
-  children.push(h3("Manfaat bagi Owner Moring Suksok"));
+  children.push(h3("Manfaat bagi Owner Suksok Snack"));
   children.push(bulletPara("Menghemat waktu administratif (tidak perlu buat nota manual, tidak perlu cari status di chat WhatsApp)"));
   children.push(bulletPara("Memiliki data terstruktur untuk pembukuan akuntan (bisa export PDF/Excel per periode)"));
   children.push(bulletPara("Mendapat visibility terhadap distribusi produk (status setiap pesanan)"));
@@ -458,7 +458,7 @@ function buildBody() {
   children.push(numberedPara("Fitur loyalty program / point reward"));
   children.push(numberedPara("Fitur wishlist produk"));
   children.push(numberedPara("Review & rating produk oleh customer"));
-  children.push(numberedPara("Multi-vendor / multi-seller (hanya Moring Suksok)"));
+  children.push(numberedPara("Multi-vendor / multi-seller (hanya Suksok Snack)"));
   children.push(numberedPara("Integrasi kurir otomatis (JNE, JNT, SiCepat API) — owner input no resi manual"));
   children.push(numberedPara("Auto-calculate ongkir (integrasi RajaOngkir/Binderbyte) — ongkir flat atau di-set manual owner"));
   children.push(numberedPara("Inventory management advanced (alert stok menipis, auto-update stok setelah order)"));
@@ -485,7 +485,7 @@ function buildBody() {
   children.push(makeTable(
     ["#", "Stakeholder", "Deskripsi", "Kepentingan"],
     [
-      ["1", "Owner Moring Suksok", "Pemilik UMKM (40 thn)", "Operasional harian, pembukuan, keputusan strategis"],
+      ["1", "Owner Suksok Snack", "Pemilik UMKM (40 thn)", "Operasional harian, pembukuan, keputusan strategis"],
       ["2", "Customer Ritel", "Toko/agen pembeli ulang", "Pemesanan grosir, riwayat, repeat order"],
       ["3", "Customer Masyarakat", "Konsumen akhir", "Pemesanan eceran, tracking pesanan"],
       ["4", "Mahasiswa", "Pengembang sistem", "Penyelesaian TA"],
@@ -496,9 +496,9 @@ function buildBody() {
   ));
 
   children.push(h2("5.2 User Role di Sistem"));
-  children.push(bodyPara("Sistem memiliki 3 jenis pengguna dengan kewenangan berbeda, yaitu Admin (Owner Moring Suksok), Customer Ritel, dan Customer Masyarakat. Berikut adalah detail dari masing-masing role:"));
+  children.push(bodyPara("Sistem memiliki 3 jenis pengguna dengan kewenangan berbeda, yaitu Admin (Owner Suksok Snack), Customer Ritel, dan Customer Masyarakat. Berikut adalah detail dari masing-masing role:"));
 
-  children.push(h3("Role 1: ADMIN (Owner Moring Suksok)"));
+  children.push(h3("Role 1: ADMIN (Owner Suksok Snack)"));
   children.push(bodyPara("Admin adalah role dengan akses tertinggi yang dimiliki oleh owner. Admin memiliki kewenangan penuh terhadap seluruh operasional sistem, termasuk: kelola produk (CRUD), lihat semua pesanan, verifikasi pembayaran, update status pesanan, input nomor resi, lihat & ekspor laporan transaksi, lihat daftar customer & analitik, generate nota PDF, kirim WhatsApp ke customer, update QRIS statis owner, dan update informasi bisnis. Kredensial login menggunakan email + password yang tersimpan di tabel admins."));
 
   children.push(h3("Role 2: CUSTOMER RITEL"));
@@ -547,7 +547,7 @@ function buildBody() {
   children.push(bodyPara("Backend dibangun menggunakan Python FastAPI yang berjalan di atas ASGI server (uvicorn). Struktur backend mengikuti pola modular berdasarkan domain, dengan struktur folder yang jelas: core/ untuk konfigurasi dan security, models/ untuk SQLAlchemy models, schemas/ untuk Pydantic schemas, api/v1/ untuk endpoint REST, services/ untuk business logic, dan utils/ untuk utility functions. Backend dilengkapi dengan middleware CORS, JWT authentication, error handler, dan logging. Dokumentasi API otomatis tersedia di Swagger UI (/docs) dan ReDoc (/redoc) yang sangat berguna untuk demo ke dosen penguji."));
 
   children.push(h3("6.2.3 Data Layer (MySQL + phpMyAdmin)"));
-  children.push(bodyPara("Database menggunakan MySQL 8.4.3 yang sudah terinstall via Laragon. Akses ke database dilakukan melalui SQLAlchemy 2.0 ORM di sisi backend, sementara phpMyAdmin digunakan sebagai GUI untuk inspeksi, debugging, dan administrasi manual (edit data, run SQL query, export/import). Konfigurasi koneksi database: Host localhost, Port 3306, User root, Password kosong (default Laragon), Database moring_suksok, Charset utf8mb4_unicode_ci untuk support emoji & karakter Indonesia."));
+  children.push(bodyPara("Database menggunakan MySQL 8.4.3 yang sudah terinstall via Laragon. Akses ke database dilakukan melalui SQLAlchemy 2.0 ORM di sisi backend, sementara phpMyAdmin digunakan sebagai GUI untuk inspeksi, debugging, dan administrasi manual (edit data, run SQL query, export/import). Konfigurasi koneksi database: Host localhost, Port 3306, User root, Password kosong (default Laragon), Database suksok_snack, Charset utf8mb4_unicode_ci untuk support emoji & karakter Indonesia."));
 
   children.push(h2("6.3 Alur Komunikasi (Request Flow)"));
   children.push(bodyPara("Berikut adalah contoh alur komunikasi saat customer checkout dan upload bukti pembayaran, hingga owner melakukan verifikasi:"));
@@ -572,8 +572,8 @@ function buildBody() {
 
 const doc = new Document({
   creator: "Z.ai Assistant",
-  title: "Dokumen Perencanaan Proyek Moring Suksok",
-  description: "Project Planning Document for Moring Suksok Distribution & Transaction System - TA Stage 1",
+  title: "Dokumen Perencanaan Proyek Suksok Snack",
+  description: "Project Planning Document for Suksok Snack Distribution & Transaction System - TA Stage 1",
   styles: {
     default: {
       document: {
@@ -658,7 +658,7 @@ const doc = new Document({
           children: [new Paragraph({
             alignment: AlignmentType.CENTER,
             children: [new TextRun({
-              text: "Dokumen Perencanaan Proyek Moring Suksok",
+              text: "Dokumen Perencanaan Proyek Suksok Snack",
               size: 18, color: "808080",
               font: { ascii: "Times New Roman" }
             })]
@@ -683,7 +683,7 @@ const doc = new Document({
 
 // Generate the document
 Packer.toBuffer(doc).then(buf => {
-  const outputPath = "/home/z/my-project/download/Dokumen_Perencanaan_Moring_Suksok.docx";
+  const outputPath = "/home/z/my-project/download/Dokumen_Perencanaan_Suksok_Snack.docx";
   fs.writeFileSync(outputPath, buf);
   console.log("✅ Document generated successfully!");
   console.log("   Path:", outputPath);

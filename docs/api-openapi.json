@@ -10,8 +10,8 @@
   ],
   "openapi": "3.1.0",
   "info": {
-    "title": "Moring Suksok API",
-    "description": "Sistem Distribusi & Pencatatan Transaksi Produk Moring Suksok - Tugas Akhir",
+    "title": "Suksok Snack API",
+    "description": "Sistem Distribusi & Pencatatan Transaksi Produk Suksok Snack - Tugas Akhir",
     "version": "1.0.0",
     "status": "placeholder"
   },

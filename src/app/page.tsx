@@ -428,7 +428,7 @@ export default function HomePage() {
               <ul className="space-y-2 text-sm text-white/80">
                 <li>WhatsApp: 0812-xxxx-xxxx</li>
                 <li>Email: hello@suksok-snack.com</li>
-                <li>Instagram: @moringsuksok</li>
+                <li>Instagram: @suksoksnack</li>
               </ul>
             </div>
             <div>

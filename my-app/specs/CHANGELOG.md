@@ -47,7 +47,7 @@ Semua perubahan signifikan pada files di `specs/` akan didokumentasikan di sini.
 - `specs/CHANGELOG.md` (this file)
 
 ### Context
-- Dokumen perencanaan asli (`Dokumen_Perencanaan_Moring_Suksok.md`, 2.668 baris) telah di-split menjadi 9 spec files terstruktur untuk memudahkan handover ke Agent B (Dev).
+- Dokumen perencanaan asli (`Dokumen_Perencanaan_Suksok_Snack.md`, 2.668 baris) telah di-split menjadi 9 spec files terstruktur untuk memudahkan handover ke Agent B (Dev).
 - Spec files ini menjadi **single source of truth** untuk development.
 - Setiap spec file memiliki ownership jelas (Agent A) dan tidak boleh diedit oleh Agent B langsung (lihat `README.md` workflow).
 
