@@ -457,18 +457,89 @@ User melakukan wawancara dengan owner, mendapat: (1) sejarah usaha (hobi→rezek
 - [x] Yang TIDAK dilakukan: ❌ buat products.py, ❌ buat cart.py, ❌ frontend produk, ❌ Cloudinary upload
 **Notes**: Siap istirahat sejenak. Menunggu NOTIF-007 dari Agent A setelah user konfirmasi dosen verifikasi judul TA.
 
+### [NOTIF-007] ✅ Acknowledged
+
+**Acknowledged by**: Agent B
+**Date acknowledged**: 2026-11-10 04:30 (Asia/Jakarta)
+**Actions taken**:
+- [x] Baca NOTIF-007: Story Owner + Masalah 6 + `acquisition_channel` field (v1.0.7)
+- [x] Understand: new field `acquisition_channel` di customers table (values: direct, reseller, social_media, word_of_mouth, other)
+- [x] Will apply saat resume: add column to model, migration, schema, register endpoint, frontend form
+**Notes**: Read & understood. Will apply when development resumes (~9 Des 2026). Estimasi effort ~30 menit.
+
+### [NOTIF-008] ✅ Acknowledged
+
+**Acknowledged by**: Agent B
+**Date acknowledged**: 2026-11-10 04:30 (Asia/Jakarta)
+**Actions taken**:
+- [x] Baca NOTIF-008: Timeline 8→16 minggu (8 sprint × 2 minggu) + Pre-Implementation Plan (v1.1.0)
+- [x] Understand new timeline:
+  - Sprint 1 (10-23 Des 2026): Setup + Auth + Basic UI
+  - Sprint 2 (24 Des-6 Jan 2027): Product + Cart & Checkout
+  - Sprint 3 (7-20 Jan 2027): Payment QRIS + Verifikasi
+  - Sprint 4 (21 Jan-3 Feb 2027): Notifikasi + Tracking
+  - Sprint 5 (4-17 Feb 2027): Reporting + Analytics + Settings
+  - Sprint 6 (18 Feb-3 Mar 2027): Reserved (Mitra Kerjasama per NOTIF-009)
+  - Sprint 7 (4-17 Mar 2027): PWA + Polish + Bug Fix + Basic Cashflow (per NOTIF-010)
+  - Sprint 8 (18-31 Mar 2027): Testing + Deploy
+- [x] Note: Auth Module already done (Minggu 2 / Sprint 1 scope)
+**Notes**: Timeline understood. Sprint 1 Auth Module already complete. Still PAUSED until resume signal.
+
+### [NOTIF-009] ✅ Acknowledged
+
+**Acknowledged by**: Agent B
+**Date acknowledged**: 2026-11-10 04:30 (Asia/Jakarta)
+**Actions taken**:
+- [x] Baca NOTIF-009: BREAKING CHANGE — Mitra Kerjasama (E8) + rename customer_type enum (v1.2.0)
+- [x] Understand breaking changes:
+  - customer_type enum: `retail→partner`, `public→consumer`
+  - 2 new tables: `partners` (§4.10), `sponsor_events` (§4.11)
+  - 5 new stories (E8-S1 to E8-S5)
+  - New checkout business rules (partner ongoing/one_time/consumer)
+- [x] Will apply saat resume: update models, schemas, migration, endpoints, frontend
+**Notes**: Breaking changes noted. Will require Alembic migration (rename enum + 2 new tables). Code change effort ~1 sprint (Sprint 6).
+
+### [NOTIF-010] ✅ Acknowledged
+
+**Acknowledged by**: Agent B
+**Date acknowledged**: 2026-11-10 04:30 (Asia/Jakarta)
+**Actions taken**:
+- [x] Baca NOTIF-010: Basic Cashflow Module + Remove BPS/BI refs dari Proposal (v1.3.0)
+- [x] Understand: Sprint 7 now includes Basic Cashflow (E9-S1 to E9-S3)
+  - E9-S1: Catat Pengeluaran (Must)
+  - E9-S2: Dashboard Cashflow (Must)
+  - E9-S3: Laporan Cashflow Export PDF (Should)
+- [x] Out of scope: HPP, laba-rugi, neraca, pajak, hutang/piutang
+**Notes**: Cashflow module understood. Will implement in Sprint 7. Minimal scope — basic income vs expense tracking.
+
+### [NOTIF-011] ✅ Acknowledged
+
+**Acknowledged by**: Agent B
+**Date acknowledged**: 2026-11-10 04:30 (Asia/Jakarta)
+**Actions taken**:
+- [x] Baca NOTIF-011: BREAKING CHANGE — Rename "Moring Suksok" → "Suksok Snack" (v1.4.0)
+- [x] Updated git remote URL: `moring-suksok.git` → `suksok-snack.git` ✅
+- [x] Understand 4 rename patterns (78 files, 324 occurrences):
+  - `Moring Suksok` → `Suksok Snack` (display name)
+  - `moring-suksok` → `suksok-snack` (URL/slug/package)
+  - `MoringSuksok` → `SuksokSnack` (identifier)
+  - `Moring_Suksok` → `Suksok_Snack` (filename)
+- [x] DO NOT change: "moring" (product name), variant names (Moring Original, dll), logo filename
+- [x] Will apply saat resume: rename across ~78 files BEFORE Sprint 1
+**Notes**: Brand rename understood. Will apply FIRST when development resumes (before Sprint 1). Estimasi ~2-3 jam (rename + review + regression test).
+
 ---
 
 ## 📊 Notification Statistics
 
 | Metric | Value |
 |---|---|
-| Total notifications sent | 6 (NOTIF-000 to NOTIF-005, NOTIF-006) |
+| Total notifications sent | 12 (NOTIF-000 to NOTIF-011) |
 | Pending (belum dibaca Agent B) | 0 (semua sudah acknowledged) |
-| Acknowledged | 6 (NOTIF-001, 002, 003, 004, 005, 006) |
-| Last notification date | 2026-10-30 (NOTIF-006 — Pause development) |
-| Specs current version | v1.0.6 |
-| Development status | ⏸️ PAUSED — tunggu verifikasi dosen (NOTIF-006 acknowledged by Agent B) |
+| Acknowledged | 12 (NOTIF-001 to NOTIF-011, all acknowledged) |
+| Last notification date | 2026-11-19 (NOTIF-011 — Brand rename Moring Suksok → Suksok Snack) |
+| Specs current version | v1.3.0 (v1.4.0 pending — brand rename apply saat resume) |
+| Development status | ⏸️ PAUSED — tunggu resume signal (~9 Des 2026). NOTIF-007 to NOTIF-011 akan di-apply saat resume, SEBELUM Sprint 1. |
 
 ---
 
@@ -526,4 +597,4 @@ User melakukan wawancara dengan owner, mendapat: (1) sejarah usaha (hobi→rezek
 
 ---
 
-**Last Updated**: 2026-10-30 03:50 (Asia/Jakarta) — Agent B: acknowledge NOTIF-004, 005, 006 via Rule 7
+**Last Updated**: 2026-11-10 04:30 (Asia/Jakarta) — Agent B: acknowledge NOTIF-007 to NOTIF-011 + fix .gitignore (remove venv/.env/.db from tracking) + update git remote to suksok-snack
