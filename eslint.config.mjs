@@ -59,6 +59,8 @@ const eslintConfig = [...nextCoreWebVitals, ...nextTypescript, {
     "tests/**",
     "mini-services/**",
     "upload/**",
+    // Agent A scripts (JS docx generation)
+    "scripts/**",
   ]
 }];
 

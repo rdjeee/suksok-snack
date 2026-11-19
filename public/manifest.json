@@ -1,6 +1,6 @@
 {
-  "name": "Moring Suksok — Camilan Cimol Kering (Moring)",
-  "short_name": "Moring Suksok",
+  "name": "Suksok Snack — Camilan Cimol Kering (Moring)",
+  "short_name": "Suksok Snack",
   "description": "Cimol kering (moring) sehat & renyah. Belanja online, bayar QRIS, lacak pesanan real-time.",
   "start_url": "/",
   "display": "standalone",
@@ -34,7 +34,7 @@
     {
       "name": "Lihat Produk",
       "short_name": "Produk",
-      "description": "Lihat katalog produk Moring Suksok",
+      "description": "Lihat katalog produk Suksok Snack",
       "url": "/#produk",
       "icons": [{ "src": "/icon.svg", "sizes": "any" }]
     },

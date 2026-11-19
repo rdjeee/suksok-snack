@@ -1,5 +1,5 @@
 # =============================================================================
-# Moring Suksok — Makefile
+# Suksok Snack — Makefile
 # Shortcut commands untuk development workflow
 # =============================================================================
 #
@@ -33,7 +33,7 @@ NPM := npm
 .PHONY: help
 help: ## Tampilkan semua command yang tersedia
 	@echo ""
-	@echo "🌿 Moring Suksok — Development Commands"
+	@echo "🌿 Suksok Snack — Development Commands"
 	@echo "============================================="
 	@echo ""
 	@awk 'BEGIN {FS = ":.*##"; printf "Usage:\n  make \033[36m<target>\033[0m\n\nTargets:\n"} \
@@ -134,7 +134,7 @@ seed: ## Seed database dengan data awal (admin + produk contoh + settings)
 	@echo "🌱 Seeding database..."
 	cd backend && $(VENV_PY) seed.py
 	@echo "✅ Seed done. Login admin:"
-	@echo "   Email:    admin@moring-suksok.com"
+	@echo "   Email:    admin@suksok-snack.com"
 	@echo "   Password: admin123"
 	@echo "   ⚠️  CHANGE PASSWORD SEGERA di production!"
 

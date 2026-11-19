@@ -1,8 +1,8 @@
 """
-Moring Suksok — Database seed script.
+Suksok Snack — Database seed script.
 
 Inserts initial data into the database:
-  1. Admin default (admin@moring-suksok.com / admin123)
+  1. Admin default (admin@suksok-snack.com / admin123)
   2. 6 settings (business info, owner QRIS/DANA/WA, shipping cost)
   3. 3 sample products with 7 variants total
 
@@ -35,9 +35,9 @@ from app.models.setting import Setting
 # Seed data (per specs/05-data-model.md §6)
 # ---------------------------------------------------------------------------
 ADMIN_DATA = {
-    "email": "admin@moring-suksok.com",
+    "email": "admin@suksok-snack.com",
     "password": "admin123",  # ⚠️ CHANGE IMMEDIATELY after first login!
-    "name": "Owner Moring Suksok",
+    "name": "Owner Suksok Snack",
     "phone": "0812-0000-0000",
 }
 
@@ -59,7 +59,7 @@ SETTINGS_DATA = [
     },
     {
         "key_name": "business_name",
-        "value": "Moring Suksok",
+        "value": "Suksok Snack",
         "description": "Nama bisnis",
     },
     {
@@ -200,7 +200,7 @@ def seed_products(db: Session) -> tuple[int, int]:
 def main() -> None:
     """Run the full seed sequence."""
     print("=" * 70)
-    print("  🌿 Moring Suksok — Database Seed")
+    print("  🌿 Suksok Snack — Database Seed")
     print("=" * 70)
     print()
 

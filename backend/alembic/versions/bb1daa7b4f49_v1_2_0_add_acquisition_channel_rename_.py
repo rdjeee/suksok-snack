@@ -1,8 +1,8 @@
-"""init schema - 9 tables
+"""v1.2.0: add acquisition_channel + rename enum + partners + sponsor_events
 
-Revision ID: 448d5b9caa1e
+Revision ID: bb1daa7b4f49
 Revises: 
-Create Date: 2026-10-29 15:57:56.060103
+Create Date: 2026-11-19 04:39:29.335029
 
 """
 from typing import Sequence, Union
@@ -12,7 +12,7 @@ import sqlalchemy as sa
 
 
 # revision identifiers, used by Alembic.
-revision: str = '448d5b9caa1e'
+revision: str = 'bb1daa7b4f49'
 down_revision: Union[str, None] = None
 branch_labels: Union[str, Sequence[str], None] = None
 depends_on: Union[str, Sequence[str], None] = None
@@ -38,7 +38,8 @@ def upgrade() -> None:
     sa.Column('name', sa.String(length=100), nullable=False),
     sa.Column('phone', sa.String(length=20), nullable=False),
     sa.Column('address', sa.Text(), nullable=False),
-    sa.Column('customer_type', sa.Enum('retail', 'public', name='customer_type_enum'), nullable=False),
+    sa.Column('customer_type', sa.Enum('partner', 'consumer', name='customer_type_enum'), nullable=False),
+    sa.Column('acquisition_channel', sa.String(length=50), nullable=True),
     sa.Column('fcm_token', sa.Text(), nullable=True),
     sa.Column('is_active', sa.BOOLEAN(), nullable=True),
     sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
@@ -46,6 +47,7 @@ def upgrade() -> None:
     sa.PrimaryKeyConstraint('id'),
     sa.UniqueConstraint('email')
     )
+    op.create_index('idx_acquisition_channel', 'customers', ['acquisition_channel'], unique=False)
     op.create_index('idx_customer_type', 'customers', ['customer_type'], unique=False)
     op.create_table('products',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
@@ -92,6 +94,26 @@ def upgrade() -> None:
     op.create_index('idx_orders_created', 'orders', ['created_at'], unique=False)
     op.create_index('idx_orders_customer', 'orders', ['customer_id'], unique=False)
     op.create_index('idx_orders_status', 'orders', ['status'], unique=False)
+    op.create_table('partners',
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
+    sa.Column('customer_id', sa.Integer(), nullable=False),
+    sa.Column('organization_name', sa.String(length=150), nullable=False),
+    sa.Column('organization_type', sa.Enum('retail', 'modern_retail', 'school_cafeteria', 'campus_organization', 'cooperative', 'event_organizer', 'other', name='organization_type_enum'), nullable=False),
+    sa.Column('partnership_type', sa.Enum('ongoing', 'one_time', name='partnership_type_enum'), nullable=False),
+    sa.Column('agreement_status', sa.Enum('pending', 'active', 'completed', 'inactive', 'rejected', name='agreement_status_enum'), nullable=True),
+    sa.Column('agreement_start_date', sa.Date(), nullable=True),
+    sa.Column('agreement_end_date', sa.Date(), nullable=True),
+    sa.Column('contact_person', sa.String(length=100), nullable=True),
+    sa.Column('contact_phone', sa.String(length=20), nullable=True),
+    sa.Column('notes', sa.Text(), nullable=True),
+    sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.ForeignKeyConstraint(['customer_id'], ['customers.id'], ondelete='CASCADE'),
+    sa.PrimaryKeyConstraint('id'),
+    sa.UniqueConstraint('customer_id')
+    )
+    op.create_index('idx_partner_status', 'partners', ['agreement_status'], unique=False)
+    op.create_index('idx_partner_type', 'partners', ['partnership_type'], unique=False)
     op.create_table('product_variants',
     sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
     sa.Column('product_id', sa.Integer(), nullable=False),
@@ -152,17 +174,40 @@ def upgrade() -> None:
     sa.UniqueConstraint('order_id')
     )
     op.create_index('idx_payments_status', 'payments', ['status'], unique=False)
+    op.create_table('sponsor_events',
+    sa.Column('id', sa.Integer(), autoincrement=True, nullable=False),
+    sa.Column('partner_id', sa.Integer(), nullable=False),
+    sa.Column('event_name', sa.String(length=200), nullable=False),
+    sa.Column('event_type', sa.Enum('expo', 'bazar', 'sponsor', 'collaboration', name='event_type_enum'), nullable=True),
+    sa.Column('event_start_date', sa.Date(), nullable=False),
+    sa.Column('event_end_date', sa.Date(), nullable=False),
+    sa.Column('event_location', sa.String(length=200), nullable=True),
+    sa.Column('description', sa.Text(), nullable=True),
+    sa.Column('status', sa.Enum('planned', 'ongoing', 'completed', 'cancelled', name='event_status_enum'), nullable=True),
+    sa.Column('created_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.Column('updated_at', sa.TIMESTAMP(), server_default=sa.text('(CURRENT_TIMESTAMP)'), nullable=True),
+    sa.ForeignKeyConstraint(['partner_id'], ['partners.id'], ondelete='CASCADE'),
+    sa.PrimaryKeyConstraint('id')
+    )
+    op.create_index('idx_event_dates', 'sponsor_events', ['event_start_date', 'event_end_date'], unique=False)
+    op.create_index('idx_event_status', 'sponsor_events', ['status'], unique=False)
     # ### end Alembic commands ###
 
 
 def downgrade() -> None:
     # ### commands auto generated by Alembic - please adjust! ###
+    op.drop_index('idx_event_status', table_name='sponsor_events')
+    op.drop_index('idx_event_dates', table_name='sponsor_events')
+    op.drop_table('sponsor_events')
     op.drop_index('idx_payments_status', table_name='payments')
     op.drop_table('payments')
     op.drop_table('order_items')
     op.drop_index('idx_user', table_name='notifications')
     op.drop_table('notifications')
     op.drop_table('product_variants')
+    op.drop_index('idx_partner_type', table_name='partners')
+    op.drop_index('idx_partner_status', table_name='partners')
+    op.drop_table('partners')
     op.drop_index('idx_orders_status', table_name='orders')
     op.drop_index('idx_orders_customer', table_name='orders')
     op.drop_index('idx_orders_created', table_name='orders')
@@ -170,6 +215,7 @@ def downgrade() -> None:
     op.drop_table('settings')
     op.drop_table('products')
     op.drop_index('idx_customer_type', table_name='customers')
+    op.drop_index('idx_acquisition_channel', table_name='customers')
     op.drop_table('customers')
     op.drop_table('admins')
     # ### end Alembic commands ###

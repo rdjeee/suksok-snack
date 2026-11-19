@@ -27,13 +27,13 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Moring Suksok — Camilan Cimol Kering (Moring) 🌿",
-    template: "%s — Moring Suksok",
+    default: "Suksok Snack — Camilan Cimol Kering (Moring) 🌿",
+    template: "%s — Suksok Snack",
   },
   description:
-    "Moring Suksok: cimol kering (moring) sehat & renyah. Belanja online mudah, bayar QRIS, lacak pesanan real-time. UMKM lokal Indonesia.",
+    "Suksok Snack: cimol kering (moring) sehat & renyah. Belanja online mudah, bayar QRIS, lacak pesanan real-time. UMKM lokal Indonesia.",
   keywords: [
-    "Moring Suksok",
+    "Suksok Snack",
     "cimol kering moring",
     "moringa",
     "snack sehat",
@@ -42,9 +42,9 @@ export const metadata: Metadata = {
     "belanja online",
     "QRIS",
   ],
-  authors: [{ name: "Moring Suksok" }],
-  creator: "Moring Suksok",
-  publisher: "Moring Suksok",
+  authors: [{ name: "Suksok Snack" }],
+  creator: "Suksok Snack",
+  publisher: "Suksok Snack",
   icons: {
     icon: [
       { url: "/favicon.ico", sizes: "any" },
@@ -54,15 +54,15 @@ export const metadata: Metadata = {
   },
   manifest: "/manifest.json",
   openGraph: {
-    title: "Moring Suksok — Snack Sehat dari Alam",
+    title: "Suksok Snack — Snack Sehat dari Alam",
     description: "Cimol kering (moring) sehat & renyah. Belanja online, bayar QRIS, lacak pesanan.",
-    siteName: "Moring Suksok",
+    siteName: "Suksok Snack",
     locale: "id_ID",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Moring Suksok — Snack Sehat dari Alam",
+    title: "Suksok Snack — Snack Sehat dari Alam",
     description: "Cimol kering (moring) sehat & renyah. Belanja online, bayar QRIS, lacak pesanan.",
   },
 };

@@ -14,7 +14,8 @@ class RegisterRequest(BaseModel):
     phone: str = Field(..., min_length=10, max_length=20, description="Format 08xxx atau +62xxx")
     password: str = Field(..., min_length=8, max_length=100, description="Min 8 chars, letter+number")
     address: str = Field(..., min_length=10, description="Alamat pengiriman")
-    customer_type: str = Field("public", pattern="^(retail|public)$", description="Segmen customer")
+    customer_type: str = Field("consumer", pattern="^(partner|consumer)$", description="Segmen: partner (Mitra Kerjasama) atau consumer (Konsumen Akhir)")
+    acquisition_channel: str = Field("direct", pattern="^(direct|reseller|social_media|word_of_mouth|other)$", description="Darimana customer mengetahui Suksok Snack")
 
     @field_validator("password")
     @classmethod

@@ -1,15 +1,25 @@
-"""Customer model — specs/05-data-model.md §4.2."""
+"""Customer model — specs/05-data-model.md §4.2.
+
+NOTIF-007 (v1.0.7): Added acquisition_channel field.
+NOTIF-009 (v1.2.0): BREAKING — customer_type enum renamed:
+  retail → partner (Mitra Kerjasama)
+  public → consumer (Konsumen Akhir)
+"""
 from sqlalchemy import BOOLEAN, TIMESTAMP, Column, Enum, Index, Integer, String, Text
 from sqlalchemy.sql import func
 
 from app.core.database import Base
 
 # ENUM values — DB-agnostic: MySQL native ENUM, SQLite VARCHAR + CHECK.
-CUSTOMER_TYPES = ("retail", "public")
+# NOTIF-009: renamed from ('retail', 'public') to ('partner', 'consumer')
+CUSTOMER_TYPES = ("partner", "consumer")
+
+# NOTIF-007: acquisition channel values
+ACQUISITION_CHANNELS = ("direct", "reseller", "social_media", "word_of_mouth", "other")
 
 
 class Customer(Base):
-    """Customer account — Ritel or Masyarakat (public)."""
+    """Customer account — Mitra Kerjasama (partner) or Konsumen Akhir (consumer)."""
 
     __tablename__ = "customers"
 
@@ -22,8 +32,10 @@ class Customer(Base):
     customer_type = Column(
         Enum(*CUSTOMER_TYPES, name="customer_type_enum"),
         nullable=False,
-        default="public",
+        default="consumer",  # NOTIF-009: default changed from 'public' to 'consumer'
     )
+    # NOTIF-007: Track darimana customer berasal (Masalah 6 — pemasaran belum tergabungkan)
+    acquisition_channel = Column(String(50), default="direct")
     fcm_token = Column(Text, nullable=True)  # Firebase Cloud Messaging token (PWA push)
     is_active = Column(BOOLEAN, default=True)  # soft delete flag
     created_at = Column(TIMESTAMP, server_default=func.now())
@@ -31,6 +43,7 @@ class Customer(Base):
 
     __table_args__ = (
         Index("idx_customer_type", "customer_type"),
+        Index("idx_acquisition_channel", "acquisition_channel"),  # NOTIF-007
     )
 
     def __repr__(self) -> str:

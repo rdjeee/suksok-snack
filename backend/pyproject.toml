@@ -7,7 +7,7 @@
 # =============================================================================
 
 [project]
-name = "moring-suksok-backend"
+name = "suksok-snack-backend"
 version = "1.0.0"
 description = "Sistem Distribusi & Pencatatan Transaksi Produk Moring Suksok - Backend API"
 authors = [

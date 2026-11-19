@@ -1,1 +1,1 @@
-"""Moring Suksok — Backend FastAPI Application."""
+"""Suksok Snack — Backend FastAPI Application."""

@@ -84,7 +84,7 @@ def register(req: RegisterRequest, db: Session = Depends(get_db)):
     token_meta = _token_meta(customer.id, "customer")
     return SuccessResponse(
         success=True,
-        message="Registrasi berhasil! Selamat datang di Moring Suksok 🌿",
+        message="Registrasi berhasil! Selamat datang di Suksok Snack 🌿",
         data=CustomerData(
             id=customer.id,
             email=customer.email,

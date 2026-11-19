@@ -66,7 +66,7 @@ class Settings(BaseSettings):
     # ------------------------------------------------------------------ #
     # App Configuration
     # ------------------------------------------------------------------ #
-    APP_NAME: str = "Moring Suksok API"
+    APP_NAME: str = "Suksok Snack API"
     APP_VERSION: str = "1.0.0"
     APP_ENV: str = "development"
     DEBUG: bool = True
@@ -75,7 +75,7 @@ class Settings(BaseSettings):
     # ------------------------------------------------------------------ #
     # Business Settings (defaults; editable via admin dashboard)
     # ------------------------------------------------------------------ #
-    BUSINESS_NAME: str = "Moring Suksok"
+    BUSINESS_NAME: str = "Suksok Snack"
     DEFAULT_SHIPPING_COST: int = 10000
 
     # ------------------------------------------------------------------ #

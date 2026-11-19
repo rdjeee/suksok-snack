@@ -1,5 +1,5 @@
 """
-Moring Suksok — FastAPI application entry point.
+Suksok Snack — FastAPI application entry point.
 
 Run (dev)::
 
@@ -21,7 +21,7 @@ app = FastAPI(
     title=settings.APP_NAME,
     version=settings.APP_VERSION,
     description=(
-        "Sistem Distribusi & Pencatatan Transaksi Produk Moring Suksok — Backend API. "
+        "Sistem Distribusi & Pencatatan Transaksi Produk Suksok Snack — Backend API. "
         "Tugas Akhir mini e-commerce UMKM camilan khas cimol kering (moring)."
     ),
     docs_url="/docs",

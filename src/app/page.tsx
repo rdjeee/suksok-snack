@@ -384,7 +384,7 @@ export default function HomePage() {
                 Dari Produksi Lokal, untuk Keluarga Indonesia
               </h2>
               <p className="text-muted-foreground text-base sm:text-lg">
-                Moring Suksok adalah UMKM yang memproduksi cimol kering (moring) — camilan
+                Suksok Snack adalah UMKM yang memproduksi cimol kering (moring) — camilan
                 sehat dan lezat. Kami percaya bahwa makanan sehat tidak perlu mahal dan sulit
                 dicari. Setiap produk kami dibuat dengan bahan baku pilihan dan diproses dengan
                 standar higienis untuk menghasilkan cimol kering yang renyah dan tahan lama.
@@ -417,7 +417,7 @@ export default function HomePage() {
                 <span className="flex h-8 w-8 items-center justify-center rounded-full bg-white text-moring-green-dark">
                   <Leaf className="h-4 w-4" />
                 </span>
-                <span>Moring Suksok</span>
+                <span>Suksok Snack</span>
               </div>
               <p className="text-sm text-white/80 max-w-xs">
                 Camilan cimol kering (moring) sehat & renyah. UMKM lokal Indonesia untuk keluarga sehat.
@@ -427,7 +427,7 @@ export default function HomePage() {
               <h3 className="font-semibold mb-3">Kontak</h3>
               <ul className="space-y-2 text-sm text-white/80">
                 <li>WhatsApp: 0812-xxxx-xxxx</li>
-                <li>Email: hello@moring-suksok.com</li>
+                <li>Email: hello@suksok-snack.com</li>
                 <li>Instagram: @moringsuksok</li>
               </ul>
             </div>
@@ -442,7 +442,7 @@ export default function HomePage() {
           </div>
           <Separator className="my-6 bg-white/20" />
           <div className="flex flex-col sm:flex-row justify-between items-center gap-2 text-sm text-white/60">
-            <p>© 2026 Moring Suksok. All rights reserved.</p>
+            <p>© 2026 Suksok Snack. All rights reserved.</p>
             <p>Camilan Cimol Kering (Moring) 🌿</p>
           </div>
         </div>

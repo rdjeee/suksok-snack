@@ -1,5 +1,5 @@
 /**
- * Moring Suksok — API Client (Axios + JWT interceptors)
+ * Suksok Snack — API Client (Axios + JWT interceptors)
  *
  * Spec reference:
  *   - specs/02-architecture.md (arsitektur decoupled frontend ↔ backend)
