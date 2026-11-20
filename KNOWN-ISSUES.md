@@ -22,8 +22,9 @@
 | ID | Priority | Title | Component | Date Found | Status | Assigned |
 |---|---|---|---|---|---|---|
 | ISSUE-001 | 🟡 Medium | Makefile recipe lines use spaces, not TABs | build/Makefile | 2026-10-29 | ✅ Resolved (2026-10-30 by Agent A) | Agent A (SHARED file) |
-| ISSUE-002 | 🟢 Low | passlib + bcrypt 4.x version warning (cosmetic) | backend/auth | 2026-10-29 | Open | Agent B |
-| ISSUE-003 | 🟢 Low | SQL echo very verbose (DEBUG=true) | backend/config | 2026-10-29 | Open | Agent B |
+| ISSUE-002 | 🟢 Low | passlib + bcrypt 4.x version warning (cosmetic) | backend/auth | 2026-10-29 | ✅ Resolved (2026-10-30 — switched to direct bcrypt) | Agent B |
+| ISSUE-003 | 🟢 Low | SQL echo very verbose (DEBUG=true) | backend/config | 2026-10-29 | ✅ Resolved (2026-10-30 — added SQL_ECHO env var) | Agent B |
+| ISSUE-004 | 🟠 High | .gitignore recurring reset to minimal version | .gitignore | 2026-11-19 | Open (3rd occurrence) | Investigation needed |
 
 ---
 
@@ -140,4 +141,4 @@ This is a known compatibility issue: passlib 1.7.4 tries to read `bcrypt.__about
 
 ---
 
-**Last Updated**: 2026-10-30 (Asia/Jakarta) — Agent A resolved ISSUE-001 (Makefile spaces→TABs); Agent B's 2 Low-priority issues (passlib warning, SQL echo) remain open for cleanup phase
+**Last Updated**: 2026-11-19 (Asia/Jakarta) — Agent B: ISSUE-002 & 003 resolved; ISSUE-004 (.gitignore recurring reset) added — needs investigation
