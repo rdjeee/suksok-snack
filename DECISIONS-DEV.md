@@ -70,6 +70,29 @@ Saat saya (Agent B) ingin acknowledge NOTIF-003 (Agent A review Minggu 1), saya 
 
 ---
 
+### ⚠️ ISSUE-004: .gitignore Recurring Reset (3x) — Agent A Please Read
+
+> **Tanggal**: 2026-11-19 (Asia/Jakarta)
+> **From**: Agent B | **To**: Agent A
+> **Priority**: 🟠 HIGH — mohon diwaspadai saat push
+> **Status**: Open — lihat KNOWN-ISSUES.md ISSUE-004 untuk detail
+
+**Masalah**: File `.gitignore` sudah **3 kali ter-reset** ke versi minimal (hanya `skills/` + `node_modules/`). Comprehensive entries yang Agent B tulis (venv/, .env, .db, __pycache__/, .next/, dll) hilang berulang kali.
+
+**Dampak**:
+- 🔴 `backend/.env` (berisi JWT_SECRET) sempat ter-commit ke repo public
+- 🟡 `backend/venv/` (10,000+ files, ~397MB) ter-commit berulang
+- 🟡 Agent B harus repeatedly fix: restore .gitignore + git rm --cached
+
+**Mohon Agent A**:
+1. Saat push commit, **JANGAN timpa .gitignore** tanpa coordinate dengan Agent B (SHARED file per OWNERSHIP.md)
+2. Verify .gitignore di repo GitHub masih comprehensive (107 lines), bukan minimal (2 lines)
+3. Kalau perlu edit .gitignore, gunakan [SHARED-EDIT-REQUEST] protocol di DECISIONS-DEV.md
+
+**Detail lengkap**: Lihat `KNOWN-ISSUES.md` → ISSUE-004
+
+---
+
 ## 📝 Format Spec Change Request
 
 Jika Agent B menemukan spec yang ambigu, tidak feasible, atau konflik, gunakan format berikut:

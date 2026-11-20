@@ -133,8 +133,8 @@ This is a known compatibility issue: passlib 1.7.4 tries to read `bcrypt.__about
 
 | Metric | Value |
 |---|---|
-| Total bugs found | 3 |
-| Open bugs | 2 (Low priority only) |
+| Total bugs found | 4 |
+| Open bugs | 1 (ISSUE-004 High priority)|
 | Critical open | 0 |
 | Resolved bugs | 1 (ISSUE-001 — Makefile spaces→TABs) |
 | Average resolution time | 1 day (ISSUE-001: 2026-10-29 → 2026-10-30) |
@@ -142,3 +142,39 @@ This is a known compatibility issue: passlib 1.7.4 tries to read `bcrypt.__about
 ---
 
 **Last Updated**: 2026-11-19 (Asia/Jakarta) — Agent B: ISSUE-002 & 003 resolved; ISSUE-004 (.gitignore recurring reset) added — needs investigation
+
+### [ISSUE-004] — .gitignore recurring reset to minimal version
+
+**Priority**: 🟠 High
+**Component**: .gitignore (SHARED)
+**Date Found**: 2026-11-19
+**Found By**: Agent B
+
+**Description**: File `.gitignore` sudah **3 kali ter-reset** ke versi minimal (hanya `skills/` + `node_modules/`) tanpa sengaja. Comprehensive entries yang Agent B tulis (venv/, .env, .db, __pycache__/, .next/, dll) hilang berulang kali. Akibatnya, `backend/venv/` (10,000+ files), `backend/.env` (berisi JWT_SECRET!), dan `backend/*.db` ter-commit ke repo GitHub.
+
+**Occurrences**:
+1. **2026-10-30** — Pertama kali ditemukan saat pull Agent A's commit. .gitignore Agent B ditimpa versi minimal. Fixed: restore comprehensive + git rm --cached 10,526 files (commit ebc9b22)
+2. **2026-11-19** — Terjadi lagi setelah brand rename sed operations. venv (10,604 files) + .env ter-commit lagi. Fixed: git rm --cached + restore .gitignore (commits 312af9b + 561e812)
+3. **Risk of recurrence** — Penyebab belum dikonfirmasi. Kemungkinan: git operations (merge/reset) yang overwrite, atau Agent A's push yang tidak sengaja menimpa .gitignore
+
+**Impact**:
+- 🔴 Security: `backend/.env` (berisi JWT_SECRET) sempat ter-commit ke repo public
+- 🟡 Repo bloat: 10,000+ venv files (~397MB) ter-commit, memperlambat clone/pull
+- 🟡 Maintenance overhead: Agent B harus repeatedly fix .gitignore + git rm --cached
+
+**Steps to Reproduce** (tidak sengaja):
+1. Agent B menulis .gitignore comprehensive (107 lines)
+2. Agent A push commit yang mengandung .gitignore versi minimal
+3. Agent B pull → .gitignore tertimpa versi minimal
+4. `git add -A` picks up venv/.env/.db karena tidak lagi di-ignore
+5. Files ter-commit ke repo
+
+**Workaround (current)**: Agent B monitors git status sebelum commit. Jika venv/.env muncul sebagai untracked yang akan di-add, fix .gitignore dulu sebelum commit.
+
+**Proposed Solution** (untuk Agent A):
+1. Agent A verify .gitignore di repo GitHub — pastikan comprehensive version (107 lines) yang ada, bukan minimal (2 lines)
+2. Agent A JANGAN commit .gitignore tanpa coordinate dengan Agent B (SHARED file per OWNERSHIP.md)
+3. Atau: pisahkan .gitignore menjadi 2 files: `.gitignore` (Agent A zone, project-level) + `.gitignore.backend` (Agent B zone, backend-specific) — tapi ini butuh git config
+4. Atau: tambah pre-commit hook yang verify .gitignore tidak ter-reset
+
+**Status**: Open — needs investigation & coordination dengan Agent A
